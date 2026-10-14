@@ -3,7 +3,7 @@
 Student engagement in Australian higher education.
 Author: [your name]. Last updated: [date].
 
-Live page: https://[your-username].github.io/[repo-name]/
+Live page: https://emiliakylee.github.io/FIT3179-DV2/
 
 ## Repository layout
 
