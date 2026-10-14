@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/cohort_waffle.csv"
+  },
+  "columns": 2,
+  "spacing": 40,
+  "facet": {
+    "field": "level_label",
+    "type": "nominal",
+    "title": null,
+    "sort": [
+      "Undergraduate",
+      "Postgraduate coursework"
+    ],
+    "header": {
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelColor": "#1c1c1c",
+      "labelAnchor": "start"
+    }
+  },
+  "spec": {
+    "width": 200,
+    "height": 200,
+    "mark": {
+      "type": "square",
+      "size": 300,
+      "stroke": "white",
+      "strokeWidth": 2
+    },
+    "encoding": {
+      "x": {
+        "field": "col",
+        "type": "ordinal",
+        "axis": null
+      },
+      "y": {
+        "field": "row",
+        "type": "ordinal",
+        "axis": null,
+        "scale": {
+          "reverse": true
+        }
+      },
+      "color": {
+        "field": "cohort",
+        "type": "nominal",
+        "title": null,
+        "scale": {
+          "domain": [
+            "Domestic",
+            "International"
+          ],
+          "range": [
+            "#DCE4E4",
+            "#147D7E"
+          ]
+        },
+        "legend": {
+          "orient": "bottom",
+          "direction": "horizontal"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "level",
+          "type": "nominal",
+          "title": "Level"
+        },
+        {
+          "field": "cohort",
+          "type": "nominal",
+          "title": "Cohort"
+        }
+      ]
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titlePadding": 8
+    },
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

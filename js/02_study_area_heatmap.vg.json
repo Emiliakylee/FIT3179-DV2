@@ -1,0 +1,184 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 560,
+  "data": {
+    "url": "data/ses_study_area_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "gap": "number",
+        "national": "number",
+        "overall": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "level_select",
+      "value": "Undergraduate",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "labels": [
+          "Undergraduate",
+          "Postgraduate coursework"
+        ],
+        "name": "Level of study: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.level == level_select"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "measure_short",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Overall",
+        "Teaching",
+        "Skills",
+        "Resources",
+        "Support",
+        "Peer"
+      ],
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "study_area_short",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "field": "overall",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "labelLimit": 250,
+        "labelFontSize": 11
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "gap",
+          "type": "quantitative",
+          "title": "Points vs national average",
+          "scale": {
+            "range": [
+              "#D97745",
+              "#F4EFE9",
+              "#147D7E"
+            ],
+            "domain": [
+              -20,
+              0,
+              20
+            ],
+            "type": "linear",
+            "clamp": true
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "gradientLength": 160,
+            "title": "Points vs national average"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "study_area",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Focus area"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% rating positively",
+            "format": ".1f"
+          },
+          {
+            "field": "national",
+            "type": "quantitative",
+            "title": "National average",
+            "format": ".1f"
+          },
+          {
+            "field": "gap",
+            "type": "quantitative",
+            "title": "Difference",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 10
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".0f"
+        },
+        "color": {
+          "condition": {
+            "test": "abs(datum.gap) > 11",
+            "value": "white"
+          },
+          "value": "#3a3a3a"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "gridColor": "#ECEFEF",
+      "titleFontSize": 11,
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

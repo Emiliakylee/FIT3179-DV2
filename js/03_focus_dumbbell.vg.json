@@ -1,0 +1,149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 230,
+  "data": {
+    "url": "data/ses_trend_2017_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "year": "string"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2025"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "measure",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Learning Resources",
+        "Skills Development",
+        "Teaching Quality and Engagement",
+        "Overall Educational Experience",
+        "Student Support and Services",
+        "Peer Engagement"
+      ],
+      "axis": {
+        "labelLimit": 220,
+        "labelFontSize": 12
+      }
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "pivot": "level",
+          "value": "value",
+          "groupby": [
+            "measure"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#c9c9c9",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "Undergraduate",
+          "type": "quantitative",
+          "title": "% rating positively",
+          "scale": {
+            "domain": [
+              50,
+              95
+            ]
+          }
+        },
+        "x2": {
+          "field": "Postgraduate"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "level",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Undergraduate",
+              "Postgraduate"
+            ],
+            "range": [
+              "#147D7E",
+              "#D97745"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "labelExpr": "datum.label == 'Postgraduate' ? 'Postgraduate coursework' : datum.label"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "level",
+            "type": "nominal",
+            "title": "Level"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

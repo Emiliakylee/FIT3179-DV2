@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA2020"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef2f2",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_centroids.csv"
+      },
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/enrolments_by_state_2024.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "state",
+              "enrolments",
+              "overseas",
+              "overseas_share",
+              "universities"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#147D7E",
+        "opacity": 0.75,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "enrolments",
+          "type": "quantitative",
+          "title": "Students enrolled",
+          "scale": {
+            "type": "sqrt",
+            "range": [
+              60,
+              3000
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "format": ",.0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "enrolments",
+            "type": "quantitative",
+            "title": "Students",
+            "format": ","
+          },
+          {
+            "field": "overseas",
+            "type": "quantitative",
+            "title": "Overseas students",
+            "format": ","
+          },
+          {
+            "field": "overseas_share",
+            "type": "quantitative",
+            "title": "Overseas share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "universities",
+            "type": "quantitative",
+            "title": "Universities"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_centroids.csv"
+      },
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/enrolments_by_state_2024.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "state"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#173F5F",
+        "dy": -22
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titlePadding": 8
+    },
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  },
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 16
+  }
+}

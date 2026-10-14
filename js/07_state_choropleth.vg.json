@@ -1,0 +1,244 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0
+    ]
+  },
+  "params": [
+    {
+      "name": "measure_select",
+      "value": "Overall Educational Experience",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Overall Educational Experience",
+          "Teaching Quality and Engagement",
+          "Skills Development",
+          "Learning Resources",
+          "Student Support and Services",
+          "Peer Engagement"
+        ],
+        "name": "Measure: "
+      }
+    },
+    {
+      "name": "level_select",
+      "value": "Undergraduate",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "labels": [
+          "Undergraduate",
+          "Postgraduate coursework"
+        ],
+        "name": "Level of study: "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/ses_state_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "responses": "number",
+        "universities": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.measure == measure_select"
+    },
+    {
+      "filter": "datum.level == level_select"
+    }
+  ],
+  "layer": [
+    {
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/au_states.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "STE_2021_AUST_GDA2020"
+              }
+            },
+            "key": "properties.STE_NAME21",
+            "fields": [
+              "type",
+              "geometry"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "% rating positively",
+          "scale": {
+            "scheme": "tealblues",
+            "domain": [
+              70,
+              84
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "gradientLength": 150,
+            "format": ".0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          },
+          {
+            "field": "universities",
+            "type": "quantitative",
+            "title": "Universities"
+          },
+          {
+            "field": "responses",
+            "type": "quantitative",
+            "title": "Responses",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/state_label_points.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#173F5F"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/state_label_points.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#5b6f71",
+        "dy": 14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titlePadding": 8
+    },
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  },
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 5,
+    "bottom": 16
+  }
+}

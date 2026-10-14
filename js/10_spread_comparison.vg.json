@@ -1,0 +1,219 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 200,
+  "params": [
+    {
+      "name": "level_select",
+      "value": "Undergraduate",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "labels": [
+          "Undergraduate",
+          "Postgraduate coursework"
+        ],
+        "name": "Level of study: "
+      }
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "lens",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Study areas",
+        "Universities",
+        "States and territories"
+      ],
+      "axis": {
+        "labelFontSize": 12,
+        "labelLimit": 240
+      }
+    },
+    "x": {
+      "type": "quantitative",
+      "title": "% rating the experience positively",
+      "scale": {
+        "domain": [
+          55,
+          100
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/spread_summary.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.level == level_select"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#C9D2D2",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "min",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "max"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/spread_summary.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.level == level_select"
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "height": 16,
+        "cornerRadius": 3,
+        "color": "#147D7E",
+        "opacity": 0.9
+      },
+      "encoding": {
+        "x": {
+          "field": "p10",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "p90"
+        },
+        "tooltip": [
+          {
+            "field": "lens",
+            "type": "nominal",
+            "title": "Compared by"
+          },
+          {
+            "field": "n",
+            "type": "quantitative",
+            "title": "Groups"
+          },
+          {
+            "field": "min",
+            "type": "quantitative",
+            "title": "Lowest",
+            "format": ".1f"
+          },
+          {
+            "field": "max",
+            "type": "quantitative",
+            "title": "Highest",
+            "format": ".1f"
+          },
+          {
+            "field": "middle80",
+            "type": "quantitative",
+            "title": "Middle 80% spans",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/ses_spread_2025.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.level == level_select"
+        }
+      ],
+      "mark": {
+        "type": "tick",
+        "thickness": 1.5,
+        "height": 26,
+        "color": "#173F5F",
+        "opacity": 0.45
+      },
+      "encoding": {
+        "x": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "item",
+            "type": "nominal",
+            "title": "Group"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/spread_summary.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.level == level_select"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11,
+        "color": "#5b6f71"
+      },
+      "encoding": {
+        "x": {
+          "field": "max",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "middle80",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

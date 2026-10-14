@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "padding": {
+    "left": 5,
+    "right": 120,
+    "top": 5,
+    "bottom": 5
+  },
+  "data": {
+    "url": "data/ses_trend_2017_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "year": "string"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "% rating positively",
+      "scale": {
+        "domain": [
+          60,
+          85
+        ]
+      }
+    },
+    "color": {
+      "field": "level",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "range": [
+          "#147D7E",
+          "#D97745"
+        ]
+      },
+      "legend": null
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2020"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#cfd4d4"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 300
+        },
+        "color": {
+          "value": "#cfd4d4"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2020",
+            "y": 63,
+            "note": "Teaching moved online"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11,
+        "color": "#8b9192"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "#8b9192"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.measure == 'Overall Educational Experience'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 45
+        }
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "level",
+            "type": "nominal",
+            "title": "Level"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.measure == 'Overall Educational Experience' && datum.year == '2025'"
+        },
+        {
+          "calculate": "datum.value + (datum.level == 'Postgraduate' ? 1.4 : -1.4)",
+          "as": "label_y"
+        },
+        {
+          "calculate": "format(datum.value, '.1f') + '%  ' + (datum.level == 'Postgraduate' ? 'Postgraduate' : 'Undergraduate')",
+          "as": "end_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 11,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "end_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, system-ui, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titlePadding": 8
+    },
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11
+    }
+  }
+}

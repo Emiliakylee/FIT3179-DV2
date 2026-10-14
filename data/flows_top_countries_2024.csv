@@ -1,0 +1,16 @@
+country,region,students,lon,lat,dest_lon,dest_lat
+China,North-East Asia,166525,105.991,32.691,147.5,-33.0
+India,Southern and Central Asia,89454,79.699,22.856,147.5,-33.0
+Nepal,Southern and Central Asia,43188,84.167,28.074,147.5,-33.0
+Vietnam,South-East Asia,39472,105.809,21.294,147.5,-33.0
+Singapore,South-East Asia,24107,103.82,1.35,147.5,-33.0
+Malaysia,South-East Asia,23621,113.955,2.576,147.5,-33.0
+Sri Lanka,Southern and Central Asia,21413,80.605,7.239,147.5,-33.0
+Bangladesh,Southern and Central Asia,16392,90.217,23.681,147.5,-33.0
+Indonesia,South-East Asia,15496,102.212,-0.884,147.5,-33.0
+Pakistan,Southern and Central Asia,12907,69.505,29.308,147.5,-33.0
+Bhutan,Southern and Central Asia,12090,90.17,27.851,147.5,-33.0
+Hong Kong (SAR of China),North-East Asia,11598,114.17,22.32,147.5,-33.0
+Philippines,South-East Asia,8241,121.145,16.94,147.5,-33.0
+United Arab Emirates,North Africa and the Middle East,8168,54.623,23.64,147.5,-33.0
+Kenya,Sub-Saharan Africa,7291,37.775,0.622,147.5,-33.0

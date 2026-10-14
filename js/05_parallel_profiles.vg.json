@@ -1,0 +1,185 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 330,
+  "data": {
+    "url": "data/ses_study_area_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "gap": "number",
+        "national": "number",
+        "overall": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.measure != 'Overall Educational Experience'"
+    },
+    {
+      "filter": "datum.level == level_select"
+    }
+  ],
+  "params": [
+    {
+      "name": "level_select",
+      "value": "Undergraduate",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "labels": [
+          "Undergraduate",
+          "Postgraduate coursework"
+        ],
+        "name": "Level of study: "
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "measure_short",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Resources",
+        "Skills",
+        "Teaching",
+        "Support",
+        "Peer"
+      ],
+      "scale": {
+        "padding": 0.2
+      },
+      "axis": {
+        "labelFontSize": 12,
+        "grid": true,
+        "gridColor": "#dcdcdc",
+        "labelAngle": 0,
+        "labelPadding": 8
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "% rating positively",
+      "scale": {
+        "domain": [
+          30,
+          95
+        ]
+      }
+    },
+    "detail": {
+      "field": "study_area",
+      "type": "nominal"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.5,
+        "point": {
+          "filled": true,
+          "size": 25
+        }
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "hover",
+            "value": "#D97745",
+            "empty": false
+          },
+          "value": "#B9C7C7"
+        },
+        "opacity": {
+          "condition": {
+            "param": "hover",
+            "value": 1,
+            "empty": false
+          },
+          "value": 0.4
+        },
+        "tooltip": [
+          {
+            "field": "study_area",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Focus area"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "study_area"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "color": "#147D7E",
+        "point": {
+          "filled": true,
+          "size": 60,
+          "color": "#147D7E"
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "national",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "gridColor": "#ECEFEF",
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

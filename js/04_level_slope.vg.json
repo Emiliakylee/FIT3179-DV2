@@ -1,0 +1,190 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "padding": {
+    "left": 5,
+    "right": 135,
+    "top": 5,
+    "bottom": 5
+  },
+  "data": {
+    "url": "data/ses_study_area_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number",
+        "gap": "number",
+        "national": "number",
+        "overall": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.measure == 'Overall Educational Experience'"
+    },
+    {
+      "calculate": "indexof(['Medicine','Dentistry','Veterinary science'], datum.study_area) >= 0 ? 'falls' : (indexof(['Business and management','Humanities, culture and social sciences','Nursing'], datum.study_area) >= 0 ? 'climbs' : 'other')",
+      "as": "movement"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "level",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Undergraduate",
+        "Postgraduate"
+      ],
+      "scale": {
+        "padding": 0.3
+      },
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelPadding": 8,
+        "labelExpr": "datum.label == 'Postgraduate' ? 'Postgraduate coursework' : datum.label",
+        "labelLimit": 200
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "% rating positively",
+      "scale": {
+        "domain": [
+          60,
+          90
+        ]
+      }
+    },
+    "detail": {
+      "field": "study_area",
+      "type": "nominal"
+    },
+    "color": {
+      "field": "movement",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "falls",
+          "climbs",
+          "other"
+        ],
+        "range": [
+          "#D97745",
+          "#147D7E",
+          "#C9D2D2"
+        ]
+      },
+      "legend": null
+    }
+  },
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "study_area"
+            ],
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2,
+        "point": {
+          "filled": true,
+          "size": 45
+        }
+      },
+      "encoding": {
+        "opacity": {
+          "condition": [
+            {
+              "param": "hover",
+              "value": 1,
+              "empty": false
+            },
+            {
+              "test": "datum.movement != 'other'",
+              "value": 0.95
+            }
+          ],
+          "value": 0.5
+        },
+        "tooltip": [
+          {
+            "field": "study_area",
+            "type": "nominal",
+            "title": "Study area"
+          },
+          {
+            "field": "level",
+            "type": "nominal",
+            "title": "Level"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.level == 'Postgraduate'"
+        },
+        {
+          "filter": "datum.movement != 'other'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "study_area_short",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

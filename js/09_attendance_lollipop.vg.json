@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 190,
+  "data": {
+    "url": "data/ses_class_participation_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "value": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "measure_select",
+      "value": "Teaching Quality and Engagement",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Teaching Quality and Engagement",
+          "Overall Educational Experience",
+          "Learner Engagement",
+          "Skills Development",
+          "Learning Resources",
+          "Student Support and Services",
+          "Peer Engagement"
+        ],
+        "name": "Measure: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.measure == measure_select"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "participation",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "All on-campus",
+        "Blended/hybrid",
+        "All online"
+      ],
+      "axis": {
+        "labelFontSize": 12,
+        "labelLimit": 160
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "% rating positively",
+      "scale": {
+        "domain": [
+          60,
+          90
+        ]
+      }
+    },
+    "color": {
+      "field": "level",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Undergraduate",
+          "Postgraduate"
+        ],
+        "range": [
+          "#147D7E",
+          "#D97745"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "labelExpr": "datum.label == 'Postgraduate' ? 'Postgraduate coursework' : datum.label"
+      }
+    },
+    "yOffset": {
+      "field": "level",
+      "type": "nominal",
+      "scale": {
+        "paddingOuter": 0.3
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "opacity": 0.35
+      },
+      "encoding": {
+        "x": {
+          "datum": 60
+        },
+        "x2": {
+          "field": "value"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 170,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "participation",
+            "type": "nominal",
+            "title": "Attendance"
+          },
+          {
+            "field": "level",
+            "type": "nominal",
+            "title": "Level"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "% positive",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#ECEFEF",
+      "domain": false,
+      "ticks": false,
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "labelColor": "#6b6b6b",
+      "titleColor": "#6b6b6b",
+      "titlePadding": 8
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "legend": {
+      "labelColor": "#4a4a4a",
+      "titleColor": "#6b6b6b",
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "symbolStrokeWidth": 0
+    }
+  }
+}

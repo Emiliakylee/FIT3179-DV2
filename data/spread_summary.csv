@@ -1,0 +1,7 @@
+lens,level,n,min,max,p10,p90,median,middle80,label
+States and territories,Undergraduate,8,73.6,78.9,73.9,78.3,75.7,4.3,States and territories (n=8)
+States and territories,Postgraduate,8,73.0,81.3,74.0,79.8,77.2,5.7,States and territories (n=8)
+Universities,Undergraduate,41,66.9,94.4,72.6,81.6,77.0,9.0,Universities (n=41)
+Universities,Postgraduate,41,59.2,87.8,72.9,82.3,78.5,9.4,Universities (n=41)
+Study areas,Undergraduate,21,66.7,86.6,72.2,83.2,78.7,11.0,Study areas (n=21)
+Study areas,Postgraduate,21,64.0,84.9,71.9,83.0,77.5,11.1,Study areas (n=21)

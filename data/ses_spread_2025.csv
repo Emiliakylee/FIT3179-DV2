@@ -1,0 +1,141 @@
+lens,level,item,value
+Universities,Postgraduate,University 01,59.2
+Universities,Postgraduate,University 02,70.3
+Universities,Postgraduate,University 03,70.7
+Universities,Postgraduate,University 04,72.4
+Universities,Postgraduate,University 05,72.9
+Universities,Postgraduate,University 06,73.0
+Universities,Postgraduate,University 07,74.0
+Universities,Postgraduate,University 08,74.1
+Universities,Postgraduate,University 09,74.6
+Universities,Postgraduate,University 10,74.8
+Universities,Postgraduate,University 11,75.0
+Universities,Postgraduate,University 12,76.0
+Universities,Postgraduate,University 13,76.3
+Universities,Postgraduate,University 14,76.4
+Universities,Postgraduate,University 15,77.0
+Universities,Postgraduate,University 16,77.2
+Universities,Postgraduate,University 17,77.5
+Universities,Postgraduate,University 18,77.6
+Universities,Postgraduate,University 19,77.9
+Universities,Postgraduate,University 20,78.0
+Universities,Postgraduate,University 21,78.5
+Universities,Postgraduate,University 22,78.6
+Universities,Postgraduate,University 23,78.9
+Universities,Postgraduate,University 24,78.9
+Universities,Postgraduate,University 25,79.1
+Universities,Postgraduate,University 26,79.1
+Universities,Postgraduate,University 27,79.1
+Universities,Postgraduate,University 28,79.9
+Universities,Postgraduate,University 29,79.9
+Universities,Postgraduate,University 30,80.4
+Universities,Postgraduate,University 31,80.8
+Universities,Postgraduate,University 32,81.1
+Universities,Postgraduate,University 33,81.1
+Universities,Postgraduate,University 34,81.3
+Universities,Postgraduate,University 35,81.7
+Universities,Postgraduate,University 36,82.1
+Universities,Postgraduate,University 37,82.3
+Universities,Postgraduate,University 38,82.4
+Universities,Postgraduate,University 39,83.2
+Universities,Postgraduate,University 40,84.9
+Universities,Postgraduate,University 41,87.8
+Universities,Undergraduate,University 42,66.9
+Universities,Undergraduate,University 43,70.9
+Universities,Undergraduate,University 01,71.0
+Universities,Undergraduate,University 02,71.5
+Universities,Undergraduate,University 03,72.6
+Universities,Undergraduate,University 04,73.3
+Universities,Undergraduate,University 05,73.8
+Universities,Undergraduate,University 06,73.9
+Universities,Undergraduate,University 07,74.1
+Universities,Undergraduate,University 08,74.1
+Universities,Undergraduate,University 09,74.1
+Universities,Undergraduate,University 10,74.3
+Universities,Undergraduate,University 11,74.3
+Universities,Undergraduate,University 12,74.4
+Universities,Undergraduate,University 13,74.8
+Universities,Undergraduate,University 14,75.3
+Universities,Undergraduate,University 15,76.1
+Universities,Undergraduate,University 16,76.2
+Universities,Undergraduate,University 17,76.4
+Universities,Undergraduate,University 18,76.6
+Universities,Undergraduate,University 19,77.0
+Universities,Undergraduate,University 20,77.3
+Universities,Undergraduate,University 21,77.6
+Universities,Undergraduate,University 22,77.6
+Universities,Undergraduate,University 23,77.9
+Universities,Undergraduate,University 24,77.9
+Universities,Undergraduate,University 25,77.9
+Universities,Undergraduate,University 26,78.1
+Universities,Undergraduate,University 27,78.7
+Universities,Undergraduate,University 28,78.9
+Universities,Undergraduate,University 29,79.6
+Universities,Undergraduate,University 30,79.8
+Universities,Undergraduate,University 31,79.8
+Universities,Undergraduate,University 32,79.8
+Universities,Undergraduate,University 33,80.0
+Universities,Undergraduate,University 34,80.6
+Universities,Undergraduate,University 35,81.6
+Universities,Undergraduate,University 36,83.1
+Universities,Undergraduate,University 37,87.0
+Universities,Undergraduate,University 38,91.9
+Universities,Undergraduate,University 39,94.4
+States and territories,Postgraduate,ACT,73.0
+States and territories,Undergraduate,ACT,73.6
+States and territories,Postgraduate,NSW,76.9
+States and territories,Undergraduate,NSW,75.1
+States and territories,Postgraduate,NT,79.1
+States and territories,Undergraduate,NT,74.1
+States and territories,Postgraduate,QLD,78.7
+States and territories,Undergraduate,QLD,76.9
+States and territories,Postgraduate,SA,76.2
+States and territories,Undergraduate,SA,78.0
+States and territories,Postgraduate,TAS,81.3
+States and territories,Undergraduate,TAS,78.9
+States and territories,Postgraduate,VIC,77.5
+States and territories,Undergraduate,VIC,75.9
+States and territories,Postgraduate,WA,74.5
+States and territories,Undergraduate,WA,75.4
+Study areas,Undergraduate,Agriculture and environmental studies,86.6
+Study areas,Undergraduate,Architecture and built environment,73.7
+Study areas,Undergraduate,Business and management,73.0
+Study areas,Undergraduate,Communications,77.4
+Study areas,Undergraduate,Computing and information systems,66.7
+Study areas,Undergraduate,Creative arts,78.1
+Study areas,Undergraduate,Dentistry,72.2
+Study areas,Undergraduate,Engineering,71.6
+Study areas,Undergraduate,Health services and support,79.9
+Study areas,Undergraduate,"Humanities, culture and social sciences",78.7
+Study areas,Undergraduate,Law and paralegal studies,80.4
+Study areas,Undergraduate,Medicine,81.0
+Study areas,Undergraduate,Nursing,77.3
+Study areas,Undergraduate,Pharmacy,77.1
+Study areas,Undergraduate,Psychology,79.2
+Study areas,Undergraduate,Rehabilitation,82.7
+Study areas,Undergraduate,Science and mathematics,77.4
+Study areas,Undergraduate,Social work,79.6
+Study areas,Undergraduate,Teacher education,78.8
+Study areas,Undergraduate,"Tourism, hospitality, personal services, sport and recreation",83.2
+Study areas,Undergraduate,Veterinary science,85.2
+Study areas,Postgraduate,Agriculture and environmental studies,79.5
+Study areas,Postgraduate,Architecture and built environment,74.0
+Study areas,Postgraduate,Business and management,79.4
+Study areas,Postgraduate,Communications,80.4
+Study areas,Postgraduate,Computing and information systems,71.9
+Study areas,Postgraduate,Creative arts,77.5
+Study areas,Postgraduate,Dentistry,64.0
+Study areas,Postgraduate,Engineering,76.3
+Study areas,Postgraduate,Health services and support,82.9
+Study areas,Postgraduate,"Humanities, culture and social sciences",84.9
+Study areas,Postgraduate,Law and paralegal studies,75.2
+Study areas,Postgraduate,Medicine,69.8
+Study areas,Postgraduate,Nursing,83.0
+Study areas,Postgraduate,Pharmacy,74.7
+Study areas,Postgraduate,Psychology,77.5
+Study areas,Postgraduate,Rehabilitation,73.5
+Study areas,Postgraduate,Science and mathematics,77.5
+Study areas,Postgraduate,Social work,76.9
+Study areas,Postgraduate,Teacher education,78.4
+Study areas,Postgraduate,"Tourism, hospitality, personal services, sport and recreation",83.6
+Study areas,Postgraduate,Veterinary science,75.3

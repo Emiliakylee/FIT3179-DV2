@@ -1,0 +1,201 @@
+level,level_label,index,col,row,cohort
+Undergraduate,Undergraduate,0,0,0,International
+Undergraduate,Undergraduate,1,1,0,International
+Undergraduate,Undergraduate,2,2,0,International
+Undergraduate,Undergraduate,3,3,0,International
+Undergraduate,Undergraduate,4,4,0,International
+Undergraduate,Undergraduate,5,5,0,International
+Undergraduate,Undergraduate,6,6,0,International
+Undergraduate,Undergraduate,7,7,0,International
+Undergraduate,Undergraduate,8,8,0,International
+Undergraduate,Undergraduate,9,9,0,International
+Undergraduate,Undergraduate,10,0,1,International
+Undergraduate,Undergraduate,11,1,1,International
+Undergraduate,Undergraduate,12,2,1,International
+Undergraduate,Undergraduate,13,3,1,International
+Undergraduate,Undergraduate,14,4,1,International
+Undergraduate,Undergraduate,15,5,1,International
+Undergraduate,Undergraduate,16,6,1,International
+Undergraduate,Undergraduate,17,7,1,International
+Undergraduate,Undergraduate,18,8,1,International
+Undergraduate,Undergraduate,19,9,1,International
+Undergraduate,Undergraduate,20,0,2,International
+Undergraduate,Undergraduate,21,1,2,Domestic
+Undergraduate,Undergraduate,22,2,2,Domestic
+Undergraduate,Undergraduate,23,3,2,Domestic
+Undergraduate,Undergraduate,24,4,2,Domestic
+Undergraduate,Undergraduate,25,5,2,Domestic
+Undergraduate,Undergraduate,26,6,2,Domestic
+Undergraduate,Undergraduate,27,7,2,Domestic
+Undergraduate,Undergraduate,28,8,2,Domestic
+Undergraduate,Undergraduate,29,9,2,Domestic
+Undergraduate,Undergraduate,30,0,3,Domestic
+Undergraduate,Undergraduate,31,1,3,Domestic
+Undergraduate,Undergraduate,32,2,3,Domestic
+Undergraduate,Undergraduate,33,3,3,Domestic
+Undergraduate,Undergraduate,34,4,3,Domestic
+Undergraduate,Undergraduate,35,5,3,Domestic
+Undergraduate,Undergraduate,36,6,3,Domestic
+Undergraduate,Undergraduate,37,7,3,Domestic
+Undergraduate,Undergraduate,38,8,3,Domestic
+Undergraduate,Undergraduate,39,9,3,Domestic
+Undergraduate,Undergraduate,40,0,4,Domestic
+Undergraduate,Undergraduate,41,1,4,Domestic
+Undergraduate,Undergraduate,42,2,4,Domestic
+Undergraduate,Undergraduate,43,3,4,Domestic
+Undergraduate,Undergraduate,44,4,4,Domestic
+Undergraduate,Undergraduate,45,5,4,Domestic
+Undergraduate,Undergraduate,46,6,4,Domestic
+Undergraduate,Undergraduate,47,7,4,Domestic
+Undergraduate,Undergraduate,48,8,4,Domestic
+Undergraduate,Undergraduate,49,9,4,Domestic
+Undergraduate,Undergraduate,50,0,5,Domestic
+Undergraduate,Undergraduate,51,1,5,Domestic
+Undergraduate,Undergraduate,52,2,5,Domestic
+Undergraduate,Undergraduate,53,3,5,Domestic
+Undergraduate,Undergraduate,54,4,5,Domestic
+Undergraduate,Undergraduate,55,5,5,Domestic
+Undergraduate,Undergraduate,56,6,5,Domestic
+Undergraduate,Undergraduate,57,7,5,Domestic
+Undergraduate,Undergraduate,58,8,5,Domestic
+Undergraduate,Undergraduate,59,9,5,Domestic
+Undergraduate,Undergraduate,60,0,6,Domestic
+Undergraduate,Undergraduate,61,1,6,Domestic
+Undergraduate,Undergraduate,62,2,6,Domestic
+Undergraduate,Undergraduate,63,3,6,Domestic
+Undergraduate,Undergraduate,64,4,6,Domestic
+Undergraduate,Undergraduate,65,5,6,Domestic
+Undergraduate,Undergraduate,66,6,6,Domestic
+Undergraduate,Undergraduate,67,7,6,Domestic
+Undergraduate,Undergraduate,68,8,6,Domestic
+Undergraduate,Undergraduate,69,9,6,Domestic
+Undergraduate,Undergraduate,70,0,7,Domestic
+Undergraduate,Undergraduate,71,1,7,Domestic
+Undergraduate,Undergraduate,72,2,7,Domestic
+Undergraduate,Undergraduate,73,3,7,Domestic
+Undergraduate,Undergraduate,74,4,7,Domestic
+Undergraduate,Undergraduate,75,5,7,Domestic
+Undergraduate,Undergraduate,76,6,7,Domestic
+Undergraduate,Undergraduate,77,7,7,Domestic
+Undergraduate,Undergraduate,78,8,7,Domestic
+Undergraduate,Undergraduate,79,9,7,Domestic
+Undergraduate,Undergraduate,80,0,8,Domestic
+Undergraduate,Undergraduate,81,1,8,Domestic
+Undergraduate,Undergraduate,82,2,8,Domestic
+Undergraduate,Undergraduate,83,3,8,Domestic
+Undergraduate,Undergraduate,84,4,8,Domestic
+Undergraduate,Undergraduate,85,5,8,Domestic
+Undergraduate,Undergraduate,86,6,8,Domestic
+Undergraduate,Undergraduate,87,7,8,Domestic
+Undergraduate,Undergraduate,88,8,8,Domestic
+Undergraduate,Undergraduate,89,9,8,Domestic
+Undergraduate,Undergraduate,90,0,9,Domestic
+Undergraduate,Undergraduate,91,1,9,Domestic
+Undergraduate,Undergraduate,92,2,9,Domestic
+Undergraduate,Undergraduate,93,3,9,Domestic
+Undergraduate,Undergraduate,94,4,9,Domestic
+Undergraduate,Undergraduate,95,5,9,Domestic
+Undergraduate,Undergraduate,96,6,9,Domestic
+Undergraduate,Undergraduate,97,7,9,Domestic
+Undergraduate,Undergraduate,98,8,9,Domestic
+Undergraduate,Undergraduate,99,9,9,Domestic
+Postgraduate,Postgraduate coursework,0,0,0,International
+Postgraduate,Postgraduate coursework,1,1,0,International
+Postgraduate,Postgraduate coursework,2,2,0,International
+Postgraduate,Postgraduate coursework,3,3,0,International
+Postgraduate,Postgraduate coursework,4,4,0,International
+Postgraduate,Postgraduate coursework,5,5,0,International
+Postgraduate,Postgraduate coursework,6,6,0,International
+Postgraduate,Postgraduate coursework,7,7,0,International
+Postgraduate,Postgraduate coursework,8,8,0,International
+Postgraduate,Postgraduate coursework,9,9,0,International
+Postgraduate,Postgraduate coursework,10,0,1,International
+Postgraduate,Postgraduate coursework,11,1,1,International
+Postgraduate,Postgraduate coursework,12,2,1,International
+Postgraduate,Postgraduate coursework,13,3,1,International
+Postgraduate,Postgraduate coursework,14,4,1,International
+Postgraduate,Postgraduate coursework,15,5,1,International
+Postgraduate,Postgraduate coursework,16,6,1,International
+Postgraduate,Postgraduate coursework,17,7,1,International
+Postgraduate,Postgraduate coursework,18,8,1,International
+Postgraduate,Postgraduate coursework,19,9,1,International
+Postgraduate,Postgraduate coursework,20,0,2,International
+Postgraduate,Postgraduate coursework,21,1,2,International
+Postgraduate,Postgraduate coursework,22,2,2,International
+Postgraduate,Postgraduate coursework,23,3,2,International
+Postgraduate,Postgraduate coursework,24,4,2,International
+Postgraduate,Postgraduate coursework,25,5,2,International
+Postgraduate,Postgraduate coursework,26,6,2,International
+Postgraduate,Postgraduate coursework,27,7,2,International
+Postgraduate,Postgraduate coursework,28,8,2,International
+Postgraduate,Postgraduate coursework,29,9,2,International
+Postgraduate,Postgraduate coursework,30,0,3,International
+Postgraduate,Postgraduate coursework,31,1,3,International
+Postgraduate,Postgraduate coursework,32,2,3,International
+Postgraduate,Postgraduate coursework,33,3,3,International
+Postgraduate,Postgraduate coursework,34,4,3,International
+Postgraduate,Postgraduate coursework,35,5,3,International
+Postgraduate,Postgraduate coursework,36,6,3,International
+Postgraduate,Postgraduate coursework,37,7,3,International
+Postgraduate,Postgraduate coursework,38,8,3,International
+Postgraduate,Postgraduate coursework,39,9,3,International
+Postgraduate,Postgraduate coursework,40,0,4,International
+Postgraduate,Postgraduate coursework,41,1,4,International
+Postgraduate,Postgraduate coursework,42,2,4,International
+Postgraduate,Postgraduate coursework,43,3,4,International
+Postgraduate,Postgraduate coursework,44,4,4,International
+Postgraduate,Postgraduate coursework,45,5,4,International
+Postgraduate,Postgraduate coursework,46,6,4,International
+Postgraduate,Postgraduate coursework,47,7,4,International
+Postgraduate,Postgraduate coursework,48,8,4,International
+Postgraduate,Postgraduate coursework,49,9,4,International
+Postgraduate,Postgraduate coursework,50,0,5,International
+Postgraduate,Postgraduate coursework,51,1,5,International
+Postgraduate,Postgraduate coursework,52,2,5,International
+Postgraduate,Postgraduate coursework,53,3,5,International
+Postgraduate,Postgraduate coursework,54,4,5,International
+Postgraduate,Postgraduate coursework,55,5,5,International
+Postgraduate,Postgraduate coursework,56,6,5,International
+Postgraduate,Postgraduate coursework,57,7,5,Domestic
+Postgraduate,Postgraduate coursework,58,8,5,Domestic
+Postgraduate,Postgraduate coursework,59,9,5,Domestic
+Postgraduate,Postgraduate coursework,60,0,6,Domestic
+Postgraduate,Postgraduate coursework,61,1,6,Domestic
+Postgraduate,Postgraduate coursework,62,2,6,Domestic
+Postgraduate,Postgraduate coursework,63,3,6,Domestic
+Postgraduate,Postgraduate coursework,64,4,6,Domestic
+Postgraduate,Postgraduate coursework,65,5,6,Domestic
+Postgraduate,Postgraduate coursework,66,6,6,Domestic
+Postgraduate,Postgraduate coursework,67,7,6,Domestic
+Postgraduate,Postgraduate coursework,68,8,6,Domestic
+Postgraduate,Postgraduate coursework,69,9,6,Domestic
+Postgraduate,Postgraduate coursework,70,0,7,Domestic
+Postgraduate,Postgraduate coursework,71,1,7,Domestic
+Postgraduate,Postgraduate coursework,72,2,7,Domestic
+Postgraduate,Postgraduate coursework,73,3,7,Domestic
+Postgraduate,Postgraduate coursework,74,4,7,Domestic
+Postgraduate,Postgraduate coursework,75,5,7,Domestic
+Postgraduate,Postgraduate coursework,76,6,7,Domestic
+Postgraduate,Postgraduate coursework,77,7,7,Domestic
+Postgraduate,Postgraduate coursework,78,8,7,Domestic
+Postgraduate,Postgraduate coursework,79,9,7,Domestic
+Postgraduate,Postgraduate coursework,80,0,8,Domestic
+Postgraduate,Postgraduate coursework,81,1,8,Domestic
+Postgraduate,Postgraduate coursework,82,2,8,Domestic
+Postgraduate,Postgraduate coursework,83,3,8,Domestic
+Postgraduate,Postgraduate coursework,84,4,8,Domestic
+Postgraduate,Postgraduate coursework,85,5,8,Domestic
+Postgraduate,Postgraduate coursework,86,6,8,Domestic
+Postgraduate,Postgraduate coursework,87,7,8,Domestic
+Postgraduate,Postgraduate coursework,88,8,8,Domestic
+Postgraduate,Postgraduate coursework,89,9,8,Domestic
+Postgraduate,Postgraduate coursework,90,0,9,Domestic
+Postgraduate,Postgraduate coursework,91,1,9,Domestic
+Postgraduate,Postgraduate coursework,92,2,9,Domestic
+Postgraduate,Postgraduate coursework,93,3,9,Domestic
+Postgraduate,Postgraduate coursework,94,4,9,Domestic
+Postgraduate,Postgraduate coursework,95,5,9,Domestic
+Postgraduate,Postgraduate coursework,96,6,9,Domestic
+Postgraduate,Postgraduate coursework,97,7,9,Domestic
+Postgraduate,Postgraduate coursework,98,8,9,Domestic
+Postgraduate,Postgraduate coursework,99,9,9,Domestic
