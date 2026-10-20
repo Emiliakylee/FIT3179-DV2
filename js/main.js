@@ -21,8 +21,48 @@ const options = {
   renderer: "svg"
 };
 
+// Browsers and the GitHub Pages CDN cache .json and .csv files aggressively,
+// so an edited spec or dataset can keep serving its old copy after a reload.
+// Adding a version to every request forces a fresh fetch.
+// BUMP THIS after editing anything in js/ or data/.
+const VERSION = "2026-10-21a";
+
+const versioned = (url) =>
+  url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
+
+// The data files are referenced from inside each spec, so they need the
+// version too; walk the spec and stamp every url it contains.
+function versionDataUrls(node) {
+  if (Array.isArray(node)) {
+    node.forEach(versionDataUrls);
+  } else if (node && typeof node === "object") {
+    if (typeof node.url === "string") node.url = versioned(node.url);
+    Object.values(node).forEach(versionDataUrls);
+  }
+  return node;
+}
+
+async function draw(selector, path) {
+  const response = await fetch(versioned(path));
+  if (!response.ok) throw new Error("HTTP " + response.status + " for " + path);
+  const spec = versionDataUrls(await response.json());
+  return vegaEmbed(selector, spec, options);
+}
+
+// A chart that fails used to leave an empty box with the reason buried in the
+// console. Say so on the page instead, naming the file that failed.
+function reportFailure(selector, path, error) {
+  console.error(path, error);
+  const host = document.querySelector(selector);
+  if (!host) return;
+  const note = document.createElement("p");
+  note.className = "vis-error";
+  note.textContent = "This chart could not load (" + path + "): " + error.message;
+  host.appendChild(note);
+}
+
 for (const [selector, path] of Object.entries(specs)) {
   if (document.querySelector(selector)) {
-    vegaEmbed(selector, path, options).catch(console.error);
+    draw(selector, path).catch((error) => reportFailure(selector, path, error));
   }
 }

@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
+  "height": 620,
   "padding": {
     "left": 5,
-    "right": 135,
+    "right": 60,
     "top": 5,
     "bottom": 5
   },
@@ -25,8 +25,16 @@
       "filter": "datum.measure == 'Overall Educational Experience'"
     },
     {
-      "calculate": "indexof(['Medicine','Dentistry','Veterinary science'], datum.study_area) >= 0 ? 'falls' : (indexof(['Business and management','Humanities, culture and social sciences','Nursing'], datum.study_area) >= 0 ? 'climbs' : 'other')",
-      "as": "movement"
+      "calculate": "indexof([\"Medicine\", \"Veterinary science\", \"Rehabilitation\", \"Business and management\", \"Humanities and culture\", \"Nursing\"], datum.study_area_short) >= 0",
+      "as": "highlight"
+    },
+    {
+      "calculate": "indexof([\"Humanities and culture\", \"Nursing\", \"Communications\", \"Business and management\", \"Social work\", \"Veterinary science\", \"Rehabilitation\", \"Medicine\", \"Dentistry\"], datum.study_area_short) >= 0",
+      "as": "labelled"
+    },
+    {
+      "calculate": "datum.highlight ? datum.study_area_short : 'Other study areas'",
+      "as": "series"
     }
   ],
   "encoding": {
@@ -55,8 +63,8 @@
       "title": "% rating positively",
       "scale": {
         "domain": [
-          60,
-          90
+          0,
+          100
         ]
       }
     },
@@ -65,18 +73,26 @@
       "type": "nominal"
     },
     "color": {
-      "field": "movement",
+      "field": "series",
       "type": "nominal",
       "scale": {
         "domain": [
-          "falls",
-          "climbs",
-          "other"
+          "Medicine",
+          "Veterinary science",
+          "Rehabilitation",
+          "Business and management",
+          "Humanities and culture",
+          "Nursing",
+          "Other study areas"
         ],
         "range": [
-          "#8456A8",
-          "#3F8E44",
-          "#C2CBCB"
+          "#8C1C1C",
+          "#A5653A",
+          "#A552A5",
+          "#167220",
+          "#2121A5",
+          "#46778C",
+          "#C4C9CA"
         ]
       },
       "legend": null
@@ -114,11 +130,18 @@
               "empty": false
             },
             {
-              "test": "datum.movement != 'other'",
+              "test": "datum.highlight",
               "value": 0.95
             }
           ],
           "value": 0.5
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.highlight",
+            "value": 2.6
+          },
+          "value": 1.3
         },
         "tooltip": [
           {
@@ -146,16 +169,25 @@
           "filter": "datum.level == 'Postgraduate'"
         },
         {
-          "filter": "datum.movement != 'other'"
+          "filter": "datum.labelled"
+        },
+        {
+          "calculate": "datum.study_area_short == \"Humanities and culture\" ? 84.9 : datum.study_area_short == \"Nursing\" ? 82.72 : datum.study_area_short == \"Communications\" ? 80.4 : datum.study_area_short == \"Business and management\" ? 78.22 : datum.study_area_short == \"Social work\" ? 76.05 : datum.study_area_short == \"Veterinary science\" ? 73.87 : datum.study_area_short == \"Rehabilitation\" ? 71.69 : datum.study_area_short == \"Medicine\" ? 69.51 : datum.study_area_short == \"Dentistry\" ? 64.0 : datum.value",
+          "as": "label_y"
         }
       ],
       "mark": {
         "type": "text",
         "align": "left",
         "dx": 10,
-        "fontSize": 11
+        "fontSize": 11,
+        "fontWeight": 600
       },
       "encoding": {
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
         "text": {
           "field": "study_area_short",
           "type": "nominal"
@@ -174,18 +206,19 @@
       "ticks": false,
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "titlePadding": 10,
       "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

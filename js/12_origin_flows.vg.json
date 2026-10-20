@@ -12,6 +12,34 @@
   "layer": [
     {
       "data": {
+        "values": [
+          {
+            "lon": 34,
+            "lat": 34
+          },
+          {
+            "lon": 156,
+            "lat": -44
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "opacity": 0
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
         "url": "data/world_countries.topojson",
         "format": {
           "type": "topojson",
@@ -20,29 +48,30 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#f1f4f4",
-        "stroke": "white",
-        "strokeWidth": 0.6
+        "fill": "#EEF2F2",
+        "stroke": "#6B797A",
+        "strokeWidth": 1.0
       }
     },
     {
       "data": {
-        "url": "data/flows_top_countries_2024.csv",
+        "url": "data/flow_arcs.csv",
         "format": {
           "type": "csv",
           "parse": {
-            "lat": "number",
             "lon": "number",
-            "dest_lat": "number",
-            "dest_lon": "number",
-            "students": "number"
+            "lat": "number",
+            "students": "number",
+            "step": "number"
           }
         }
       },
       "mark": {
-        "type": "rule",
+        "type": "line",
         "color": "#3D6E9E",
-        "opacity": 0.55
+        "opacity": 0.5,
+        "interpolate": "linear",
+        "strokeCap": "round"
       },
       "encoding": {
         "longitude": {
@@ -53,33 +82,93 @@
           "field": "lat",
           "type": "quantitative"
         },
-        "longitude2": {
-          "field": "dest_lon"
+        "order": {
+          "field": "step",
+          "type": "quantitative"
         },
-        "latitude2": {
-          "field": "dest_lat"
+        "detail": {
+          "field": "country",
+          "type": "nominal"
         },
         "strokeWidth": {
           "field": "students",
           "type": "quantitative",
           "title": "Students",
           "scale": {
-            "type": "sqrt",
+            "type": "linear",
+            "domain": [
+              0,
+              166525
+            ],
             "range": [
-              0.8,
-              14
+              0,
+              17
             ]
           },
           "legend": {
             "orient": "bottom-left",
-            "format": ",.0f"
+            "format": ",.0f",
+            "title": "Students",
+            "values": [
+              25000,
+              75000,
+              150000
+            ],
+            "symbolType": "stroke",
+            "symbolSize": 2400,
+            "labelOffset": 10,
+            "rowPadding": 9
           }
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/flow_arcs.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "students": "number",
+            "step": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#3D6E9E",
+        "strokeWidth": 10,
+        "opacity": 0.001,
+        "interpolate": "linear"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "order": {
+          "field": "step",
+          "type": "quantitative"
+        },
+        "detail": {
+          "field": "country",
+          "type": "nominal"
         },
         "tooltip": [
           {
             "field": "country",
             "type": "nominal",
             "title": "Country"
+          },
+          {
+            "field": "region",
+            "type": "nominal",
+            "title": "Region"
           },
           {
             "field": "students",
@@ -96,8 +185,8 @@
         "format": {
           "type": "csv",
           "parse": {
-            "lat": "number",
             "lon": "number",
+            "lat": "number",
             "students": "number"
           }
         }
@@ -105,8 +194,8 @@
       "mark": {
         "type": "circle",
         "color": "#3D6E9E",
-        "size": 28,
-        "opacity": 0.9
+        "size": 30,
+        "opacity": 0.95
       },
       "encoding": {
         "longitude": {
@@ -125,23 +214,126 @@
         "format": {
           "type": "csv",
           "parse": {
-            "lat": "number",
             "lon": "number",
+            "lat": "number",
             "students": "number"
           }
         }
       },
       "transform": [
         {
-          "filter": "datum.students > 20000"
+          "filter": {
+            "field": "country",
+            "oneOf": [
+              "China",
+              "Nepal",
+              "India",
+              "Vietnam"
+            ]
+          }
         }
       ],
       "mark": {
         "type": "text",
         "fontSize": 11,
         "color": "#173F5F",
-        "dy": -10,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "dx": 0,
+        "dy": -11,
+        "align": "center"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "country",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/flows_top_countries_2024.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "students": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "field": "country",
+            "oneOf": [
+              "Singapore",
+              "Sri Lanka"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "#173F5F",
+        "fontWeight": "bold",
+        "dx": -9,
+        "dy": 4,
+        "align": "right"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "country",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/flows_top_countries_2024.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "students": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "field": "country",
+            "oneOf": [
+              "Malaysia"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "color": "#173F5F",
+        "fontWeight": "bold",
+        "dx": 9,
+        "dy": -3,
+        "align": "left"
       },
       "encoding": {
         "longitude": {
@@ -165,8 +357,8 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
@@ -176,11 +368,12 @@
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

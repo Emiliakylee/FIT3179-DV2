@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 330,
+  "height": 700,
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -24,21 +24,38 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#eef2f2",
-        "stroke": "white",
-        "strokeWidth": 1.2
+        "fill": "#EEF2F2",
+        "stroke": "#6B797A",
+        "strokeWidth": 1.0
       }
     },
     {
       "data": {
-        "url": "data/state_centroids.csv"
+        "url": "data/state_centroids.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "enrolments": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
       },
       "transform": [
         {
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "data/enrolments_by_state_2024.csv"
+              "url": "data/enrolments_by_state_2024.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "enrolments": "number",
+                  "overseas": "number",
+                  "overseas_share": "number",
+                  "universities": "number"
+                }
+              }
             },
             "key": "state_name",
             "fields": [
@@ -53,9 +70,9 @@
       ],
       "mark": {
         "type": "circle",
-        "color": "#3D6E9E",
+        "color": "#373366",
         "opacity": 0.75,
-        "stroke": "white",
+        "stroke": "#FFFFFF",
         "strokeWidth": 1
       },
       "encoding": {
@@ -74,13 +91,28 @@
           "scale": {
             "type": "sqrt",
             "range": [
-              60,
-              3000
+              50,
+              1600
             ]
           },
           "legend": {
-            "orient": "bottom-left",
-            "format": ",.0f"
+            "orient": "bottom",
+            "direction": "horizontal",
+            "title": "Students enrolled",
+            "titleOrient": "left",
+            "values": [
+              100000,
+              300000,
+              500000
+            ],
+            "format": ",.0f",
+            "labelFontSize": 10,
+            "titleFontSize": 10,
+            "symbolFillColor": "#373366",
+            "symbolOpacity": 0.75,
+            "clipHeight": 46,
+            "columnPadding": 14,
+            "offset": 6
           }
         },
         "tooltip": [
@@ -117,28 +149,47 @@
     },
     {
       "data": {
-        "url": "data/state_centroids.csv"
+        "url": "data/state_centroids.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "enrolments": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
       },
       "transform": [
         {
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "data/enrolments_by_state_2024.csv"
+              "url": "data/enrolments_by_state_2024.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "enrolments": "number"
+                }
+              }
             },
             "key": "state_name",
             "fields": [
-              "state"
+              "state",
+              "enrolments"
             ]
           }
+        },
+        {
+          "filter": "indexof([\"Northern Territory\", \"Queensland\", \"Western Australia\", \"South Australia\", \"New South Wales\"], datum.state_name) >= 0"
         }
       ],
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 10.5,
         "fontWeight": "bold",
-        "color": "#173F5F",
-        "dy": -22
+        "color": "#373366",
+        "dy": -30,
+        "align": "center"
       },
       "encoding": {
         "longitude": {
@@ -150,7 +201,132 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "state",
+          "field": "state_name",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_centroids.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "enrolments": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/enrolments_by_state_2024.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "enrolments": "number"
+                }
+              }
+            },
+            "key": "state_name",
+            "fields": [
+              "state",
+              "enrolments"
+            ]
+          }
+        },
+        {
+          "filter": "indexof([\"Victoria\"], datum.state_name) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontWeight": "bold",
+        "color": "#373366",
+        "dx": -30,
+        "dy": 2,
+        "align": "right"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_name",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_centroids.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "enrolments": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/enrolments_by_state_2024.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "enrolments": "number"
+                }
+              }
+            },
+            "key": "state_name",
+            "fields": [
+              "state",
+              "enrolments"
+            ]
+          }
+        },
+        {
+          "filter": "indexof([\"Australian Capital Territory\", \"Tasmania\"], datum.state_name) >= 0"
+        },
+        {
+          "calculate": "datum.state_name == 'Australian Capital Territory' ? ['Australian Capital','Territory'] : datum.state_name",
+          "as": "lbl"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontWeight": "bold",
+        "color": "#373366",
+        "dx": 18,
+        "dy": 2,
+        "align": "left",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lbl",
           "type": "nominal"
         }
       }
@@ -162,8 +338,8 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
@@ -173,8 +349,8 @@
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
@@ -182,8 +358,9 @@
   },
   "padding": {
     "left": 5,
-    "right": 5,
+    "right": 36,
     "top": 5,
-    "bottom": 16
-  }
+    "bottom": 5
+  },
+  "background": "transparent"
 }

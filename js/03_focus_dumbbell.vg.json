@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 230,
+  "height": 260,
   "data": {
     "url": "data/ses_trend_2017_2025.csv",
     "format": {
@@ -31,8 +31,10 @@
         "Peer Engagement"
       ],
       "axis": {
-        "labelLimit": 220,
-        "labelFontSize": 12
+        "labelLimit": 240,
+        "labelFontSize": 12,
+        "labelLineHeight": 14,
+        "labelExpr": "datum.label == 'Teaching Quality and Engagement' ? ['Teaching quality','and engagement'] : datum.label == 'Student Support and Services' ? ['Student support','and services'] : datum.label == 'Overall Educational Experience' ? ['Overall educational','experience'] : datum.label == 'Learning Resources' ? 'Learning resources' : datum.label == 'Skills Development' ? 'Skills development' : datum.label == 'Peer Engagement' ? 'Peer engagement' : datum.label"
       }
     }
   },
@@ -49,8 +51,8 @@
       ],
       "mark": {
         "type": "rule",
-        "color": "#c9c9c9",
-        "strokeWidth": 2
+        "color": "#8E9899",
+        "strokeWidth": 3.5
       },
       "encoding": {
         "x": {
@@ -59,8 +61,18 @@
           "title": "% rating positively",
           "scale": {
             "domain": [
-              50,
-              95
+              0,
+              100
+            ]
+          },
+          "axis": {
+            "values": [
+              0,
+              20,
+              40,
+              60,
+              80,
+              100
             ]
           }
         },
@@ -91,8 +103,8 @@
               "Postgraduate"
             ],
             "range": [
-              "#147D7E",
-              "#D97745"
+              "#126F70",
+              "#A8502A"
             ]
           },
           "legend": {
@@ -133,18 +145,25 @@
       "ticks": false,
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "titlePadding": 10,
       "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
+  },
+  "background": "transparent",
+  "padding": {
+    "left": 5,
+    "right": 10,
+    "top": 5,
+    "bottom": 5
   }
 }

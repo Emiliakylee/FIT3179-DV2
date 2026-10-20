@@ -1,10 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "data/cohort_waffle.csv"
+    "url": "data/cohort_waffle.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "index": "number"
+      }
+    }
   },
   "columns": 2,
-  "spacing": 40,
+  "spacing": 50,
   "facet": {
     "field": "level_label",
     "type": "nominal",
@@ -16,65 +22,130 @@
     "header": {
       "labelFontSize": 13,
       "labelFontWeight": "bold",
-      "labelColor": "#1c1c1c",
+      "labelColor": "#23282C",
       "labelAnchor": "start"
     }
   },
   "spec": {
-    "width": 200,
-    "height": 200,
-    "mark": {
-      "type": "square",
-      "size": 300,
-      "stroke": "white",
-      "strokeWidth": 2
-    },
-    "encoding": {
-      "x": {
-        "field": "col",
-        "type": "ordinal",
-        "axis": null
-      },
-      "y": {
-        "field": "row",
-        "type": "ordinal",
-        "axis": null,
-        "scale": {
-          "reverse": true
-        }
-      },
-      "color": {
-        "field": "cohort",
-        "type": "nominal",
-        "title": null,
-        "scale": {
-          "domain": [
-            "Domestic",
-            "International"
-          ],
-          "range": [
-            "#D4DADF",
-            "#3D6E9E"
+    "width": 344,
+    "height": 344,
+    "layer": [
+      {
+        "mark": {
+          "type": "square",
+          "size": 1183,
+          "stroke": "#FFFFFF",
+          "strokeWidth": 2.5
+        },
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "scale": {
+              "reverse": true
+            }
+          },
+          "color": {
+            "field": "cohort",
+            "type": "nominal",
+            "title": null,
+            "scale": {
+              "domain": [
+                "Domestic",
+                "International"
+              ],
+              "range": [
+                "#C4C9CA",
+                "#3D6E9E"
+              ]
+            },
+            "legend": {
+              "orient": "bottom",
+              "direction": "horizontal"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "level",
+              "type": "nominal",
+              "title": "Level"
+            },
+            {
+              "field": "cohort",
+              "type": "nominal",
+              "title": "Cohort"
+            }
           ]
-        },
-        "legend": {
-          "orient": "bottom",
-          "direction": "horizontal"
         }
       },
-      "tooltip": [
-        {
-          "field": "level",
-          "type": "nominal",
-          "title": "Level"
+      {
+        "transform": [
+          {
+            "joinaggregate": [
+              {
+                "op": "count",
+                "as": "n"
+              }
+            ],
+            "groupby": [
+              "level_label",
+              "cohort"
+            ]
+          },
+          {
+            "calculate": "datum.cohort == 'International' ? (datum.level_label == 'Undergraduate' ? 14 : 24) : (datum.level_label == 'Undergraduate' ? 54 : 84)",
+            "as": "anchor"
+          },
+          {
+            "filter": "datum.index === datum.anchor"
+          },
+          {
+            "calculate": "format(datum.n, 'd') + '%'",
+            "as": "pct_label"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "fontSize": 30,
+          "fontWeight": 700,
+          "baseline": "middle",
+          "align": "center"
         },
-        {
-          "field": "cohort",
-          "type": "nominal",
-          "title": "Cohort"
+        "encoding": {
+          "x": {
+            "field": "col",
+            "type": "ordinal",
+            "axis": null
+          },
+          "y": {
+            "field": "row",
+            "type": "ordinal",
+            "axis": null,
+            "scale": {
+              "reverse": true
+            }
+          },
+          "text": {
+            "field": "pct_label",
+            "type": "nominal"
+          },
+          "color": {
+            "condition": {
+              "test": "datum.cohort == 'International'",
+              "value": "#FFFFFF"
+            },
+            "value": "#3A3F45"
+          },
+          "tooltip": null
         }
-      ]
-    }
+      }
+    ]
   },
   "config": {
     "view": {
@@ -82,8 +153,8 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
@@ -93,11 +164,12 @@
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

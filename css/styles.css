@@ -1,18 +1,45 @@
 /* ============================================================
    Student experience in Australian higher education
-   Editorial layout: white canvas, two typefaces, two colours.
+   Mixed editorial layout: ivory body, navy masthead and conclusion, two typefaces, one
+   meaning per colour.
    ============================================================ */
 
 :root {
-  --teal: #147D7E;
-  --orange: #D97745;
-  --navy: #173F5F;
-  --ink: #23282c;
-  --muted: #4e565e;
-  --grey: #5f676e;
-  --rule: #e6e8e8;
-  --wash: #f7f8f8;
-  --paper: #ffffff;
+  /* Data colours. Each means exactly one thing, page-wide, and each is dark
+     enough to double as a type colour: every value below clears 4.5:1 against
+     --paper, so a coloured word in the prose stays readable. */
+  --teal:   #126F70;   /* undergraduate                  5.4:1 */
+  --orange: #A8502A;   /* postgraduate coursework        5.0:1 */
+  --green:  #1B7837;   /* above the national result      5.0:1  ColorBrewer PRGn */
+  --purple: #762A83;   /* below the national result      7.9:1  ColorBrewer PRGn */
+  --slate:  #3D6E9E;   /* counts, enrolment, geography   4.9:1 */
+
+  /* Two greys with fixed jobs inside the charts, so the same grey always
+     means the same thing. */
+  --ctx:    #C4C9CA;   /* a series pushed into the background */
+  --ref:    #4E5A5C;   /* the national reference line */
+
+  /* Surfaces */
+  --paper:  #F5F4EF;   /* page */
+  --panel:  #E5EFEC;   /* raised block */
+  --wash:   #E5EFEC;   /* key insight */
+
+  /* Text */
+  --head:   #173F5F;
+  --ink:    #23282C;
+  --muted:  #4E565E;
+  --grey:   #4A5258;
+
+  /* Emphasis accent. Deliberately NOT a data colour: it never appears in a
+     chart, so it cannot be confused with an encoding. Its one job is to mark
+     a headline figure on the navy bands. */
+  --accent: #FFD166;   /* 7.6:1 on navy. Defined but not currently applied. */
+
+  --rule:   #DFE3E0;
+
+  /* One gutter value for the whole page, so columns and charts land on the
+     same small set of sight-lines. */
+  --gutter: 44px;
 }
 
 * { box-sizing: border-box; }
@@ -30,38 +57,49 @@ body {
 }
 
 .page {
-  max-width: 1140px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 32px 100px;
+  /* No bottom padding: the last section already ends with 56px, and the navy
+     outro adds the rest, so the white space below the page matches the 72px
+     below the masthead rather than stacking three paddings. */
+  padding: 0 32px;
 }
 
 /* ---------- type ---------- */
 
 h1, h2, .stat-value, .takeaway p {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Literata", Georgia, serif;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--head);
   line-height: 1.15;
   margin: 0;
 }
 
-h1 { font-size: clamp(2.6rem, 5.5vw, 4rem); letter-spacing: -0.015em; }
+h1 {
+  font-size: clamp(2.6rem, 5.2vw, 3.9rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
 
-h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.2; }
 
 h3 {
   font-family: "Inter", sans-serif;
   font-size: 1.08rem;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--head);
   margin: 0 0 2px;
   line-height: 1.35;
 }
 
-p { margin: 0 0 18px; max-width: 64ch; }
+/* 40ch renders a longest line of about 50 characters, which keeps every
+   line at ten words or fewer. The notes give "~60 characters OR seven to
+   ten words"; with short words the second limit binds first. */
+p { margin: 0 0 18px; max-width: 40ch; }
 
 .eyebrow {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--teal);
@@ -69,104 +107,164 @@ p { margin: 0 0 18px; max-width: 64ch; }
   margin-bottom: 18px;
 }
 
-/* ---------- header ---------- */
+/* ---------- masthead ---------- */
 
-.band { padding: 90px 0 56px; }
 
-.thesis {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  color: var(--muted);
-  max-width: 44ch;
-  margin-top: 26px;
+
+/* The title takes seven columns and the standfirst the remaining five, both
+   sitting on the same bottom sight-line, so the band is balanced rather than
+   left-heavy with a dead right half. */
+.hero-head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: end;
 }
 
-.thesis strong { color: var(--ink); font-weight: 500; }
+.hero-head h1      { grid-column: 1 / span 7; }
+.hero-head .thesis { grid-column: 8 / span 5; }
+
+.thesis {
+  font-size: 1.16rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 6px;
+  max-width: none;
+}
+
+.thesis strong { color: var(--head); font-weight: 600; }
 
 .byline {
   font-size: 0.88rem;
-  color: var(--muted);
+  color: var(--grey);
   margin-top: 36px;
   padding-top: 18px;
   border-top: 1px solid var(--rule);
   max-width: none;
 }
 
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 28px;
+  margin: 52px 0 0;
+  padding-top: 34px;
+  border-top: 1px solid var(--rule);
+}
+
+.hero-stat { grid-column: span 4; }
+
+/* Size and brightness carry the emphasis. These are not undergraduate or
+   postgraduate facts, so they must not borrow those two hues. */
+.hero-stat .num {
+  font-family: "Literata", Georgia, serif;
+  font-size: clamp(2.8rem, 5.6vw, 4rem);
+  font-weight: 700;
+  color: var(--head);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+
+.hero-stat p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 12px 0 0;
+  max-width: 30ch;
+}
+
 /* ---------- sections ---------- */
 
 section { padding: 64px 0 56px; border-top: 1px solid var(--rule); }
 
-.section-head {
-  display: flex;
-  align-items: baseline;
-  gap: 18px;
-  margin-bottom: 26px;
-}
+section:first-of-type { border-top: none; padding-top: 72px; }
+
+/* The number sits above the heading rather than beside it, so the heading
+   starts on the same left sight-line as the text and charts below it. */
+.section-head { margin-bottom: 26px; }
 
 .section-num {
-  flex: 0 0 auto;
-  width: 38px;
-  height: 38px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: var(--teal);
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  display: flex;
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(4px);
+  line-height: 1;
+  margin-bottom: 14px;
 }
 
-/* ---------- layout primitives ---------- */
+/* ---------- layout ---------- */
 
-.split {
+/* A single twelve-column grid, all columns the same width, one gutter.
+   Text takes four columns, a chart takes eight, two charts take six each,
+   and a full-width figure spans all twelve. Every element's left and right
+   edge therefore falls on one of the same twelve lines. */
+
+.split, .duo, .trio {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 15fr);
-  gap: 44px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 32px;
   align-items: start;
 }
 
-.duo {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
-  align-items: start;
+/* A trailing margin on the last paragraph in a column stacks on top of the
+   gap below it, so the space between prose and the next chart came out larger
+   than the gap the rule sets. */
+.page .split > *, .page .duo > *, .page .trio > * { margin-bottom: 0; }
+
+.split > * > :last-child,
+.duo   > * > :last-child,
+.trio  > * > :last-child { margin-bottom: 0; }
+
+/* One gap between chart blocks inside a section, clearly smaller than the
+   120px that separates one section from the next. */
+.page section > :is(.split, .duo, .trio, .fig-block)
+  + :is(.split, .duo, .trio, .fig-block) {
+  margin-top: 48px;
 }
 
-.trio {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
-  align-items: start;
-}
+.split > :first-child { grid-column: span 4; }
+.split > :last-child  { grid-column: span 8; }
 
-.split p, .duo p, .trio p { max-width: 46ch; }
-.split .measures { max-width: 46ch; }
+.duo   > *            { grid-column: span 6; }
+.trio  > *            { grid-column: span 4; }
 
 /* ---------- charts ---------- */
 
 figure { margin: 0 0 8px; }
 
 .vis { width: 100%; margin: 10px 0 6px; }
-
 .vis .vega-embed { width: 100%; }
 
+/* Vega writes a viewBox on every chart, so a spec with a fixed size (facets
+   and concatenated views cannot use container sizing) scales down instead of
+   overflowing on a narrow screen, and centres rather than hugging the left. */
+.vis svg { max-width: 100%; height: auto; display: block; margin-inline: auto; }
 .vis .vega-embed summary { display: none; }
 
 .chart-sub {
   font-size: 0.95rem;
   color: var(--muted);
   margin: 0 0 6px;
-  max-width: 70ch;
+  max-width: 40ch;
 }
 
+/* 0.88rem is about 11pt, the floor the notes give for a digital display. */
 .caption {
-  font-size: 0.84rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: var(--grey);
   margin: 8px 0 0;
-  max-width: 78ch;
+  max-width: 40ch;
 }
 
 /* Vega's generated radio buttons and dropdowns */
@@ -179,24 +277,80 @@ figure { margin: 0 0 8px; }
 
 .vis .vega-bind { display: inline-flex; align-items: center; gap: 6px; margin-right: 20px; }
 .vis .vega-bind-radio label { margin-right: 14px; white-space: nowrap; }
-.vis .vega-bind-radio input { margin-right: 4px; }
+.vis .vega-bind-radio input { margin-right: 4px; accent-color: var(--teal); }
+
 .vis .vega-bind select {
   font-family: inherit;
-  font-size: 0.82rem;
-  padding: 3px 6px;
+  font-size: 0.86rem;
+  padding: 4px 8px;
   border: 1px solid var(--rule);
   border-radius: 4px;
-  background: #fff;
+  background: #FFFFFF;
   color: var(--ink);
 }
 
-/* ---------- emphasis blocks ---------- */
+/* ---------- prose hierarchy ---------- */
+
+/* A lead set in a column is capped tighter so a line holds about ten words
+   rather than thirteen; short words pack more into the same 52ch measure. */
+.duo > .section-lead { max-width: 40ch; }
+
+.section-lead {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Body paragraphs read at full strength, the same as the section leads, so a
+   section's prose does not fade out after its first paragraph. */
+.split p:not(.section-lead):not(.insight):not(.caption):not(.chart-sub),
+.duo  p:not(.section-lead):not(.insight):not(.caption):not(.chart-sub) {
+  color: var(--ink);
+}
+
+/* Colour carried from the charts into the words. */
+.ug   { color: var(--teal);   font-weight: 600; }
+.pg   { color: var(--orange); font-weight: 600; }
+.up   { color: var(--green);  font-weight: 600; }
+.down { color: var(--purple); font-weight: 600; }
+
+.key { font-weight: 600; color: var(--head); }
+
+/* ---------- insights ---------- */
+
+.insight {
+  background: var(--wash);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  color: var(--ink);
+  max-width: 40ch;
+}
+
+.insight.key-insight { font-size: 1.07rem; }
+
+.insight.key-insight::before {
+  content: "Key insight";
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+
+/* ---------- emphasis ---------- */
 
 .stat { margin: 0 0 28px; }
 
+/* On ivory the emphasis is depth of ink, not a bright accent; teal here would
+   read as "undergraduate", which this figure is not. */
 .stat-value {
   font-size: clamp(3rem, 7vw, 4.6rem);
-  color: var(--teal);
+  color: var(--head);
   letter-spacing: -0.02em;
   display: block;
 }
@@ -221,27 +375,35 @@ figure { margin: 0 0 8px; }
   margin: 0;
 }
 
-.closing { margin-top: 56px; border-top: 2px solid var(--teal); padding-top: 32px; }
-
-.closing p {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  line-height: 1.35;
-  color: var(--navy);
-  max-width: 34ch;
-}
-
 /* ---------- measures list ---------- */
 
 .measures { list-style: none; padding: 0; margin: 0; }
 
 .measures li {
-  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
   border-top: 1px solid var(--rule);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.5;
 }
+
+/* Monochrome, one weight, no fill: the five data colours already carry
+   meanings, so an icon must not introduce a sixth signal. */
+.m-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  fill: none;
+  stroke: var(--grey);
+  stroke-width: 1.1;   /* renders ~1.7px once scaled up from the 24-unit box */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.measures li > div { min-width: 0; }
 
 .measures li:last-child { border-bottom: 1px solid var(--rule); }
 
@@ -252,128 +414,29 @@ figure { margin: 0 0 8px; }
   font-size: 0.95rem;
 }
 
-/* ---------- footer ---------- */
+/* ---------- conclusion ---------- */
 
-footer {
-  border-top: 1px solid var(--rule);
-  margin-top: 72px;
-  padding-top: 26px;
-  font-size: 0.86rem;
-  line-height: 1.65;
-  color: var(--grey);
+
+.closing { margin-top: 0; border-top: none; padding-top: 0; }
+
+.closing p {
+  font-family: "Literata", Georgia, serif;
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  line-height: 1.35;
+  color: var(--head);
+  max-width: 34ch;
 }
 
-footer p { max-width: 80ch; margin-bottom: 12px; }
-
-footer a { color: var(--teal); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
-footer strong { color: var(--muted); }
-
-/* ---------- small screens: never scroll sideways ---------- */
-
-@media (max-width: 900px) {
-  .split, .duo, .trio { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .page { padding: 0 20px 60px; }
-  .band { padding: 56px 0 36px; }
-  body { font-size: 16px; }
-}
-
-
-/* ---------- colour as meaning, carried into the prose ---------- */
-
-/* These match the charts exactly, so a reader who learns the colour
-   once can follow it through the text and the diagrams alike. */
-.ug  { color: var(--teal);   font-weight: 600; }
-.pg  { color: var(--orange); font-weight: 600; }
-.up   { color: #2E6B32; font-weight: 600; }
-.down { color: #6E3E8E; font-weight: 600; }
-
-.key { font-weight: 600; color: var(--ink); }
-
-/* Figure-ground: the two sections that carry the argument sit on a
-   tinted band, so they read as foreground against the rest. */
-section.feature {
-  background: #F8FAF9;
-  margin-left: -32px;
-  margin-right: -32px;
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-.swatch {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  margin-right: 6px;
-  vertical-align: baseline;
-}
-
-.legend-note {
-  font-size: 0.88rem;
-  color: var(--muted);
-  margin: 0 0 18px;
-}
-
-@media (max-width: 900px) {
-  section.feature { margin-left: -20px; margin-right: -20px;
-                    padding-left: 20px; padding-right: 20px; }
-}
-
-
-/* ---------- hero statistics ---------- */
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px;
-  margin: 44px 0 0;
-  padding-top: 32px;
-  border-top: 1px solid var(--rule);
-}
-
-.hero-stat .num {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  font-weight: 600;
-  color: var(--teal);
-  line-height: 1;
-  display: block;
-}
-
-.hero-stat .num.alt { color: var(--orange); }
-.hero-stat .num.neutral { color: var(--navy); }
-
-.hero-stat p {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin: 10px 0 0;
-  max-width: 30ch;
-}
-
-/* ---------- one-line reading of each chart ---------- */
-
-.insight {
-  border-left: 3px solid var(--teal);
-  padding: 2px 0 2px 16px;
-  margin: 14px 0 0;
-  font-size: 1rem;
-  color: var(--ink);
-  max-width: 62ch;
-}
-
-/* ---------- closing findings ---------- */
-
-.findings { counter-reset: finding; margin: 0 0 32px; padding: 0; list-style: none; }
+.findings { counter-reset: finding; margin: 32px 0; padding: 0; list-style: none; }
 
 .findings li {
   counter-increment: finding;
   position: relative;
   padding: 0 0 0 48px;
   margin-bottom: 24px;
-  max-width: 64ch;
+  max-width: 40ch;
   font-size: 1.05rem;
+  color: var(--ink);
 }
 
 .findings li::before {
@@ -384,10 +447,10 @@ section.feature {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--navy);
-  color: #fff;
+  background: var(--teal);
+  color: #FFFFFF;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -398,9 +461,301 @@ section.feature {
   padding-top: 20px;
   font-size: 0.95rem;
   color: var(--muted);
-  max-width: 64ch;
+  max-width: 40ch;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 72px;
+  padding-top: 26px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--grey);
+}
+
+footer p { max-width: 40ch; margin-bottom: 12px; }
+footer a { color: var(--teal); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer strong { color: var(--muted); }
+
+/* ---------- small screens: never scroll sideways ---------- */
+
+/* ---------- alignment of the text itself ---------- */
+
+/* Justified text does not read better, but it does steady a layout, so it is
+   used only where a line is long enough to justify without gappy word spacing:
+   a full-width lead, the findings and the limits. Text inside a narrow column
+   stays left-aligned, which is what the readability notes call for. */
+section > .section-lead,
+.findings li,
+.limits,
+footer p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 @media (max-width: 900px) {
-  .hero-stats { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .split, .duo, .trio { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+  .split > *, .duo > *, .trio > * { grid-column: 1 / -1; }
+  .hero-head, .hero-stats { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+  .hero-head h1, .hero-head .thesis, .hero-stat { grid-column: 1 / -1; }
+  .hero-head .thesis { margin-top: 18px; }
+  .page { padding: 0 20px; }
+  body { font-size: 16px; }
+  /* short lines justify badly, so drop back to left alignment */
+  section > .section-lead, .findings li, .limits, footer p { text-align: left; }
+}
+
+
+/* ============================================================
+   Dark areas: the masthead, the conclusion, and any section
+   given class="dark". Charts keep a white surface inside them,
+   so no Vega-Lite spec needs restyling.
+   ============================================================ */
+
+:root {
+  --dark-bg:      #173F5F;
+  --dark-panel:   #244F63;
+  --dark-head:    #F4F6F8;
+  --dark-text:    #D0DCE5;
+  --dark-rule:    #49677C;
+  --dark-teal:    #52B8BA;   /* teal, lightened to hold contrast on navy */
+  --dark-orange:  #F0916F;   /* terracotta, likewise */
+}
+
+/* The masthead sits outside .page so it reaches the screen edges without
+   needing 100vw, which would count the scrollbar and cause sideways scroll. */
+.band {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  width: 100%;
+}
+
+.band-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 88px 32px 60px;
+}
+
+section.dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  margin-left: -32px;
+  margin-right: -32px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+section.dark { padding-top: 64px; padding-bottom: 56px; border-top: none; }
+
+.band h1, section.dark h2, section.dark h3,
+.band .thesis strong, section.dark .key { color: var(--dark-head); }
+
+/* The eyebrow was the weakest text on the page at 4.7:1; this is 7.0:1. */
+.band .eyebrow, section.dark .eyebrow { color: #8FDCDE; }
+
+.band .thesis { color: #EEF3F7; }
+
+section.dark p,
+section.dark .section-lead,
+section.dark .chart-sub { color: var(--dark-text); }
+
+.band .byline,
+.band .hero-stats,
+section.dark .limits { border-top: 1px solid var(--dark-rule); }
+
+.band .byline, section.dark .caption { color: #B6C6D4; }
+
+/* White for now. Swap to var(--accent) to try the amber again. */
+.band .hero-stat .num { color: var(--dark-head); }
+.band .hero-stat p    { color: #EEF3F7; }
+
+section.dark .section-num { background: var(--dark-teal); color: var(--dark-bg); }
+section.dark .ug { color: var(--dark-teal); }
+section.dark .pg { color: var(--dark-orange); }
+
+/* A chart inside a dark area sits on its own white surface. */
+section.dark figure {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 22px 24px 18px;
+  margin-bottom: 24px;
+}
+
+section.dark figure h3,
+section.dark figure .chart-sub,
+section.dark figure p { color: inherit; }
+
+section.dark figure h3 { color: var(--head); }
+section.dark figure .chart-sub { color: var(--muted); }
+section.dark figure .caption { color: var(--grey); }
+section.dark figure .insight { color: var(--ink); }
+
+/* ---------- the conclusion, on navy ---------- */
+
+
+.conclusion .closing p { color: var(--dark-head); }
+.conclusion .findings li { color: var(--dark-text); }
+.conclusion .findings li::before { background: var(--dark-teal); color: var(--dark-bg); }
+.conclusion .findings .key { color: var(--dark-head); }
+.conclusion .limits { color: #C5D4E0; border-top-color: var(--dark-rule); }
+.conclusion .ug { color: var(--dark-teal); }
+.conclusion .pg { color: var(--dark-orange); }
+
+@media (max-width: 900px) {
+  .band-inner { padding: 56px 20px 40px; }
+  section.dark {
+    margin-left: -20px; margin-right: -20px;
+    padding-left: 22px; padding-right: 22px;
+  }
+}
+
+
+/* ============================================================
+   Outro: mirrors the masthead. Sits outside .page so the navy
+   reaches both screen edges without using 100vw.
+   ============================================================ */
+
+.outro {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  width: 100%;
+  margin-top: 16px;
+}
+
+.outro-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 72px 32px 56px;
+}
+
+.conclusion { margin: 0; padding: 0; background: none; }
+
+.outro .closing { border-top: none; padding-top: 0; margin-top: 0; }
+.outro .closing p { color: var(--dark-head); }
+
+.outro .findings li { color: var(--dark-text); }
+.outro .findings li::before { background: var(--dark-teal); color: var(--dark-bg); }
+
+/* Any emphasised run inside a navy area, not only the ones in the findings
+   list: on navy the default .key colour is the background itself. */
+.outro .key, .conclusion .key { color: var(--dark-head); }
+
+.outro .limits {
+  color: #C5D4E0;
+  border-top: 1px solid var(--dark-rule);
+}
+
+.outro .ug { color: var(--dark-teal); }
+.outro .pg { color: var(--dark-orange); }
+
+.outro footer {
+  border-top: 1px solid var(--dark-rule);
+  margin-top: 48px;
+  padding-top: 26px;
+  color: #B6C6D4;
+}
+
+.outro footer strong { color: var(--dark-text); }
+.outro footer a { color: var(--dark-teal); }
+.outro footer code { color: #C5D4E0; }
+
+@media (max-width: 900px) {
+  .outro-inner { padding: 48px 20px 40px; }
+  .outro { margin-top: 12px; }
+}
+
+
+/* ============================================================
+   Each chart on its own white surface, so the data separates
+   from the prose the way the atlas example in the layout notes
+   does. It also stops the near-white midpoint of the diverging
+   scale from dissolving into the ivory page.
+   Delete this block to go back to charts sitting on the paper.
+   ============================================================ */
+
+.page figure {
+  background: #FFFFFF;
+  border: 1px solid #E9EAE5;   /* a hairline, not a frame */
+  border-radius: 8px;
+  padding: 22px 24px 16px;
+  margin: 0;
+}
+
+.page figure .caption { margin-bottom: 0; }
+
+/* The chart sits in its card; the sentence that reads it sits on the page,
+   so the argument stays in the narrative instead of inside a panel. */
+.fig-block { min-width: 0; }
+.fig-block > .insight { margin-top: 18px; }
+
+/* Paired charts: equalise the card heights so the two sentences beneath them
+   start on the same line rather than wherever each chart happens to end. */
+.duo { align-items: stretch; }
+.duo > .fig-block { display: flex; flex-direction: column; }
+.duo > .fig-block > figure { flex: 1 1 auto; }
+
+
+/* ------------------------------------------------------------
+   A column that sits beside a large display figure. The figure's
+   leading puts its ink 16px below its box, so the prose starts
+   16px lower and the two share one optical sight-line.
+   ------------------------------------------------------------ */
+
+.beside-stat { padding-top: 16px; }
+
+/* An instruction for something the reader can do, rather than a
+   statement about the data. Grey like the measure icons, so it
+   adds no colour meaning. */
+
+.hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hint-icon {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+  margin-top: 4px;
+  fill: none;
+  stroke: var(--grey);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  .beside-stat { padding-top: 0; }
+}
+
+
+/* ------------------------------------------------------------
+   The six study areas that carry a colour of their own, in the
+   slope chart and the profile chart. Naming them in these colours
+   in the prose does the job a legend would.
+   ------------------------------------------------------------ */
+
+.sa-med    { color: #8C1C1C; font-weight: 600; }
+.sa-vet    { color: #A5653A; font-weight: 600; }
+.sa-rehab  { color: #A552A5; font-weight: 600; }
+.sa-bus    { color: #167220; font-weight: 600; }
+.sa-hum    { color: #2121A5; font-weight: 600; }
+.sa-nurse  { color: #46778C; font-weight: 600; }
+
+/* Shown in place of a chart that failed to load, instead of an empty box. */
+.vis-error {
+  margin: 0;
+  padding: 14px 16px;
+  max-width: none;
+  border: 1px solid #D8C0B4;
+  border-left: 3px solid #A8502A;
+  border-radius: 6px;
+  background: #FBF4F1;
+  color: #7A3C20;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }

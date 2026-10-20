@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 300,
+  "height": 360,
   "padding": {
     "left": 5,
-    "right": 120,
+    "right": 30,
     "top": 5,
     "bottom": 5
   },
@@ -33,8 +33,8 @@
       "title": "% rating positively",
       "scale": {
         "domain": [
-          60,
-          85
+          0,
+          100
         ]
       }
     },
@@ -47,8 +47,8 @@
           "Postgraduate"
         ],
         "range": [
-          "#147D7E",
-          "#D97745"
+          "#126F70",
+          "#A8502A"
         ]
       },
       "legend": null
@@ -69,7 +69,7 @@
           4,
           4
         ],
-        "color": "#cfd4d4"
+        "color": "#C4C9CA"
       },
       "encoding": {
         "x": {
@@ -80,10 +80,10 @@
           "value": 0
         },
         "y2": {
-          "value": 300
+          "value": "height"
         },
         "color": {
-          "value": "#cfd4d4"
+          "value": "#C4C9CA"
         }
       }
     },
@@ -92,7 +92,7 @@
         "values": [
           {
             "year": "2020",
-            "y": 63,
+            "y": 60,
             "note": "Teaching moved online"
           }
         ]
@@ -102,7 +102,7 @@
         "align": "left",
         "dx": 8,
         "fontSize": 11,
-        "color": "#8b9192"
+        "color": "#4E5A5C"
       },
       "encoding": {
         "x": {
@@ -118,7 +118,7 @@
           "type": "nominal"
         },
         "color": {
-          "value": "#8b9192"
+          "value": "#4E5A5C"
         }
       }
     },
@@ -130,10 +130,10 @@
       ],
       "mark": {
         "type": "line",
-        "strokeWidth": 2.5,
+        "strokeWidth": 3.4,
         "point": {
           "filled": true,
-          "size": 45
+          "size": 70
         }
       },
       "encoding": {
@@ -163,7 +163,7 @@
           "filter": "datum.measure == 'Overall Educational Experience' && datum.year == '2025'"
         },
         {
-          "calculate": "datum.value + (datum.level == 'Postgraduate' ? 1.4 : -1.4)",
+          "calculate": "datum.value + (datum.level == 'Postgraduate' ? 5 : -5)",
           "as": "label_y"
         },
         {
@@ -200,19 +200,20 @@
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "titlePadding": 10,
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

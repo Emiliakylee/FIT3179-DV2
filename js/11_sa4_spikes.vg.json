@@ -1,222 +1,737 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
-  "height": 330,
-  "padding": {
-    "left": 5,
-    "right": 5,
-    "top": 5,
-    "bottom": 16
-  },
-  "projection": {
-    "type": "conicEqualArea",
-    "parallels": [
-      -18,
-      -36
-    ],
-    "rotate": [
-      -134,
-      0
-    ]
-  },
-  "layer": [
+  "vconcat": [
     {
-      "data": {
-        "url": "data/au_sa4.topojson",
-        "format": {
-          "type": "topojson",
-          "feature": "SA4_2021_AUST_GDA2020"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#f7f8f8",
-        "stroke": "#e3e7e7",
-        "strokeWidth": 0.4
-      }
-    },
-    {
-      "data": {
-        "url": "data/au_states.topojson",
-        "format": {
-          "type": "topojson",
-          "feature": "STE_2021_AUST_GDA2020"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": null,
-        "stroke": "#cdd6d6",
-        "strokeWidth": 1
-      }
-    },
-    {
-      "data": {
-        "url": "data/international_by_sa4_2025.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "lat": "number",
-            "lon": "number",
-            "enrolments": "number"
-          }
-        }
-      },
-      "transform": [
+      "hconcat": [
         {
-          "calculate": "datum.lat + datum.enrolments * 0.00006",
-          "as": "lat_top"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "opacity": 0.85,
-        "strokeCap": "round",
-        "strokeWidth": 2.2
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "longitude2": {
-          "field": "lon"
-        },
-        "latitude2": {
-          "field": "lat_top"
-        },
-        "color": {
-          "field": "enrolments",
-          "type": "quantitative",
-          "title": "International students",
-          "scale": {
-            "scheme": "blues",
-            "domain": [
-              0,
-              110000
+          "width": 550,
+          "height": 520,
+          "projection": {
+            "type": "conicEqualArea",
+            "parallels": [
+              -18,
+              -36
+            ],
+            "rotate": [
+              -134,
+              0
             ]
           },
-          "legend": {
-            "orient": "top-left",
-            "gradientLength": 130,
-            "format": ",.0f",
-            "titleFontSize": 11,
-            "labelFontSize": 10,
-            "direction": "horizontal",
-            "title": "International students"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "sa4_name",
-            "type": "nominal",
-            "title": "Region"
+          "title": {
+            "text": "All of Australia",
+            "fontSize": 13,
+            "color": "#173F5F",
+            "fontWeight": 600,
+            "anchor": "start",
+            "dy": -4
           },
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
+          "layer": [
+            {
+              "data": {
+                "url": "data/au_sa4.topojson",
+                "format": {
+                  "type": "topojson",
+                  "feature": "SA4_2021_AUST_GDA2020"
+                }
+              },
+              "mark": {
+                "type": "geoshape",
+                "fill": "#E4EAEA",
+                "stroke": "#6B797A",
+                "strokeWidth": 1.0
+              }
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'nat'"
+                },
+                {
+                  "filter": "true"
+                }
+              ],
+              "mark": {
+                "type": "line",
+                "interpolate": "linear",
+                "fill": "#3D6E9E",
+                "fillOpacity": 0.9,
+                "stroke": "#FFFFFF",
+                "strokeWidth": 0.7,
+                "strokeJoin": "round"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "detail": {
+                  "field": "sa4_name",
+                  "type": "nominal"
+                },
+                "order": {
+                  "field": "vertex",
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'nat'"
+                },
+                {
+                  "filter": "datum.vertex == 1"
+                },
+                {
+                  "filter": "datum.enrolments >= 90000"
+                },
+                {
+                  "calculate": "datum.sa4_name",
+                  "as": "tag"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "dx": -9,
+                "dy": -3,
+                "fontSize": 10.5,
+                "fontWeight": 600,
+                "color": "#173F5F"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "apex_lat",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "tag",
+                  "type": "nominal"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'nat'"
+                },
+                {
+                  "filter": "true"
+                },
+                {
+                  "filter": "datum.vertex == 1"
+                }
+              ],
+              "mark": {
+                "type": "rule",
+                "strokeWidth": 11,
+                "opacity": 0.001,
+                "color": "#3D6E9E",
+                "strokeCap": "round"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "cx",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "base_lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "cx"
+                },
+                "latitude2": {
+                  "field": "apex_lat"
+                },
+                "tooltip": [
+                  {
+                    "field": "sa4_name",
+                    "type": "nominal",
+                    "title": "Region"
+                  },
+                  {
+                    "field": "state",
+                    "type": "nominal",
+                    "title": "State"
+                  },
+                  {
+                    "field": "enrolments",
+                    "type": "quantitative",
+                    "title": "International students",
+                    "format": ","
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "width": 530,
+          "height": 520,
+          "projection": {
+            "type": "conicEqualArea",
+            "parallels": [
+              -18,
+              -36
+            ],
+            "rotate": [
+              -134,
+              0
+            ]
           },
-          {
-            "field": "enrolments",
-            "type": "quantitative",
-            "title": "International students",
-            "format": ","
-          }
-        ]
-      }
-    },
-    {
-      "data": {
-        "url": "data/international_by_sa4_2025.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "lat": "number",
-            "lon": "number",
-            "enrolments": "number"
-          }
-        }
-      },
-      "mark": {
-        "type": "circle",
-        "color": "#3D6E9E",
-        "size": 14,
-        "opacity": 0.7
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "data/international_by_sa4_2025.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "lat": "number",
-            "lon": "number",
-            "enrolments": "number"
-          }
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.enrolments > 90000"
-        },
-        {
-          "calculate": "datum.lat + datum.enrolments * 0.00006",
-          "as": "lat_top"
-        },
-        {
-          "calculate": "datum.sa4_name + '  ' + format(datum.enrolments, ',')",
-          "as": "tag"
+          "title": {
+            "text": "Zoomed: New South Wales, Victoria and the ACT",
+            "fontSize": 13,
+            "color": "#173F5F",
+            "fontWeight": 600,
+            "anchor": "start",
+            "dy": -4
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/au_sa4.topojson",
+                "format": {
+                  "type": "topojson",
+                  "feature": "SA4_2021_AUST_GDA2020"
+                }
+              },
+              "mark": {
+                "type": "geoshape",
+                "fill": "#E4EAEA",
+                "stroke": "#6B797A",
+                "strokeWidth": 1.0
+              },
+              "transform": [
+                {
+                  "filter": "indexof(['New South Wales','Victoria','Australian Capital Territory'], datum.properties.STE_NAME21) >= 0"
+                }
+              ]
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'det'"
+                },
+                {
+                  "filter": "indexof(['NSW','VIC','ACT'], datum.state) >= 0"
+                }
+              ],
+              "mark": {
+                "type": "line",
+                "interpolate": "linear",
+                "fill": "#3D6E9E",
+                "fillOpacity": 0.9,
+                "stroke": "#FFFFFF",
+                "strokeWidth": 0.7,
+                "strokeJoin": "round"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "lat",
+                  "type": "quantitative"
+                },
+                "detail": {
+                  "field": "sa4_name",
+                  "type": "nominal"
+                },
+                "order": {
+                  "field": "vertex",
+                  "type": "quantitative"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'det'"
+                },
+                {
+                  "filter": "indexof(['NSW','VIC','ACT'], datum.state) >= 0"
+                },
+                {
+                  "filter": "datum.vertex == 1"
+                },
+                {
+                  "filter": "datum.enrolments >= 14000"
+                },
+                {
+                  "calculate": "datum.sa4_name",
+                  "as": "tag"
+                },
+                {
+                  "calculate": "datum.sa4_name == 'Melbourne - Inner East' ? -36.30 : datum.sa4_name == 'Melbourne - South East' ? -37.00 : datum.sa4_name == 'Melbourne - Inner South' ? -37.70 : datum.apex_lat",
+                  "as": "label_y"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "dx": -9,
+                "dy": -3,
+                "fontSize": 11,
+                "fontWeight": 600,
+                "color": "#173F5F"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "lon",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "label_y",
+                  "type": "quantitative"
+                },
+                "text": {
+                  "field": "tag",
+                  "type": "nominal"
+                }
+              }
+            },
+            {
+              "data": {
+                "url": "data/sa4_triangles.csv",
+                "format": {
+                  "type": "csv",
+                  "parse": {
+                    "lon": "number",
+                    "lat": "number",
+                    "enrolments": "number",
+                    "vertex": "number",
+                    "apex_lat": "number"
+                  }
+                }
+              },
+              "transform": [
+                {
+                  "filter": "datum.panel == 'det'"
+                },
+                {
+                  "filter": "indexof(['NSW','VIC','ACT'], datum.state) >= 0"
+                },
+                {
+                  "filter": "datum.vertex == 1"
+                }
+              ],
+              "mark": {
+                "type": "rule",
+                "strokeWidth": 11,
+                "opacity": 0.001,
+                "color": "#3D6E9E",
+                "strokeCap": "round"
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "cx",
+                  "type": "quantitative"
+                },
+                "latitude": {
+                  "field": "base_lat",
+                  "type": "quantitative"
+                },
+                "longitude2": {
+                  "field": "cx"
+                },
+                "latitude2": {
+                  "field": "apex_lat"
+                },
+                "tooltip": [
+                  {
+                    "field": "sa4_name",
+                    "type": "nominal",
+                    "title": "Region"
+                  },
+                  {
+                    "field": "state",
+                    "type": "nominal",
+                    "title": "State"
+                  },
+                  {
+                    "field": "enrolments",
+                    "type": "quantitative",
+                    "title": "International students",
+                    "format": ","
+                  }
+                ]
+              }
+            }
+          ]
         }
       ],
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "dx": 0,
-        "dy": -8,
-        "fontSize": 11,
-        "color": "#173F5F",
-        "fontWeight": "bold"
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+      "spacing": 72
+    },
+    {
+      "width": 1150,
+      "height": 150,
+      "layer": [
+        {
+          "data": {
+            "values": [
+              {
+                "key": "n25000",
+                "x": 62,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "n25000",
+                "x": 70,
+                "y": 24999.945000000003,
+                "vertex": 1
+              },
+              {
+                "key": "n25000",
+                "x": 78,
+                "y": 0,
+                "vertex": 2
+              },
+              {
+                "key": "n50000",
+                "x": 162,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "n50000",
+                "x": 170,
+                "y": 49999.89000000001,
+                "vertex": 1
+              },
+              {
+                "key": "n50000",
+                "x": 178,
+                "y": 0,
+                "vertex": 2
+              },
+              {
+                "key": "n100000",
+                "x": 292,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "n100000",
+                "x": 300,
+                "y": 99999.78000000001,
+                "vertex": 1
+              },
+              {
+                "key": "n100000",
+                "x": 308,
+                "y": 0,
+                "vertex": 2
+              },
+              {
+                "key": "d10000",
+                "x": 692,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "d10000",
+                "x": 700,
+                "y": 21518.940000000002,
+                "vertex": 1
+              },
+              {
+                "key": "d10000",
+                "x": 708,
+                "y": 0,
+                "vertex": 2
+              },
+              {
+                "key": "d25000",
+                "x": 792,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "d25000",
+                "x": 800,
+                "y": 53797.350000000006,
+                "vertex": 1
+              },
+              {
+                "key": "d25000",
+                "x": 808,
+                "y": 0,
+                "vertex": 2
+              },
+              {
+                "key": "d50000",
+                "x": 922,
+                "y": 0,
+                "vertex": 0
+              },
+              {
+                "key": "d50000",
+                "x": 930,
+                "y": 107594.70000000001,
+                "vertex": 1
+              },
+              {
+                "key": "d50000",
+                "x": 938,
+                "y": 0,
+                "vertex": 2
+              }
+            ]
+          },
+          "mark": {
+            "type": "line",
+            "interpolate": "linear",
+            "fill": "#3D6E9E",
+            "fillOpacity": 0.9,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 0.7
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  1150
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  126582
+                ]
+              },
+              "axis": null
+            },
+            "detail": {
+              "field": "key",
+              "type": "nominal"
+            },
+            "order": {
+              "field": "vertex",
+              "type": "quantitative"
+            }
+          }
         },
-        "latitude": {
-          "field": "lat_top",
-          "type": "quantitative"
+        {
+          "data": {
+            "values": [
+              {
+                "x": 70,
+                "y": 0,
+                "lab": "25,000"
+              },
+              {
+                "x": 170,
+                "y": 0,
+                "lab": "50,000"
+              },
+              {
+                "x": 300,
+                "y": 0,
+                "lab": "100,000"
+              },
+              {
+                "x": 700,
+                "y": 0,
+                "lab": "10,000"
+              },
+              {
+                "x": 800,
+                "y": 0,
+                "lab": "25,000"
+              },
+              {
+                "x": 930,
+                "y": 0,
+                "lab": "50,000"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 10.5,
+            "color": "#4E5A5C",
+            "align": "center",
+            "dy": 13,
+            "baseline": "top"
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  1150
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  126582
+                ]
+              },
+              "axis": null
+            },
+            "text": {
+              "field": "lab",
+              "type": "nominal"
+            }
+          }
         },
-        "text": {
-          "field": "tag",
-          "type": "nominal"
+        {
+          "data": {
+            "values": [
+              {
+                "x": 0,
+                "y": 108861,
+                "lab": "Australia panel \u2014 international students"
+              },
+              {
+                "x": 630,
+                "y": 108861,
+                "lab": "Zoomed panel \u2014 international students"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontWeight": 600,
+            "color": "#173F5F",
+            "align": "left",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  1150
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  126582
+                ]
+              },
+              "axis": null
+            },
+            "text": {
+              "field": "lab",
+              "type": "nominal"
+            }
+          }
         }
-      }
+      ]
     }
   ],
+  "spacing": 4,
   "config": {
     "view": {
       "stroke": null
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
@@ -226,11 +741,12 @@
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

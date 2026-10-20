@@ -91,8 +91,8 @@
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 1.2
+        "stroke": "#6B797A",
+        "strokeWidth": 1.0
       },
       "encoding": {
         "color": {
@@ -100,13 +100,22 @@
           "type": "quantitative",
           "title": "Points vs national",
           "scale": {
-            "scheme": "purplegreen",
-            "domainMid": 0,
+            "type": "linear",
+            "clamp": true,
             "domain": [
               -12,
+              -6,
+              0,
+              6,
               12
             ],
-            "clamp": true
+            "range": [
+              "#762A83",
+              "#AF8DC3",
+              "#F7F7F7",
+              "#7FBF7B",
+              "#1B7837"
+            ]
           },
           "legend": {
             "orient": "bottom-left",
@@ -199,13 +208,17 @@
               "lat"
             ]
           }
+        },
+        {
+          "filter": "indexof([\"Northern Territory\", \"Queensland\", \"Western Australia\", \"South Australia\", \"New South Wales\", \"Victoria\"], datum.state_name) >= 0"
         }
       ],
       "mark": {
         "type": "text",
         "fontSize": 10,
-        "color": "#5b6f71",
-        "dy": 14
+        "color": "#4E5A5C",
+        "dy": 15,
+        "align": "center"
       },
       "encoding": {
         "longitude": {
@@ -217,7 +230,49 @@
           "type": "quantitative"
         },
         "text": {
-          "field": "state",
+          "field": "state_name",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "data/state_label_points.csv"
+            },
+            "key": "state_name",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        },
+        {
+          "filter": "indexof([\"Australian Capital Territory\", \"Tasmania\"], datum.state_name) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#4E5A5C",
+        "dx": 16,
+        "dy": 15,
+        "align": "left"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_name",
           "type": "nominal"
         }
       }
@@ -229,8 +284,8 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
@@ -240,8 +295,8 @@
       "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
@@ -249,8 +304,9 @@
   },
   "padding": {
     "left": 5,
-    "right": 5,
+    "right": 40,
     "top": 5,
     "bottom": 16
-  }
+  },
+  "background": "transparent"
 }

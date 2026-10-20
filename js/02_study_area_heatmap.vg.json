@@ -63,11 +63,29 @@
       "field": "study_area_short",
       "type": "nominal",
       "title": "Study area",
-      "sort": {
-        "field": "overall",
-        "op": "max",
-        "order": "descending"
-      },
+      "sort": [
+        "Agriculture and environment",
+        "Veterinary science",
+        "Tourism and hospitality",
+        "Rehabilitation",
+        "Medicine",
+        "Law and paralegal",
+        "Health services",
+        "Social work",
+        "Psychology",
+        "Teacher education",
+        "Humanities and culture",
+        "Creative arts",
+        "Communications",
+        "Science and mathematics",
+        "Nursing",
+        "Pharmacy",
+        "Architecture and building",
+        "Business and management",
+        "Dentistry",
+        "Engineering",
+        "Computing and IT"
+      ],
       "axis": {
         "labelLimit": 280,
         "labelFontSize": 12,
@@ -79,7 +97,7 @@
     {
       "mark": {
         "type": "rect",
-        "stroke": "white",
+        "stroke": "#FFFFFF",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -88,13 +106,22 @@
           "type": "quantitative",
           "title": "Points vs national result",
           "scale": {
-            "scheme": "purplegreen",
-            "domainMid": 0,
+            "type": "linear",
+            "clamp": true,
             "domain": [
               -12,
+              -6,
+              0,
+              6,
               12
             ],
-            "clamp": true
+            "range": [
+              "#762A83",
+              "#AF8DC3",
+              "#F7F7F7",
+              "#7FBF7B",
+              "#1B7837"
+            ]
           },
           "legend": {
             "orient": "top",
@@ -146,8 +173,8 @@
       "domain": false,
       "ticks": false,
       "labelFontSize": 12,
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "gridColor": "#ECEFEF",
       "titleFontSize": 12,
       "titlePadding": 10,
@@ -155,11 +182,12 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

@@ -40,7 +40,7 @@
       "title": "% rating the experience positively",
       "scale": {
         "domain": [
-          55,
+          0,
           100
         ]
       }
@@ -58,7 +58,7 @@
       ],
       "mark": {
         "type": "rule",
-        "color": "#C2CBCB",
+        "color": "#C4C9CA",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -140,7 +140,7 @@
         "type": "tick",
         "thickness": 1.5,
         "height": 26,
-        "color": "#5B6F71",
+        "color": "#4E5A5C",
         "opacity": 0.45
       },
       "encoding": {
@@ -177,7 +177,7 @@
         "align": "left",
         "dx": 8,
         "fontSize": 11,
-        "color": "#5b6f71"
+        "color": "#3F4650"
       },
       "encoding": {
         "x": {
@@ -203,18 +203,19 @@
       "ticks": false,
       "labelFontSize": 12,
       "titleFontSize": 12,
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "titlePadding": 10,
       "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#3f4650",
-      "titleColor": "#3f4650",
+      "labelColor": "#3F4650",
+      "titleColor": "#3F4650",
       "labelFontSize": 12,
       "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
-  }
+  },
+  "background": "transparent"
 }

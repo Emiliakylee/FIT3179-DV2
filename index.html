@@ -8,46 +8,47 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap"
     rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2026-10-21a">
 </head>
 
 <body>
-  <div class="page">
 
-    <header class="band">
+  <header class="band">
+    <div class="band-inner">
       <p class="eyebrow">Student experience in Australian higher education</p>
-      <h1>What makes a different<br>university experience?</h1>
-      <p class="thesis">
-        <strong>Student experience isn't one number.</strong> It varies with what you study,
-        how you attend, and who studies alongside you.
-      </p>
-      <p class="byline">
-        324,547 students answered the 2025 Student Experience Survey &middot; Data from QILT,
-        the Department of Education and the ABS
-      </p>
+      <div class="hero-head">
+        <h1>What makes a different university experience?</h1>
+        <p class="thesis">
+          <strong>Student experience isn't one number.</strong> It varies with what you study,
+          how you attend, and who studies alongside you.
+        </p>
+      </div>
 
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="num">20</span>
-          <p>points between the highest and lowest study area &mdash; the widest gap on this page</p>
+          <p>percentage points between the highest and lowest study area &mdash; the widest gap on this page</p>
         </div>
         <div class="hero-stat">
-          <span class="num neutral">5</span>
+          <span class="num">5</span>
           <p>points, at most, between any state or territory and the national result</p>
         </div>
         <div class="hero-stat">
-          <span class="num alt">61%</span>
+          <span class="num">61%</span>
           <p>rated peer engagement positively &mdash; the weakest of the six measures, in almost every field</p>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
+
+  <div class="page">
 
     <!-- 01 -->
     <section>
@@ -57,10 +58,11 @@
       </div>
       <div class="split">
         <div>
-          <p>
+          <p class="section-lead">
             Just under four in five <span class="ug">undergraduates</span> rated their overall experience positively
             before the pandemic. In 2020, when teaching moved online almost overnight, that
-            fell by ten points in a single year.
+            fell by ten percentage points in a single year, from 78.5% to 68.7%. Every gap on this
+            page is measured the same way: one share of students subtracted from another.
           </p>
           <p>
             The recovery has been uneven. <span class="pg">Postgraduate coursework</span> ratings climbed back and kept
@@ -68,13 +70,14 @@
             The two groups have swapped places.
           </p>
         </div>
+        <div class="fig-block">
         <figure>
           <h3>Overall educational experience, 2017&ndash;2025</h3>
           <p class="chart-sub">Share of students rating their experience positively</p>
           <div id="vis-trend" class="vis"></div>
-          <p class="insight">Both levels lost about ten points in 2020. Only postgraduate coursework has since climbed past where it started.</p>
-          <p class="caption">Source: 2025 Student Experience Survey National Report, QILT.</p>
         </figure>
+          <p class="insight">Both levels lost about ten points in 2020. Only <span class="pg">postgraduate coursework</span> has since climbed past where it started.</p>
+        </div>
       </div>
     </section>
 
@@ -86,34 +89,31 @@
       </div>
       <div class="split">
         <div>
-          <p>
+          <p class="section-lead">
             The survey doesn't ask one question. It asks about five separate things, and students
             answer them very differently.
           </p>
           <ul class="measures">
-            <li><strong>Learning resources</strong>Libraries, online systems, labs, study spaces.</li>
-            <li><strong>Skills development</strong>Whether the course builds skills students can use.</li>
-            <li><strong>Teaching quality and engagement</strong>Whether teaching is clear, organised and engaging.</li>
-            <li><strong>Student support and services</strong>Whether help is there when it's needed.</li>
-            <li><strong>Peer engagement</strong>How often students work and talk with each other.</li>
+            <li><svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5.5h7a2 2 0 0 1 2 2V19a2.5 2.5 0 0 0-2-1.8H4z"/><path d="M20 5.5h-7a2 2 0 0 0-2 2V19a2.5 2.5 0 0 1 2-1.8h7z"/></svg><div><strong>Learning resources</strong>Libraries, online systems, labs, study spaces.</div></li>
+            <li><svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19h4v-5H4zM10 19h4v-9h-4zM16 19h4V5h-4z"/></svg><div><strong>Skills development</strong>Whether the course builds skills students can use.</div></li>
+            <li><svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4.5" width="17" height="11" rx="1.5"/><path d="M12 15.5V20M8.5 20h7M7.5 8.5h6M7.5 11.5h4"/></svg><div><strong>Teaching quality and engagement</strong>Whether teaching is clear, organised and engaging.</div></li>
+            <li><svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 14v-2a7 7 0 0 1 14 0v2"/><rect x="3" y="13" width="3.6" height="6" rx="1.4"/><rect x="17.4" y="13" width="3.6" height="6" rx="1.4"/></svg><div><strong>Student support and services</strong>Whether help is there when it's needed.</div></li>
+            <li><svg class="m-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8.5" r="2.8"/><circle cx="16.5" cy="10" r="2.2"/><path d="M3.8 19c0-2.9 2.3-4.8 5.2-4.8s5.2 1.9 5.2 4.8"/><path d="M15.2 14.4c2.6 0 5 1.5 5 4.6"/></svg><div><strong>Peer engagement</strong>How often students work and talk with each other.</div></li>
           </ul>
         </div>
+        <div class="fig-block">
         <figure>
           <h3>Resources and teaching score well. Meeting other students doesn't.</h3>
           <p class="chart-sub">National result on each measure, 2025</p>
           <div id="vis-dumbbell" class="vis"></div>
-          <p class="insight">Learning resources lead at 83%, peer engagement trails at 61% &mdash; a 22-point spread inside the same survey.</p>
-          <p class="caption">
-            Source: 2025 Student Experience Survey National Report, QILT. Peer engagement asks how
-            often students interact, not whether they are happy about it &mdash; a low score means
-            students aren't working together much.
-          </p>
         </figure>
+          <p class="insight">Learning resources lead at 83%, peer engagement trails at 61% &mdash; a 22-point spread inside the same survey.</p>
+        </div>
       </div>
     </section>
 
     <!-- 03 -->
-    <section class="feature">
+    <section>
       <div class="section-head">
         <span class="section-num">3</span>
         <h2>Does what you study matter?</h2>
@@ -126,65 +126,101 @@
             environmental studies at 86.6%, computing and information systems at 66.7%
           </span>
         </div>
-        <div>
-          <p>
-            This is where the national average falls apart. The grid below shows all 21 study
+        <div class="beside-stat">
+          <p class="section-lead">
+            This is where the national average starts to hide things. The grid below shows all 21 study
             areas against all six measures, as a difference from the national result. <span class="up">Green</span> sits above the
             national figure, <span class="down">purple</span> below.
           </p>
-          <p>
-            Switch between undergraduate and postgraduate coursework to watch the pattern
-            rearrange itself.
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>
+            <span>Switch between undergraduate and postgraduate coursework to watch the pattern
+            rearrange itself.</span>
           </p>
         </div>
       </div>
 
+      <div class="fig-block">
       <figure>
-        <h3>Every study area has a different pattern of strengths and weaknesses</h3>
+        <h3>Each study area has a different pattern of strengths</h3>
         <p class="chart-sub">Difference from the national result, in percentage points, 2025</p>
         <div id="vis-heatmap" class="vis"></div>
-          <p class="insight">Computing and IT sits below the national result on four of the six measures. Agriculture and environment sits above on five.</p>
-        <p class="caption">Source: 2025 Student Experience Survey National Report, QILT.</p>
       </figure>
-
-      <div class="split" style="margin-top:48px">
-        <div>
-          <p>
-            Those differences aren't the same at both levels. Medicine sits near the top for
-            <span class="ug">undergraduates</span> and near the bottom for <span class="pg">postgraduate coursework</span> students, a fall of
-            eleven points. Dentistry and veterinary science move the same way; business,
-            humanities and nursing move the other.
-          </p>
-        </div>
-        <figure>
-          <h3>Six study areas move sharply between levels</h3>
-          <p class="chart-sub">Overall educational experience, undergraduate to postgraduate coursework</p>
-          <div id="vis-slope" class="vis"></div>
-          <p class="insight">Medicine falls eleven points between levels; nursing climbs six. Health fields do not move together.</p>
-          <p class="caption">
-            Source: as above. Hover any line. Small postgraduate cohorts rest on fewer responses.
-          </p>
-        </figure>
+        <p class="insight key-insight">Computing and IT sits below the national result on four of the six measures; agriculture and environment sits above on five. Fields are not simply better or worse overall &mdash; they differ in <em>which</em> parts of the experience they do well. Whether geography produces differences on anything like this scale is the next question.</p>
       </div>
 
       <div class="split">
         <div>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover any line to identify a study area.</span>
+          </p>
+          <p>
+            Those differences aren't the same at both levels. Six study areas move far enough to
+            change where they sit among the 21. Three fall and three climb, and they are coloured
+            individually below.
+          </p>
+          <p>
+            Medicine is the clearest. It ranks fifth of 21 among
+            <span class="ug">undergraduates</span> and twentieth among
+            <span class="pg">postgraduate coursework</span> students &mdash; a fall of eleven
+            points. Veterinary science and rehabilitation drop about nine points each.
+          </p>
+          <p>
+            The climbs are smaller but they rearrange the top of the chart. Humanities and culture
+            goes from eleventh to first, nursing from fifteenth to third, business and management
+            from eighteenth to seventh, each gaining about six points.
+          </p>
+          <p>
+            The fifteen grey lines are every other field, and most of them barely move: eight shift
+            by less than three points. Whatever separates medicine's two levels is not a general
+            rule about studying at postgraduate level.
+          </p>
+        </div>
+        <div class="fig-block">
+        <figure>
+          <h3>Six study areas move in opposite directions between levels</h3>
+          <p class="chart-sub">Overall educational experience, undergraduate to postgraduate coursework</p>
+          <div id="vis-slope" class="vis"></div>
+        </figure>
+        </div>
+      </div>
+
+      <div class="split">
+        <div>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>
+            <span>Switch between undergraduate and postgraduate coursework, or pick any study
+            area from the dropdown to bring it forward.</span>
+          </p>
           <p>
             Study areas don't simply rate well or badly overall &mdash; each has a shape. Medicine
             undergraduates report the highest peer engagement in the country at 83.1% while rating
             support below average. Science and mathematics does the reverse.
           </p>
           <p>
-            What holds everywhere is the dip on the right.
+            The six fields coloured in the chart above keep their colours here, so you can follow
+            the same field through both. They do not have matching shapes:
+            <span class="sa-med">medicine</span> is strong on peer engagement and weak on support,
+            while <span class="sa-hum">humanities and culture</span> is the other way round.
+            Moving up or down between levels says nothing about which parts of the experience a
+            field does well.
+          </p>
+          <p>
+            What holds everywhere is the dip on the right. Every one of the 21 fields rates peer
+            engagement lowest or close to it, whichever level you switch to, and the national line
+            drops with them.
           </p>
         </div>
+        <div class="fig-block">
         <figure>
           <h3>Peer engagement is the weak point in almost every field</h3>
-          <p class="chart-sub">Each grey line is one study area across the five measures, 2025</p>
+          <p class="chart-sub">Each line is one study area across the five measures, 2025</p>
           <div id="vis-parallel" class="vis"></div>
-          <p class="insight">Almost every line drops at the right-hand end. Whatever a field does well, peer engagement is where it does worst.</p>
-          <p class="caption">Source: as above. The dashed grey line is the national result; use the dropdown to bring any study area forward.</p>
+          <p class="caption">The dashed grey line is the national result.</p>
         </figure>
+          <p class="insight">Almost every line drops at the right-hand end. Whatever a field does well, peer engagement is where it does worst.</p>
+        </div>
       </div>
     </section>
 
@@ -194,64 +230,118 @@
         <span class="section-num">4</span>
         <h2>Could geography explain it?</h2>
       </div>
-      <p>
-        If the experience varies this much by field of study, perhaps it varies by place too.
-        Students are certainly not spread evenly: New South Wales and Victoria hold about three in
-        five of Australia's 1.64 million students, and the concentration is sharper still inside
-        the cities.
-      </p>
-
-      <div class="duo">
+      <div class="split">
+        <div>
+          <p class="section-lead">
+            If the experience varies this much by field of study, perhaps it
+            varies by place too. Students are certainly not spread evenly.
+          </p>
+          <p class="section-lead">
+            New South Wales and Victoria together hold roughly three-fifths of
+            Australia's 1.64 million students, and that concentration sharpens
+            further inside the cities.
+          </p>
+          <p>
+            New South Wales enrols 545,124 students and Victoria 470,742. Queensland
+            is next at 249,000, then Western Australia at 162,000. Below that the
+            numbers fall away quickly: Tasmania enrols 32,000 and the Northern
+            Territory 13,000, each with a single university.
+          </p>
+          <p>
+            Circle area is proportional to the count, so Victoria's circle is about
+            fourteen times the size of the Northern Territory's rather than fourteen
+            times as wide. Hover any circle for the exact figure.
+          </p>
+          <p class="insight">New South Wales and Victoria hold about three in five
+            of Australia's 1.64 million students.</p>
+        </div>
+        <div class="fig-block">
         <figure>
           <h3>Where students are</h3>
-          <p class="chart-sub">Higher education enrolments by state and territory, 2024</p>
+          <p class="chart-sub">All higher education enrolments by state and territory, 2024</p>
           <div id="vis-symbols" class="vis"></div>
-          <p class="insight">New South Wales and Victoria hold about three in five of Australia's 1.64 million students.</p>
-          <p class="caption">
-            Source: Department of Education, Selected Higher Education Statistics 2024, Table 2.5;
-            ABS ASGS Edition 3 boundaries.
-          </p>
         </figure>
+        </div>
+      </div>
+
+      <div class="trio">
+        <p>
+          The 20 largest regions are shown here, and together they hold 91% of
+          every international student in Australia. The remaining fifty each hold
+          under 5,000, most of them under 2,000. Sydney's city and inner south
+          alone holds 107,697 &mdash; more than any state outside New South Wales
+          and Victoria.
+        </p>
+        <p>
+          The first map covers the whole country, and almost every triangle sits on
+          the south-east coast. The second zooms into that corner &mdash; New South
+          Wales, Victoria and the ACT &mdash; where two thirds of these students
+          are. Blue marks international students throughout. The state map above
+          is indigo instead, because it counts every student rather than only
+          international ones.
+        </p>
+      </div>
+
+      <div class="fig-block">
         <figure>
           <h3>Two inner-city regions outweigh most states</h3>
-          <p class="chart-sub">International higher education enrolments by SA4 region, to December 2025</p>
+          <p class="chart-sub">International students only, by SA4 region, to December 2025</p>
           <div id="vis-spikes" class="vis"></div>
-          <p class="insight">Sydney's city and inner south alone holds 107,697 international students &mdash; more than any state outside New South Wales and Victoria.</p>
           <p class="caption">
-            Source: Department of Education, International Student Enrolments by SA4 Location
-            (PRISMS); ABS ASGS Edition 3 SA4 boundaries. Counts below five are suppressed at source.
+            Triangle height is proportional to the number of students. The panels
+            use different symbol scales, because the zoom shows roughly three times
+            more detail, so each carries its own key. Counts below five are
+            suppressed at source.
           </p>
         </figure>
       </div>
 
-      <div class="split" style="margin-top:48px">
+      <div class="split">
         <div>
-          <p>
-            But the experience itself barely moves. Averaging each state's universities, weighted
-            by responses, undergraduate ratings run from 73.6% in the ACT to 78.9% in Tasmania.
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>
+            <span>Switch between undergraduate and postgraduate coursework, or
+            pick another measure from the dropdown. Peer engagement is the one
+            that breaks the pattern.</span>
           </p>
           <p>
-            That is five points across the country, against twenty across study areas. And two of
-            those figures are a single university each: Tasmania and the Northern Territory have
-            one university apiece.
+            But the experience itself barely moves. On overall educational
+            experience, undergraduate ratings run from 73.6% in the Australian
+            Capital Territory to 78.9% in Tasmania.
           </p>
+          <p>
+            That is five points across the country, against twenty across study
+            areas. Five of the six measures behave this way, and the map stays
+            nearly colourless in each.
+          </p>
+          <p>
+            Peer engagement is the exception. Choose it and two jurisdictions
+            fall out of the pack: the Northern Territory at 35.8% and Tasmania
+            at 43.6%, against 61.4% nationally. Both rest on one university
+            each, so both swing between levels.
+          </p>
+          <p class="insight key-insight">Geography barely shifts five of the six
+            measures. The sixth separates the states by 28 points.</p>
         </div>
+        <div class="fig-block">
         <figure>
-          <h3>The experience barely changes from state to state</h3>
+          <h3>For most measures, the state hardly matters</h3>
           <p class="chart-sub">Students rating the selected measure positively, 2025</p>
           <div id="vis-choropleth" class="vis"></div>
-          <p class="insight">On the same scale as the grid above, the states are almost colourless. Place barely shifts the number.</p>
           <p class="caption">
-            Source: 2025 Student Experience Survey National Report, QILT, institution results
-            grouped by the Department of Education's state classification and weighted by each
-            university's responses. Australian Catholic University is classified Multi-State and is
-            not included. Universities are not identified individually.
+            Colour uses the same diverging scale as the study-area grid in
+            section 3, and means the same thing here: purple below the national
+            result, green above it. Results are grouped by the Department of
+            Education's state classification and weighted by each university's
+            responses. Australian Catholic University is classified Multi-State
+            and is not included. Universities are not identified individually.
           </p>
         </figure>
+        </div>
       </div>
 
       <div class="takeaway">
-        <p>Geography tells you where students are. It tells you little about how their experience differs.</p>
+        <p>Geography tells you where students are. With one exception it tells you little about how their experience differs &mdash; and that exception is about who is in the room, not where the room is.</p>
       </div>
     </section>
 
@@ -261,156 +351,192 @@
         <span class="section-num">5</span>
         <h2>Who is in the room, and how do they attend?</h2>
       </div>
-      <p>
-        If place doesn't explain the differences, the people might. Undergraduate and postgraduate
-        coursework cohorts aren't the same students at different stages &mdash; they are
-        substantially different populations.
-      </p>
-
-      <figure>
-        <h3>One in five undergraduates is international. Among postgraduates, it's nearly three in five.</h3>
+      <div class="split">
+        <div>
+          <p class="section-lead">
+            If place doesn't explain the differences, the people might.
+            Undergraduate and postgraduate coursework cohorts aren't the same
+            students at different stages &mdash; they are substantially
+            different populations.
+          </p>
+          <p>
+            The two levels are not one pipeline. Domestic respondents fall from
+            170,244 at undergraduate to 52,319 at postgraduate coursework, a
+            drop of roughly seven in ten.
+          </p>
+          <p>
+            International respondents travel the opposite way, climbing from
+            46,383 to 70,625. Postgraduate coursework therefore holds more
+            international students than undergraduate does, from a cohort little
+            more than half the size.
+          </p>
+          <p class="insight">Postgraduate coursework is the one cohort on this
+            page where domestic students are in the minority.</p>
+        </div>
+        <div class="fig-block">
+        <figure>
+          <h3>The international share nearly triples between the two levels</h3>
         <p class="chart-sub">Each square is one in a hundred survey respondents, 2025</p>
         <div id="vis-waffle" class="vis"></div>
-          <p class="insight">21% of undergraduate respondents were international, against 57% of postgraduate coursework respondents.</p>
-        <p class="caption">
-          Source: 2025 Student Experience Survey National Report, QILT. Shares are of survey
-          respondents, which is not the same as the enrolled population.
-        </p>
-      </figure>
+          <p class="caption">Shares are of survey respondents, which is not the same as the enrolled population.</p>
+        </figure>
+        </div>
+      </div>
 
       <div class="split">
         <div>
           <p>
-            That cohort comes overwhelmingly from a handful of countries: five of them account for
-            more than half of all overseas students in Australian higher education.
+            That cohort comes overwhelmingly from a handful of countries. Five
+            of them account for 61.7% of all overseas students in Australian
+            higher education.
           </p>
           <p>
-            Composition lines up loosely with section 3. The study areas where postgraduates gain
-            most on undergraduates &mdash; computing, business, engineering &mdash; are also the
-            most heavily international. The link is far from exact: nursing has one of the smallest
-            international cohorts and one of the largest gains.
+            China is the largest single source at 166,525. But South Asia
+            outweighs it as a region: India, Nepal, Sri Lanka, Bangladesh,
+            Pakistan and Bhutan together send 195,444.
           </p>
+          <p>
+            Composition lines up loosely with section 3. The study areas where
+            postgraduates gain most on undergraduates &mdash; computing,
+            business, engineering &mdash; are also the most heavily
+            international. The link is far from exact: nursing has one of the
+            smallest international cohorts and one of the largest gains.
+          </p>
+          <p class="insight">Nearly every route on this map begins in Asia.
+            Outside it, no country sends more than 8,200 students.</p>
         </div>
+        <div class="fig-block">
         <figure>
           <h3>Where the international cohort comes from</h3>
           <p class="chart-sub">Top 15 countries of permanent home residence, 2024</p>
           <div id="vis-flows" class="vis"></div>
-          <p class="insight">Five countries account for more than half of all overseas students. China alone sends 166,525.</p>
-          <p class="caption">
-            Source: Department of Education, Selected Higher Education Statistics 2024, Table 7.4;
-            outlines from Natural Earth 1:110m (public domain). Lines show origin and destination,
-            not travel routes.
-          </p>
+          <p class="caption">Line thickness is proportional to the number of students, so a route twice as thick carries twice as many. Curves separate the routes so they can be told apart; they show origin and destination, not travel paths.</p>
         </figure>
+        </div>
       </div>
 
       <div class="split">
         <div>
-          <p>
-            How students attend matters too. Students who attended every class on campus rated
-            teaching quality 82.3% positively; those entirely online, 75.1%.
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>
+            <span>Pick another measure from the dropdown. On-campus leads on
+            all six, but peer engagement opens a gap the others never
+            approach.</span>
           </p>
           <p>
-            This is an association rather than a cause. Online and on-campus cohorts differ in what
-            they study, how old they are, and what else they are doing with their time.
+            How students attend matters too. Students who attended every class
+            on campus rated teaching quality 82.3% positively; those entirely
+            online, 75.1%.
           </p>
+          <p>
+            This is an association rather than a cause. Online and on-campus
+            cohorts differ in subject mix, in age, and in whatever else
+            occupies their time.
+          </p>
+          <p class="insight">Fully online postgraduates rate peer engagement at
+            35.4%, against 79.6% on campus. That 44-point gap is the widest
+            anywhere on this page.</p>
         </div>
+        <div class="fig-block">
         <figure>
           <h3>Ratings run higher among students who attended on campus</h3>
-          <p class="chart-sub">Rating by how classes were attended, 2025</p>
+          <p class="chart-sub">Ratings by how classes were attended, 2025</p>
           <div id="vis-attendance" class="vis"></div>
-          <p class="insight">Seven points separate students who attended every class on campus from those who attended entirely online.</p>
-          <p class="caption">Source: 2025 Student Experience Survey National Report, QILT.</p>
         </figure>
+        </div>
       </div>
     </section>
 
     <!-- 06 -->
-    <section class="feature">
+    <section>
       <div class="section-head">
         <span class="section-num">6</span>
         <h2>Which differences are actually biggest?</h2>
       </div>
-      <p>
+      <p class="section-lead">
         Put the three lenses on one axis. The thick bar covers the middle 80% of each set of
         groups; the thin line covers the full range.
       </p>
 
+      <div class="fig-block">
       <figure>
-        <h3>Study areas differ most. States and territories differ least.</h3>
+        <h3>Study areas differ most, states and territories least</h3>
         <p class="chart-sub">Overall educational experience, 2025</p>
         <div id="vis-spread" class="vis"></div>
-          <p class="insight">Through the middle 80%, study areas span 11 points, universities 9, states and territories 4.</p>
-        <p class="caption">
-          Source: 2025 Student Experience Survey National Report, QILT. Compares 21 study areas,
-          41 universities and 8 states and territories. Universities appear as unnamed ticks: this
-          chart is about how much the figure moves, not about ranking institutions. Australian
-          Catholic University (Multi-State) and Australian University of Theology are excluded. The
-          three lenses contain different numbers of groups, which affects how wide a range each can
-          show.
-        </p>
+        <p class="caption">Compares 21 study areas, 41 universities and 8 states and territories. Universities appear as unnamed ticks: this chart is about how much the figure moves, not about ranking institutions. Australian Catholic University (Multi-State) and Australian University of Theology are excluded. The three lenses contain different numbers of groups, which affects how wide a range each can show.</p>
       </figure>
-
-      <div class="closing">
-        <p>
-          It isn't just where you study. The experience varies with what you study, how you attend,
-          and who studies alongside you.
-        </p>
+        <p class="insight key-insight">Through the middle 80%, study areas span 11 points, universities 9, and states and territories 4. Against the full 0&ndash;100 scale all three are narrow, but the lens you choose still changes the size of the difference you find, and field of study is the widest of the three. None of this establishes cause &mdash; these are students' own ratings, compared across groups.</p>
       </div>
 
-      <ol class="findings">
-        <li>
-          <span class="key">The two levels have swapped places.</span> Both fell about ten points in
-          2020. <span class="pg">Postgraduate coursework</span> ratings recovered and kept climbing to
-          77.8% in 2025; <span class="ug">undergraduate</span> ratings have sat at 76.5% for three
-          years.
-        </li>
-        <li>
-          <span class="key">Field of study is where the experience varies most.</span> About 20 points
-          separate the highest and lowest study area at both levels, and the fields do not move
-          together between levels &mdash; medicine falls eleven points, nursing climbs six.
-        </li>
-        <li>
-          <span class="key">Geography explains the least.</span> No state or territory sits more than
-          five points from the national result, against roughly 20 points across study areas. Students
-          are concentrated in two states; their reported experience is not.
-        </li>
-      </ol>
-
-      <p class="limits">
-        <span class="key">What this cannot show.</span> These are students' own ratings of their own
-        courses, collected at one point in time. A field that rates low may be demanding rather than
-        badly taught, and the survey cannot say whether attending on campus <em>causes</em> a better
-        experience or whether the students who attend on campus differ in other ways. Every
-        comparison here is an association, not a cause.
-      </p>
     </section>
 
-    <footer>
-      <p>Created by [your name] &middot; October 2026 &middot; Built with Vega-Lite</p>
-      <p>
-        <strong>Data sources.</strong>
-        QILT, 2025 Student Experience Survey National Report Tables
-        (<a href="https://www.qilt.edu.au/surveys/student-experience-survey-(ses)">qilt.edu.au</a>);
-        Australian Government Department of Education, Selected Higher Education Statistics 2024
-        Student Data
-        (<a href="https://www.education.gov.au/higher-education-statistics">education.gov.au</a>);
-        Department of Education, International Student Enrolments and Commencements by SA4
-        Location, to December 2025; Australian Bureau of Statistics, ASGS Edition 3 digital
-        boundary files
-        (<a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>);
-        Natural Earth 1:110m Admin 0 Countries, public domain
-        (<a href="https://www.naturalearthdata.com/downloads/">naturalearthdata.com</a>).
-        Extraction scripts are in <code>scripts/</code> in this repository.
-      </p>
-      <p>
-        <strong>Use of AI.</strong> [Describe your own use here.]
-      </p>
-    </footer>
 
   </div>
 
-  <script src="js/main.js"></script>
+  <div class="outro">
+    <div class="outro-inner">
+
+    <div class="conclusion">
+    <div class="closing">
+      <p>
+        It isn't just where you study. The experience varies with what you study, how you attend,
+        and who studies alongside you.
+      </p>
+    </div>
+
+    <ol class="findings">
+      <li>
+        <span class="key">The two levels have changed order, narrowly.</span> Both fell about ten points
+        in 2020. <span class="pg">Postgraduate coursework</span> ratings recovered and kept climbing to
+        77.8% in 2025; <span class="ug">undergraduate</span> ratings have sat at 76.5% for three
+        years &mdash; a gap of 1.3 points.
+      </li>
+      <li>
+        <span class="key">Field of study is where the experience varies most.</span> About 20 points
+        separate the highest and lowest study area at both levels, and the fields do not move
+        together between levels &mdash; medicine falls eleven points, nursing climbs six.
+      </li>
+      <li>
+        <span class="key">Geography explains the least.</span> No state or territory sits more than
+        five points from the national result, against roughly 20 points across study areas. Students
+        are concentrated in two states; their reported experience is not.
+      </li>
+    </ol>
+
+    <p class="limits">
+      <span class="key">What this cannot show.</span> These are students' own ratings of their own
+      courses, collected at one point in time. A field that rates low may be demanding rather than
+      badly taught, and the survey cannot say whether attending on campus <em>causes</em> a better
+      experience or whether the students who attend on campus differ in other ways. Every
+      comparison here is an association, not a cause.
+    </p>
+    </div>
+
+  <footer>
+    <p>Created by Emilia Kim Yoon Lee &middot; October 2026 &middot; Built with Vega-Lite</p>
+    <p>
+      <strong>Data sources.</strong>
+      QILT, 2025 Student Experience Survey National Report Tables
+      (<a href="https://www.qilt.edu.au/surveys/student-experience-survey-(ses)">qilt.edu.au</a>);
+      Australian Government Department of Education, Selected Higher Education Statistics 2024
+      Student Data
+      (<a href="https://www.education.gov.au/higher-education-statistics">education.gov.au</a>);
+      Department of Education, International Student Enrolments and Commencements by SA4
+      Location, to December 2025; Australian Bureau of Statistics, ASGS Edition 3 digital
+      boundary files
+      (<a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>);
+      Natural Earth 1:110m Admin 0 Countries, public domain
+      (<a href="https://www.naturalearthdata.com/downloads/">naturalearthdata.com</a>).
+    </p>
+    <p>
+      <strong>Use of AI.</strong> [Describe your own use here.]
+    </p>
+  </footer>
+    </div>
+  </div>
+
+
+  <script src="js/main.js?v=2026-10-21a"></script>
 </body>
 
 </html>
