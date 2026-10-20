@@ -162,7 +162,10 @@
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "data/state_label_points.csv"
+              "url": "data/state_label_points.csv",
+              "format": {
+                "type": "csv"
+              }
             },
             "key": "state_name",
             "fields": [
@@ -200,7 +203,10 @@
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "data/state_label_points.csv"
+              "url": "data/state_label_points.csv",
+              "format": {
+                "type": "csv"
+              }
             },
             "key": "state_name",
             "fields": [
@@ -241,7 +247,10 @@
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "data/state_label_points.csv"
+              "url": "data/state_label_points.csv",
+              "format": {
+                "type": "csv"
+              }
             },
             "key": "state_name",
             "fields": [

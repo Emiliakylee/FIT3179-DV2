@@ -49,7 +49,10 @@
   "layer": [
     {
       "data": {
-        "url": "data/spread_summary.csv"
+        "url": "data/spread_summary.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -73,7 +76,10 @@
     },
     {
       "data": {
-        "url": "data/spread_summary.csv"
+        "url": "data/spread_summary.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -129,7 +135,10 @@
     },
     {
       "data": {
-        "url": "data/ses_spread_2025.csv"
+        "url": "data/ses_spread_2025.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
@@ -165,7 +174,10 @@
     },
     {
       "data": {
-        "url": "data/spread_summary.csv"
+        "url": "data/spread_summary.csv",
+        "format": {
+          "type": "csv"
+        }
       },
       "transform": [
         {
