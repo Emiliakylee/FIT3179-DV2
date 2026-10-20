@@ -21,19 +21,30 @@ LEVELS = {"UG": "Undergraduate", "PGC": "Postgraduate"}
 
 # Short labels for axes; the full name still goes in tooltips.
 SHORT = {
-    "Overall Educational Experience": "Overall",
-    "Teaching Quality and Engagement": "Teaching",
-    "Skills Development": "Skills",
-    "Learning Resources": "Resources",
-    "Student Support and Services": "Support",
-    "Peer Engagement": "Peer",
+    "Overall Educational Experience": "Overall experience",
+    "Teaching Quality and Engagement": "Teaching quality",
+    "Skills Development": "Skills development",
+    "Learning Resources": "Learning resources",
+    "Student Support and Services": "Student support",
+    "Peer Engagement": "Peer engagement",
 }
 
 # Only the one name too long for the axis; tooltips keep the full name.
 AREA_SHORT = {
     "Tourism, hospitality, personal services, sport and recreation":
-        "Tourism, hospitality and sport",
+        "Tourism and hospitality",
+    "Humanities, culture and social sciences": "Humanities and culture",
+    "Agriculture and environmental studies": "Agriculture and environment",
+    "Architecture and built environment": "Architecture and building",
+    "Computing and information systems": "Computing and IT",
+    "Health services and support": "Health services",
+    "Law and paralegal studies": "Law and paralegal",
 }
+
+
+def tidy_label(text):
+    """Collapse non-breaking spaces and stray whitespace in a source label."""
+    return " ".join(str(text).replace("\xa0", " ").split())
 
 
 def clean_measure(text):
@@ -58,7 +69,7 @@ def grid(ws):
         label = row[1]
         if label is None or str(label).strip() == "":
             break
-        out.append((str(label).strip(), str(row[0] or "").strip(),
+        out.append((tidy_label(label), str(row[0] or "").strip(),
                     [num(c) for c in row[2:8]]))
     return measures, out
 
@@ -74,10 +85,13 @@ for key, level in LEVELS.items():
         for measure, value in zip(measures, values):
             if value is not None:
                 trend.append({"year": year, "level": level,
-                              "measure": measure, "value": value})
+                              "measure": measure,
+                              "measure_short": SHORT.get(measure, measure),
+                              "value": value})
 
 with open(OUT / "ses_trend_2017_2025.csv", "w", newline="") as f:
-    w = csv.DictWriter(f, fieldnames=["year", "level", "measure", "value"])
+    w = csv.DictWriter(f, fieldnames=["year", "level", "measure",
+                                      "measure_short", "value"])
     w.writeheader()
     w.writerows(trend)
 

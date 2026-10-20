@@ -53,6 +53,8 @@
       "type": "csv",
       "parse": {
         "value": "number",
+        "gap": "number",
+        "national": "number",
         "responses": "number",
         "universities": "number"
       }
@@ -94,20 +96,23 @@
       },
       "encoding": {
         "color": {
-          "field": "value",
+          "field": "gap",
           "type": "quantitative",
-          "title": "% rating positively",
+          "title": "Points vs national",
           "scale": {
-            "scheme": "tealblues",
+            "scheme": "purplegreen",
+            "domainMid": 0,
             "domain": [
-              70,
-              84
-            ]
+              -12,
+              12
+            ],
+            "clamp": true
           },
           "legend": {
             "orient": "bottom-left",
             "gradientLength": 150,
-            "format": ".0f"
+            "format": "+d",
+            "title": "Points vs national"
           }
         },
         "tooltip": [
@@ -123,15 +128,21 @@
             "format": ".1f"
           },
           {
+            "field": "national",
+            "type": "quantitative",
+            "title": "National",
+            "format": ".1f"
+          },
+          {
+            "field": "gap",
+            "type": "quantitative",
+            "title": "Difference",
+            "format": "+.1f"
+          },
+          {
             "field": "universities",
             "type": "quantitative",
             "title": "Universities"
-          },
-          {
-            "field": "responses",
-            "type": "quantitative",
-            "title": "Responses",
-            "format": ","
           }
         ]
       }
@@ -218,20 +229,21 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
-      "titlePadding": 8
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   },

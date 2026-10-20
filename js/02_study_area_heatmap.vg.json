@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 560,
+  "height": 580,
   "data": {
     "url": "data/ses_study_area_2025.csv",
     "format": {
@@ -41,34 +41,37 @@
     "x": {
       "field": "measure_short",
       "type": "nominal",
-      "title": null,
+      "title": "Focus area measured by the survey",
       "sort": [
-        "Overall",
-        "Teaching",
-        "Skills",
-        "Resources",
-        "Support",
-        "Peer"
+        "Overall experience",
+        "Teaching quality",
+        "Skills development",
+        "Learning resources",
+        "Student support",
+        "Peer engagement"
       ],
       "axis": {
         "orient": "top",
         "labelAngle": 0,
         "labelFontSize": 12,
-        "labelPadding": 8
+        "labelPadding": 8,
+        "titleFontSize": 12,
+        "titlePadding": 12
       }
     },
     "y": {
       "field": "study_area_short",
       "type": "nominal",
-      "title": null,
+      "title": "Study area",
       "sort": {
         "field": "overall",
         "op": "max",
         "order": "descending"
       },
       "axis": {
-        "labelLimit": 250,
-        "labelFontSize": 11
+        "labelLimit": 280,
+        "labelFontSize": 12,
+        "titleFontSize": 12
       }
     }
   },
@@ -83,26 +86,23 @@
         "color": {
           "field": "gap",
           "type": "quantitative",
-          "title": "Points vs national average",
+          "title": "Points vs national result",
           "scale": {
-            "range": [
-              "#D97745",
-              "#F4EFE9",
-              "#147D7E"
-            ],
+            "scheme": "purplegreen",
+            "domainMid": 0,
             "domain": [
-              -20,
-              0,
-              20
+              -12,
+              12
             ],
-            "type": "linear",
             "clamp": true
           },
           "legend": {
             "orient": "top",
             "direction": "horizontal",
-            "gradientLength": 160,
-            "title": "Points vs national average"
+            "gradientLength": 220,
+            "titleLimit": 320,
+            "format": "+d",
+            "title": "Points vs national result"
           }
         },
         "tooltip": [
@@ -136,26 +136,6 @@
           }
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 10
-      },
-      "encoding": {
-        "text": {
-          "field": "value",
-          "type": "quantitative",
-          "format": ".0f"
-        },
-        "color": {
-          "condition": {
-            "test": "abs(datum.gap) > 11",
-            "value": "white"
-          },
-          "value": "#3a3a3a"
-        }
-      }
     }
   ],
   "config": {
@@ -165,19 +145,20 @@
     "axis": {
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
+      "labelFontSize": 12,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
       "gridColor": "#ECEFEF",
-      "titleFontSize": 11,
-      "titlePadding": 8
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   }

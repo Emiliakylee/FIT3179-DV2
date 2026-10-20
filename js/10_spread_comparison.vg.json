@@ -58,7 +58,7 @@
       ],
       "mark": {
         "type": "rule",
-        "color": "#C9D2D2",
+        "color": "#C2CBCB",
         "strokeWidth": 1.5
       },
       "encoding": {
@@ -84,7 +84,7 @@
         "type": "bar",
         "height": 16,
         "cornerRadius": 3,
-        "color": "#147D7E",
+        "color": "#173F5F",
         "opacity": 0.9
       },
       "encoding": {
@@ -140,7 +140,7 @@
         "type": "tick",
         "thickness": 1.5,
         "height": 26,
-        "color": "#173F5F",
+        "color": "#5B6F71",
         "opacity": 0.45
       },
       "encoding": {
@@ -201,18 +201,19 @@
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
-      "titlePadding": 8
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   }

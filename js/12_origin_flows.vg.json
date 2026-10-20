@@ -41,7 +41,7 @@
       },
       "mark": {
         "type": "rule",
-        "color": "#D97745",
+        "color": "#3D6E9E",
         "opacity": 0.55
       },
       "encoding": {
@@ -104,7 +104,7 @@
       },
       "mark": {
         "type": "circle",
-        "color": "#A65A2E",
+        "color": "#3D6E9E",
         "size": 28,
         "opacity": 0.9
       },
@@ -139,7 +139,7 @@
       "mark": {
         "type": "text",
         "fontSize": 11,
-        "color": "#A65A2E",
+        "color": "#173F5F",
         "dy": -10,
         "fontWeight": "bold"
       },
@@ -165,20 +165,21 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
-      "titlePadding": 8
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   }

@@ -147,18 +147,19 @@
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
-      "titlePadding": 8
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "font": "Inter, system-ui, sans-serif",
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   }

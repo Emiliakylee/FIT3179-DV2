@@ -8,8 +8,8 @@
   --orange: #D97745;
   --navy: #173F5F;
   --ink: #23282c;
-  --muted: #6f767b;
-  --grey: #A7A7A2;
+  --muted: #4e565e;
+  --grey: #5f676e;
   --rule: #e6e8e8;
   --wash: #f7f8f8;
   --paper: #ffffff;
@@ -51,7 +51,7 @@ h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
 
 h3 {
   font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.08rem;
   font-weight: 600;
   color: var(--ink);
   margin: 0 0 2px;
@@ -84,8 +84,8 @@ p { margin: 0 0 18px; max-width: 64ch; }
 .thesis strong { color: var(--ink); font-weight: 500; }
 
 .byline {
-  font-size: 0.8rem;
-  color: var(--grey);
+  font-size: 0.88rem;
+  color: var(--muted);
   margin-top: 36px;
   padding-top: 18px;
   border-top: 1px solid var(--rule);
@@ -155,17 +155,17 @@ figure { margin: 0 0 8px; }
 .vis .vega-embed summary { display: none; }
 
 .chart-sub {
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   max-width: 70ch;
 }
 
 .caption {
-  font-size: 0.76rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: var(--grey);
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   max-width: 78ch;
 }
 
@@ -173,7 +173,7 @@ figure { margin: 0 0 8px; }
 .vis .vega-bindings {
   display: block;
   margin: 12px 0 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
@@ -258,8 +258,8 @@ footer {
   border-top: 1px solid var(--rule);
   margin-top: 72px;
   padding-top: 26px;
-  font-size: 0.78rem;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  line-height: 1.65;
   color: var(--grey);
 }
 
@@ -277,4 +277,130 @@ footer strong { color: var(--muted); }
   .page { padding: 0 20px 60px; }
   .band { padding: 56px 0 36px; }
   body { font-size: 16px; }
+}
+
+
+/* ---------- colour as meaning, carried into the prose ---------- */
+
+/* These match the charts exactly, so a reader who learns the colour
+   once can follow it through the text and the diagrams alike. */
+.ug  { color: var(--teal);   font-weight: 600; }
+.pg  { color: var(--orange); font-weight: 600; }
+.up   { color: #2E6B32; font-weight: 600; }
+.down { color: #6E3E8E; font-weight: 600; }
+
+.key { font-weight: 600; color: var(--ink); }
+
+/* Figure-ground: the two sections that carry the argument sit on a
+   tinted band, so they read as foreground against the rest. */
+section.feature {
+  background: #F8FAF9;
+  margin-left: -32px;
+  margin-right: -32px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: baseline;
+}
+
+.legend-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+@media (max-width: 900px) {
+  section.feature { margin-left: -20px; margin-right: -20px;
+                    padding-left: 20px; padding-right: 20px; }
+}
+
+
+/* ---------- hero statistics ---------- */
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  margin: 44px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.hero-stat .num {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 600;
+  color: var(--teal);
+  line-height: 1;
+  display: block;
+}
+
+.hero-stat .num.alt { color: var(--orange); }
+.hero-stat .num.neutral { color: var(--navy); }
+
+.hero-stat p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+  max-width: 30ch;
+}
+
+/* ---------- one-line reading of each chart ---------- */
+
+.insight {
+  border-left: 3px solid var(--teal);
+  padding: 2px 0 2px 16px;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  color: var(--ink);
+  max-width: 62ch;
+}
+
+/* ---------- closing findings ---------- */
+
+.findings { counter-reset: finding; margin: 0 0 32px; padding: 0; list-style: none; }
+
+.findings li {
+  counter-increment: finding;
+  position: relative;
+  padding: 0 0 0 48px;
+  margin-bottom: 24px;
+  max-width: 64ch;
+  font-size: 1.05rem;
+}
+
+.findings li::before {
+  content: counter(finding);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.limits {
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+@media (max-width: 900px) {
+  .hero-stats { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }

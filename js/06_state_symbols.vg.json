@@ -53,7 +53,7 @@
       ],
       "mark": {
         "type": "circle",
-        "color": "#147D7E",
+        "color": "#3D6E9E",
         "opacity": 0.75,
         "stroke": "white",
         "strokeWidth": 1
@@ -162,20 +162,21 @@
     },
     "font": "Inter, system-ui, sans-serif",
     "axis": {
-      "labelColor": "#6b6b6b",
-      "titleColor": "#6b6b6b",
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
       "gridColor": "#ECEFEF",
       "domain": false,
       "ticks": false,
-      "labelFontSize": 11,
-      "titleFontSize": 11,
-      "titlePadding": 8
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFontWeight": 600
     },
     "legend": {
-      "labelColor": "#4a4a4a",
-      "titleColor": "#6b6b6b",
-      "labelFontSize": 11,
-      "titleFontSize": 11,
+      "labelColor": "#3f4650",
+      "titleColor": "#3f4650",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
       "symbolStrokeWidth": 0
     }
   },

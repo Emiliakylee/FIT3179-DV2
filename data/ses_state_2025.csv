@@ -1,97 +1,97 @@
-state,state_name,level,measure,value,universities,responses
-ACT,Australian Capital Territory,Postgraduate,Learning Resources,82.9,2,16083
-ACT,Australian Capital Territory,Postgraduate,Overall Educational Experience,73.0,2,16083
-ACT,Australian Capital Territory,Postgraduate,Peer Engagement,58.5,2,16083
-ACT,Australian Capital Territory,Postgraduate,Skills Development,80.9,2,16083
-ACT,Australian Capital Territory,Postgraduate,Student Support and Services,72.5,2,16083
-ACT,Australian Capital Territory,Postgraduate,Teaching Quality and Engagement,80.3,2,16083
-ACT,Australian Capital Territory,Undergraduate,Learning Resources,80.2,2,16083
-ACT,Australian Capital Territory,Undergraduate,Overall Educational Experience,73.6,2,16083
-ACT,Australian Capital Territory,Undergraduate,Peer Engagement,64.2,2,16083
-ACT,Australian Capital Territory,Undergraduate,Skills Development,80.2,2,16083
-ACT,Australian Capital Territory,Undergraduate,Student Support and Services,62.8,2,16083
-ACT,Australian Capital Territory,Undergraduate,Teaching Quality and Engagement,80.6,2,16083
-NSW,New South Wales,Postgraduate,Learning Resources,87.3,11,197432
-NSW,New South Wales,Postgraduate,Overall Educational Experience,76.9,11,197432
-NSW,New South Wales,Postgraduate,Peer Engagement,58.3,11,197432
-NSW,New South Wales,Postgraduate,Skills Development,82.8,11,197432
-NSW,New South Wales,Postgraduate,Student Support and Services,75.5,11,197432
-NSW,New South Wales,Postgraduate,Teaching Quality and Engagement,83.3,11,197432
-NSW,New South Wales,Undergraduate,Learning Resources,84.1,11,197432
-NSW,New South Wales,Undergraduate,Overall Educational Experience,75.1,11,197432
-NSW,New South Wales,Undergraduate,Peer Engagement,61.8,11,197432
-NSW,New South Wales,Undergraduate,Skills Development,80.1,11,197432
-NSW,New South Wales,Undergraduate,Student Support and Services,69.0,11,197432
-NSW,New South Wales,Undergraduate,Teaching Quality and Engagement,79.3,11,197432
-NT,Northern Territory,Postgraduate,Learning Resources,86.2,1,5497
-NT,Northern Territory,Postgraduate,Overall Educational Experience,79.1,1,5497
-NT,Northern Territory,Postgraduate,Peer Engagement,65.0,1,5497
-NT,Northern Territory,Postgraduate,Skills Development,86.5,1,5497
-NT,Northern Territory,Postgraduate,Student Support and Services,83.9,1,5497
-NT,Northern Territory,Postgraduate,Teaching Quality and Engagement,85.0,1,5497
-NT,Northern Territory,Undergraduate,Learning Resources,83.2,1,5497
-NT,Northern Territory,Undergraduate,Overall Educational Experience,74.1,1,5497
-NT,Northern Territory,Undergraduate,Peer Engagement,35.8,1,5497
-NT,Northern Territory,Undergraduate,Skills Development,79.1,1,5497
-NT,Northern Territory,Undergraduate,Student Support and Services,74.5,1,5497
-NT,Northern Territory,Undergraduate,Teaching Quality and Engagement,77.1,1,5497
-QLD,Queensland,Postgraduate,Learning Resources,87.0,8,102521
-QLD,Queensland,Postgraduate,Overall Educational Experience,78.7,8,102521
-QLD,Queensland,Postgraduate,Peer Engagement,55.9,8,102521
-QLD,Queensland,Postgraduate,Skills Development,83.3,8,102521
-QLD,Queensland,Postgraduate,Student Support and Services,78.7,8,102521
-QLD,Queensland,Postgraduate,Teaching Quality and Engagement,84.1,8,102521
-QLD,Queensland,Undergraduate,Learning Resources,84.5,8,102521
-QLD,Queensland,Undergraduate,Overall Educational Experience,76.9,8,102521
-QLD,Queensland,Undergraduate,Peer Engagement,55.4,8,102521
-QLD,Queensland,Undergraduate,Skills Development,80.2,8,102521
-QLD,Queensland,Undergraduate,Student Support and Services,71.2,8,102521
-QLD,Queensland,Undergraduate,Teaching Quality and Engagement,79.3,8,102521
-SA,South Australia,Postgraduate,Learning Resources,86.1,4,47557
-SA,South Australia,Postgraduate,Overall Educational Experience,76.2,4,47557
-SA,South Australia,Postgraduate,Peer Engagement,64.9,4,47557
-SA,South Australia,Postgraduate,Skills Development,84.9,4,47557
-SA,South Australia,Postgraduate,Student Support and Services,79.5,4,47557
-SA,South Australia,Postgraduate,Teaching Quality and Engagement,84.0,4,47557
-SA,South Australia,Undergraduate,Learning Resources,82.1,4,47557
-SA,South Australia,Undergraduate,Overall Educational Experience,78.0,4,47557
-SA,South Australia,Undergraduate,Peer Engagement,57.0,4,47557
-SA,South Australia,Undergraduate,Skills Development,81.9,4,47557
-SA,South Australia,Undergraduate,Student Support and Services,73.9,4,47557
-SA,South Australia,Undergraduate,Teaching Quality and Engagement,81.6,4,47557
-TAS,Tasmania,Postgraduate,Learning Resources,83.0,1,14946
-TAS,Tasmania,Postgraduate,Overall Educational Experience,81.3,1,14946
-TAS,Tasmania,Postgraduate,Peer Engagement,35.6,1,14946
-TAS,Tasmania,Postgraduate,Skills Development,81.9,1,14946
-TAS,Tasmania,Postgraduate,Student Support and Services,78.0,1,14946
-TAS,Tasmania,Postgraduate,Teaching Quality and Engagement,84.3,1,14946
-TAS,Tasmania,Undergraduate,Learning Resources,77.7,1,14946
-TAS,Tasmania,Undergraduate,Overall Educational Experience,78.9,1,14946
-TAS,Tasmania,Undergraduate,Peer Engagement,43.6,1,14946
-TAS,Tasmania,Undergraduate,Skills Development,80.3,1,14946
-TAS,Tasmania,Undergraduate,Student Support and Services,69.0,1,14946
-TAS,Tasmania,Undergraduate,Teaching Quality and Engagement,83.3,1,14946
-VIC,Victoria,Postgraduate,Learning Resources,86.9,9,182948
-VIC,Victoria,Postgraduate,Overall Educational Experience,77.5,9,182948
-VIC,Victoria,Postgraduate,Peer Engagement,62.3,9,182948
-VIC,Victoria,Postgraduate,Skills Development,84.1,9,182948
-VIC,Victoria,Postgraduate,Student Support and Services,77.5,9,182948
-VIC,Victoria,Postgraduate,Teaching Quality and Engagement,83.8,9,182948
-VIC,Victoria,Undergraduate,Learning Resources,84.7,9,182948
-VIC,Victoria,Undergraduate,Overall Educational Experience,75.9,9,182948
-VIC,Victoria,Undergraduate,Peer Engagement,63.9,9,182948
-VIC,Victoria,Undergraduate,Skills Development,81.2,9,182948
-VIC,Victoria,Undergraduate,Student Support and Services,70.5,9,182948
-VIC,Victoria,Undergraduate,Teaching Quality and Engagement,80.4,9,182948
-WA,Western Australia,Postgraduate,Learning Resources,83.8,5,62327
-WA,Western Australia,Postgraduate,Overall Educational Experience,74.5,5,62327
-WA,Western Australia,Postgraduate,Peer Engagement,67.7,5,62327
-WA,Western Australia,Postgraduate,Skills Development,84.6,5,62327
-WA,Western Australia,Postgraduate,Student Support and Services,75.4,5,62327
-WA,Western Australia,Postgraduate,Teaching Quality and Engagement,82.2,5,62327
-WA,Western Australia,Undergraduate,Learning Resources,83.2,5,62327
-WA,Western Australia,Undergraduate,Overall Educational Experience,75.4,5,62327
-WA,Western Australia,Undergraduate,Peer Engagement,61.4,5,62327
-WA,Western Australia,Undergraduate,Skills Development,81.0,5,62327
-WA,Western Australia,Undergraduate,Student Support and Services,69.4,5,62327
-WA,Western Australia,Undergraduate,Teaching Quality and Engagement,79.0,5,62327
+state,state_name,level,measure,value,universities,responses,national,gap
+ACT,Australian Capital Territory,Postgraduate,Learning Resources,82.9,2,16083,85.5,-2.6
+ACT,Australian Capital Territory,Postgraduate,Overall Educational Experience,73.0,2,16083,77.8,-4.8
+ACT,Australian Capital Territory,Postgraduate,Peer Engagement,58.5,2,16083,62.0,-3.5
+ACT,Australian Capital Territory,Postgraduate,Skills Development,80.9,2,16083,84.1,-3.2
+ACT,Australian Capital Territory,Postgraduate,Student Support and Services,72.5,2,16083,77.7,-5.2
+ACT,Australian Capital Territory,Postgraduate,Teaching Quality and Engagement,80.3,2,16083,83.7,-3.4
+ACT,Australian Capital Territory,Undergraduate,Learning Resources,80.2,2,16083,83.3,-3.1
+ACT,Australian Capital Territory,Undergraduate,Overall Educational Experience,73.6,2,16083,76.5,-2.9
+ACT,Australian Capital Territory,Undergraduate,Peer Engagement,64.2,2,16083,61.4,2.8
+ACT,Australian Capital Territory,Undergraduate,Skills Development,80.2,2,16083,81.4,-1.2
+ACT,Australian Capital Territory,Undergraduate,Student Support and Services,62.8,2,16083,71.3,-8.5
+ACT,Australian Capital Territory,Undergraduate,Teaching Quality and Engagement,80.6,2,16083,80.5,0.1
+NSW,New South Wales,Postgraduate,Learning Resources,87.3,11,197432,85.5,1.8
+NSW,New South Wales,Postgraduate,Overall Educational Experience,76.9,11,197432,77.8,-0.9
+NSW,New South Wales,Postgraduate,Peer Engagement,58.3,11,197432,62.0,-3.7
+NSW,New South Wales,Postgraduate,Skills Development,82.8,11,197432,84.1,-1.3
+NSW,New South Wales,Postgraduate,Student Support and Services,75.5,11,197432,77.7,-2.2
+NSW,New South Wales,Postgraduate,Teaching Quality and Engagement,83.3,11,197432,83.7,-0.4
+NSW,New South Wales,Undergraduate,Learning Resources,84.1,11,197432,83.3,0.8
+NSW,New South Wales,Undergraduate,Overall Educational Experience,75.1,11,197432,76.5,-1.4
+NSW,New South Wales,Undergraduate,Peer Engagement,61.8,11,197432,61.4,0.4
+NSW,New South Wales,Undergraduate,Skills Development,80.1,11,197432,81.4,-1.3
+NSW,New South Wales,Undergraduate,Student Support and Services,69.0,11,197432,71.3,-2.3
+NSW,New South Wales,Undergraduate,Teaching Quality and Engagement,79.3,11,197432,80.5,-1.2
+NT,Northern Territory,Postgraduate,Learning Resources,86.2,1,5497,85.5,0.7
+NT,Northern Territory,Postgraduate,Overall Educational Experience,79.1,1,5497,77.8,1.3
+NT,Northern Territory,Postgraduate,Peer Engagement,65.0,1,5497,62.0,3.0
+NT,Northern Territory,Postgraduate,Skills Development,86.5,1,5497,84.1,2.4
+NT,Northern Territory,Postgraduate,Student Support and Services,83.9,1,5497,77.7,6.2
+NT,Northern Territory,Postgraduate,Teaching Quality and Engagement,85.0,1,5497,83.7,1.3
+NT,Northern Territory,Undergraduate,Learning Resources,83.2,1,5497,83.3,-0.1
+NT,Northern Territory,Undergraduate,Overall Educational Experience,74.1,1,5497,76.5,-2.4
+NT,Northern Territory,Undergraduate,Peer Engagement,35.8,1,5497,61.4,-25.6
+NT,Northern Territory,Undergraduate,Skills Development,79.1,1,5497,81.4,-2.3
+NT,Northern Territory,Undergraduate,Student Support and Services,74.5,1,5497,71.3,3.2
+NT,Northern Territory,Undergraduate,Teaching Quality and Engagement,77.1,1,5497,80.5,-3.4
+QLD,Queensland,Postgraduate,Learning Resources,87.0,8,102521,85.5,1.5
+QLD,Queensland,Postgraduate,Overall Educational Experience,78.7,8,102521,77.8,0.9
+QLD,Queensland,Postgraduate,Peer Engagement,55.9,8,102521,62.0,-6.1
+QLD,Queensland,Postgraduate,Skills Development,83.3,8,102521,84.1,-0.8
+QLD,Queensland,Postgraduate,Student Support and Services,78.7,8,102521,77.7,1.0
+QLD,Queensland,Postgraduate,Teaching Quality and Engagement,84.1,8,102521,83.7,0.4
+QLD,Queensland,Undergraduate,Learning Resources,84.5,8,102521,83.3,1.2
+QLD,Queensland,Undergraduate,Overall Educational Experience,76.9,8,102521,76.5,0.4
+QLD,Queensland,Undergraduate,Peer Engagement,55.4,8,102521,61.4,-6.0
+QLD,Queensland,Undergraduate,Skills Development,80.2,8,102521,81.4,-1.2
+QLD,Queensland,Undergraduate,Student Support and Services,71.2,8,102521,71.3,-0.1
+QLD,Queensland,Undergraduate,Teaching Quality and Engagement,79.3,8,102521,80.5,-1.2
+SA,South Australia,Postgraduate,Learning Resources,86.1,4,47557,85.5,0.6
+SA,South Australia,Postgraduate,Overall Educational Experience,76.2,4,47557,77.8,-1.6
+SA,South Australia,Postgraduate,Peer Engagement,64.9,4,47557,62.0,2.9
+SA,South Australia,Postgraduate,Skills Development,84.9,4,47557,84.1,0.8
+SA,South Australia,Postgraduate,Student Support and Services,79.5,4,47557,77.7,1.8
+SA,South Australia,Postgraduate,Teaching Quality and Engagement,84.0,4,47557,83.7,0.3
+SA,South Australia,Undergraduate,Learning Resources,82.1,4,47557,83.3,-1.2
+SA,South Australia,Undergraduate,Overall Educational Experience,78.0,4,47557,76.5,1.5
+SA,South Australia,Undergraduate,Peer Engagement,57.0,4,47557,61.4,-4.4
+SA,South Australia,Undergraduate,Skills Development,81.9,4,47557,81.4,0.5
+SA,South Australia,Undergraduate,Student Support and Services,73.9,4,47557,71.3,2.6
+SA,South Australia,Undergraduate,Teaching Quality and Engagement,81.6,4,47557,80.5,1.1
+TAS,Tasmania,Postgraduate,Learning Resources,83.0,1,14946,85.5,-2.5
+TAS,Tasmania,Postgraduate,Overall Educational Experience,81.3,1,14946,77.8,3.5
+TAS,Tasmania,Postgraduate,Peer Engagement,35.6,1,14946,62.0,-26.4
+TAS,Tasmania,Postgraduate,Skills Development,81.9,1,14946,84.1,-2.2
+TAS,Tasmania,Postgraduate,Student Support and Services,78.0,1,14946,77.7,0.3
+TAS,Tasmania,Postgraduate,Teaching Quality and Engagement,84.3,1,14946,83.7,0.6
+TAS,Tasmania,Undergraduate,Learning Resources,77.7,1,14946,83.3,-5.6
+TAS,Tasmania,Undergraduate,Overall Educational Experience,78.9,1,14946,76.5,2.4
+TAS,Tasmania,Undergraduate,Peer Engagement,43.6,1,14946,61.4,-17.8
+TAS,Tasmania,Undergraduate,Skills Development,80.3,1,14946,81.4,-1.1
+TAS,Tasmania,Undergraduate,Student Support and Services,69.0,1,14946,71.3,-2.3
+TAS,Tasmania,Undergraduate,Teaching Quality and Engagement,83.3,1,14946,80.5,2.8
+VIC,Victoria,Postgraduate,Learning Resources,86.9,9,182948,85.5,1.4
+VIC,Victoria,Postgraduate,Overall Educational Experience,77.5,9,182948,77.8,-0.3
+VIC,Victoria,Postgraduate,Peer Engagement,62.3,9,182948,62.0,0.3
+VIC,Victoria,Postgraduate,Skills Development,84.1,9,182948,84.1,0.0
+VIC,Victoria,Postgraduate,Student Support and Services,77.5,9,182948,77.7,-0.2
+VIC,Victoria,Postgraduate,Teaching Quality and Engagement,83.8,9,182948,83.7,0.1
+VIC,Victoria,Undergraduate,Learning Resources,84.7,9,182948,83.3,1.4
+VIC,Victoria,Undergraduate,Overall Educational Experience,75.9,9,182948,76.5,-0.6
+VIC,Victoria,Undergraduate,Peer Engagement,63.9,9,182948,61.4,2.5
+VIC,Victoria,Undergraduate,Skills Development,81.2,9,182948,81.4,-0.2
+VIC,Victoria,Undergraduate,Student Support and Services,70.5,9,182948,71.3,-0.8
+VIC,Victoria,Undergraduate,Teaching Quality and Engagement,80.4,9,182948,80.5,-0.1
+WA,Western Australia,Postgraduate,Learning Resources,83.8,5,62327,85.5,-1.7
+WA,Western Australia,Postgraduate,Overall Educational Experience,74.5,5,62327,77.8,-3.3
+WA,Western Australia,Postgraduate,Peer Engagement,67.7,5,62327,62.0,5.7
+WA,Western Australia,Postgraduate,Skills Development,84.6,5,62327,84.1,0.5
+WA,Western Australia,Postgraduate,Student Support and Services,75.4,5,62327,77.7,-2.3
+WA,Western Australia,Postgraduate,Teaching Quality and Engagement,82.2,5,62327,83.7,-1.5
+WA,Western Australia,Undergraduate,Learning Resources,83.2,5,62327,83.3,-0.1
+WA,Western Australia,Undergraduate,Overall Educational Experience,75.4,5,62327,76.5,-1.1
+WA,Western Australia,Undergraduate,Peer Engagement,61.4,5,62327,61.4,0.0
+WA,Western Australia,Undergraduate,Skills Development,81.0,5,62327,81.4,-0.4
+WA,Western Australia,Undergraduate,Student Support and Services,69.4,5,62327,71.3,-1.9
+WA,Western Australia,Undergraduate,Teaching Quality and Engagement,79.0,5,62327,80.5,-1.5
