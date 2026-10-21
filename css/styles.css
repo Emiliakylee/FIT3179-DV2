@@ -665,7 +665,7 @@ footer p {
   .split, .duo, .trio { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
   .findings { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
   footer { grid-template-columns: minmax(0, 1fr); }
-  footer .credit, footer .ai-note, footer .sources {
+  footer .credit, footer .ai-note, footer .sources, footer .exclusions {
     grid-column: 1; grid-row: auto; max-width: 46ch;
   }
   .split > *, .duo > *, .trio > * { grid-column: 1 / -1; }

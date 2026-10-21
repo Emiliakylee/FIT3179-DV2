@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <script>document.documentElement.classList.add("js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What shapes the student experience?</title>
+  <title>What makes a different student experience?</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <link rel="stylesheet" href="css/styles.css?v=2026-10-21r">
+  <link rel="stylesheet" href="css/styles.css?v=2026-10-21s">
 </head>
 
 <body id="top">
@@ -25,7 +25,7 @@
     <div class="band-inner">
       <p class="eyebrow">Student experience in Australian higher education</p>
       <div class="hero-head">
-        <h1>What shapes the student experience?</h1>
+        <h1>What makes a different student experience?</h1>
         <p class="thesis">
           <svg class="hero-icon" viewBox="0 0 48 44" aria-hidden="true" focusable="false">
             <path d="M24 6 44 15 24 24 4 15Z"/>
@@ -79,6 +79,10 @@
       </div>
       <div class="split">
         <div>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover any point for the year and the exact figure.</span>
+          </p>
           <p class="section-lead">
             Before the pandemic, nearly four in five
             <span class="ug">undergraduates</span> rated their experience
@@ -119,6 +123,10 @@
       </div>
       <div class="split">
         <div>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover either end of a row to compare the two levels.</span>
+          </p>
           <p class="section-lead">
             The survey doesn't ask one question. It asks about five separate things, and students
             answer them very differently.
@@ -141,8 +149,8 @@
         </div>
       </div>
 
-      <p class="bridge reveal">If the dimensions differ this much, does the subject
-        studied explain why?
+      <p class="bridge reveal">The dimensions differ. Does the subject studied differ
+        the same way?
         <a class="bridge-next" href="#study-area" aria-label="Continue to section 3, does what you study matter"></a></p>
     </section>
 
@@ -257,7 +265,7 @@
     <section id="geography">
       <div class="section-head">
         <span class="section-num">4</span>
-        <h2>Could geography explain it?</h2>
+        <h2>Does geography change the picture?</h2>
       </div>
       <div class="split">
         <div>
@@ -343,12 +351,13 @@
             at <span class="fig">43.6%</span>, against <span class="fig">61.4%</span> nationally. Both rest on one university
             each, so both swing between levels.
           </p>
-          <p class="insight key-insight">Geography barely shifts five of the six
-            measures. The sixth separates the states by <span class="fig">28 points</span>.</p>
+          <p class="insight key-insight">Five of the six measures barely vary
+            by state. The sixth spans <span class="fig">28 points</span> between
+            them.</p>
         </div>
         <div class="fig-block">
         <figure>
-          <h3>For most measures, the state hardly matters</h3>
+          <h3>For most measures, state differences are small</h3>
           <p class="chart-sub">Students rating the selected measure positively, 2025</p>
           <div id="vis-choropleth" class="vis"></div>
           <p class="caption">
@@ -362,8 +371,8 @@
         </div>
       </div>
 
-      <p class="bridge reveal">Place says where students are, not how they rate it.
-        So who is in the room?
+      <p class="bridge reveal">Place shows where students are, but not
+        necessarily how they rate it. So who is in the room?
         <a class="bridge-next" href="#cohort" aria-label="Continue to section 5, who is in the room"></a></p>
     </section>
 
@@ -375,9 +384,13 @@
       </div>
       <div class="split">
         <div>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover any square for its level and cohort.</span>
+          </p>
           <p class="section-lead">
-            If place doesn't explain the differences, the people might.
-            Undergraduate and postgraduate coursework cohorts aren't the same
+            If the differences do not follow place, they may follow the
+            people. Undergraduate and postgraduate coursework cohorts aren't the same
             students at different stages &mdash; they are substantially
             different populations.
           </p>
@@ -407,6 +420,11 @@
 
       <div class="split">
         <div>
+          <p>
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover any route for the country, region and count.</span>
+          </p>
           <p>
             <span class="key">That cohort comes from a handful of countries.</span> Five
             of them account for <span class="fig">61.7%</span> of all overseas students in Australian
@@ -482,8 +500,9 @@
         <h2>Which differences are actually biggest?</h2>
       </div>
       <p class="section-lead">
-        Put the three lenses on one axis. The thick bar covers the middle 80%
-        of each set of groups; the thin line covers the full range.
+        Put the three lenses on one axis. Each tick is one group. The thick bar
+        covers the middle 80% of those groups, and the thin line behind it
+        reaches out to the lowest and highest.
       </p>
 
       <div class="fig-block">
@@ -541,7 +560,7 @@
         together between levels &mdash; medicine falls eleven points, nursing climbs six.
       </li>
       <li>
-        <span class="key">Geography explains the least.</span> No state or territory sits more than
+        <span class="key">Geography shows the smallest spread.</span> No state or territory sits more than
         five points from the national result, against roughly 20 points across study areas. Students
         are concentrated in two states; their reported experience is not.
       </li>
@@ -550,7 +569,11 @@
     </div>
 
   <footer>
-    <p class="credit">Created by Emilia Kim Yoon Lee &middot; October 2026 &middot; Built with Vega-Lite</p>
+    <p class="credit">
+      Created by Emilia Kim Yoon Lee (34537910)<br>
+      FIT3179 Data Visualisation, Monash University<br>
+      Semester 2, 2026 &middot; Assignment 2 &middot; October 2026
+    </p>
     <p class="sources">
       <strong>Data sources.</strong>
       QILT, 2025 Student Experience Survey National Report Tables
@@ -576,7 +599,7 @@
   </div>
 
 
-  <script src="js/main.js?v=2026-10-21r"></script>
+  <script src="js/main.js?v=2026-10-21s"></script>
 </body>
 
 </html>

@@ -25,7 +25,7 @@ const options = {
 // so an edited spec or dataset can keep serving its old copy after a reload.
 // Adding a version to every request forces a fresh fetch.
 // BUMP THIS after editing anything in js/ or data/.
-const VERSION = "2026-10-21p";
+const VERSION = "2026-10-21s";
 
 const versioned = (url) =>
   url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
