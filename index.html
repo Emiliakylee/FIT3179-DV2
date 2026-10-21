@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <link rel="stylesheet" href="css/styles.css?v=2026-10-21m">
+  <link rel="stylesheet" href="css/styles.css?v=2026-10-21p">
 </head>
 
 <body id="top">
@@ -241,7 +241,9 @@
           <h3>Peer engagement is the weak point in almost every field</h3>
           <p class="chart-sub">Each line is one study area across the five measures, 2025</p>
           <div id="vis-parallel" class="vis"></div>
-          <p class="caption">The dashed grey line is the national result.</p>
+          <p class="caption">The same six study areas are coloured here as in
+          the chart above, so a field can be followed through both; every other
+          field is grey (red when highlighted). The dashed grey line is the national result.</p>
         </figure>
         </div>
       </div>
@@ -562,18 +564,24 @@
       (<a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>);
       Natural Earth 1:110m Admin 0 Countries, public domain
       (<a href="https://www.naturalearthdata.com/downloads/">naturalearthdata.com</a>).
+      Extraction scripts are in <code>scripts/</code> in this repository.
     </p>
     <p class="ai-note">
-      <strong>Use of AI.</strong> Claude and ChatGPT supported story planning, code
-      and drafting, and extracting from source code. I decided the story, colour 
-      and design, verified the figures against the sources, and edited the wording.
+      <strong>Use of AI.</strong> Claude (Anthropic) and ChatGPT (OpenAI)
+      were used while making this page. I used them to help write and debug the
+      Vega-Lite specifications, the CSS and the Python scripts that extract and
+      reshape the source tables, to draft and tighten the written narrative, and
+      as a sounding board for design choices such as chart idiom, colour and
+      layout. The questions this page asks, the choice of what to show and the
+      final wording are mine; suggestions were revised or discarded where they
+      did not fit the data or the brief.
     </p>
   </footer>
     </div>
   </div>
 
 
-  <script src="js/main.js?v=2026-10-21m"></script>
+  <script src="js/main.js?v=2026-10-21p"></script>
 </body>
 
 </html>

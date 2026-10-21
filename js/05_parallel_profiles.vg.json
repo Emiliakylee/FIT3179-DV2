@@ -180,7 +180,29 @@
               "#C4C9CA"
             ]
           },
-          "legend": null
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "values": [
+              "Medicine",
+              "Veterinary science",
+              "Rehabilitation",
+              "Business and management",
+              "Humanities and culture",
+              "Nursing",
+              "Other"
+            ],
+            "labelExpr": "datum.label == 'Other' ? 'Every other study area' : datum.label",
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "symbolSize": 160,
+            "labelFontSize": 11.5,
+            "columns": 4,
+            "labelLimit": 200,
+            "offset": 4,
+            "rowPadding": 4
+          }
         },
         "opacity": {
           "condition": [
@@ -267,33 +289,6 @@
     {
       "transform": [
         {
-          "filter": "datum.measure_short == 'Peer engagement' && datum.study_area == pick"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 10,
-        "dy": -6,
-        "fontSize": 12,
-        "fontWeight": 600,
-        "color": "#173F5F"
-      },
-      "encoding": {
-        "text": {
-          "field": "study_area_short",
-          "type": "nominal"
-        },
-        "color": {
-          "field": "series",
-          "type": "nominal",
-          "legend": null
-        }
-      }
-    },
-    {
-      "transform": [
-        {
           "filter": "datum.measure_short == 'Peer engagement'"
         },
         {
@@ -361,7 +356,7 @@
   },
   "padding": {
     "left": 5,
-    "right": 140,
+    "right": 16,
     "top": 5,
     "bottom": 5
   },
