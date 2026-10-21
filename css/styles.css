@@ -1022,3 +1022,25 @@ html { scroll-behavior: smooth; }
   .jump-inner { padding: 0 20px; gap: 14px; }
   .jump a { font-size: 0.8rem; padding: 5px 9px; }
 }
+
+/* A mortarboard above the standfirst: the masthead's right column had a tall
+   empty space above the text, and the subject is higher education. Drawn in
+   the eyebrow teal so it reads as part of the masthead's accent, not as a
+   third voice. */
+.hero-icon {
+  display: block;
+  width: 52px;
+  height: auto;
+  margin: 0 0 22px;
+  fill: none;
+  stroke: #8FDCDE;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.hero-icon .tassel { fill: #8FDCDE; stroke: none; }
+
+@media (max-width: 900px) {
+  .hero-icon { width: 44px; margin-bottom: 16px; }
+}
