@@ -35,6 +35,31 @@
     {
       "calculate": "datum.highlight ? datum.study_area_short : 'Other study areas'",
       "as": "series"
+    },
+    {
+      "calculate": "datum.level == 'Undergraduate' ? datum.value : null",
+      "as": "_ug"
+    },
+    {
+      "calculate": "datum.level == 'Postgraduate' ? datum.value : null",
+      "as": "_pg"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "_ug",
+          "as": "ug_value"
+        },
+        {
+          "op": "max",
+          "field": "_pg",
+          "as": "pg_value"
+        }
+      ],
+      "groupby": [
+        "study_area"
+      ]
     }
   ],
   "encoding": {
@@ -118,7 +143,7 @@
         "strokeWidth": 2,
         "point": {
           "filled": true,
-          "size": 45
+          "size": 150
         }
       },
       "encoding": {
@@ -150,17 +175,22 @@
             "title": "Study area"
           },
           {
-            "field": "level",
-            "type": "nominal",
-            "title": "Level"
+            "field": "ug_value",
+            "type": "quantitative",
+            "title": "Undergraduate",
+            "format": ".1f"
           },
           {
-            "field": "value",
+            "field": "pg_value",
             "type": "quantitative",
-            "title": "% positive",
+            "title": "Postgraduate coursework",
             "format": ".1f"
           }
-        ]
+        ],
+        "detail": {
+          "field": "study_area",
+          "type": "nominal"
+        }
       }
     },
     {

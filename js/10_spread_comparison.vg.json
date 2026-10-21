@@ -61,8 +61,8 @@
       ],
       "mark": {
         "type": "rule",
-        "color": "#C4C9CA",
-        "strokeWidth": 1.5
+        "color": "#5F6D6E",
+        "strokeWidth": 1.8
       },
       "encoding": {
         "x": {
@@ -149,8 +149,8 @@
         "type": "tick",
         "thickness": 1.5,
         "height": 26,
-        "color": "#4E5A5C",
-        "opacity": 0.45
+        "color": "#2F383A",
+        "opacity": 0.55
       },
       "encoding": {
         "x": {
@@ -170,37 +170,6 @@
             "format": ".1f"
           }
         ]
-      }
-    },
-    {
-      "data": {
-        "url": "data/spread_summary.csv",
-        "format": {
-          "type": "csv"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.level == level_select"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 8,
-        "fontSize": 11,
-        "color": "#3F4650"
-      },
-      "encoding": {
-        "x": {
-          "field": "max",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "middle80",
-          "type": "quantitative",
-          "format": ".1f"
-        }
       }
     }
   ],

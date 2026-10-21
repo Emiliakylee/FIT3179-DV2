@@ -329,6 +329,22 @@ figure { margin: 0 0 8px; }
   max-width: 40ch;
 }
 
+/* An insight that opens its own grid column has nothing above it to clear, so
+   the 14px top margin just drops it below its neighbours. Removing it, and
+   trimming the top padding, puts the "Key insight" label on the same line the
+   columns beside it start on, so the row reads across one sightline. */
+.insight:first-child,
+.split > .insight,
+.duo   > .insight,
+.trio  > .insight {
+  /* -9px lifts the box so the label's ink sits on the same line as the first
+     line of text beside it; the box itself then overhangs slightly, which is
+     what a callout should do. Measured, not guessed. */
+  margin-top: -9px;
+  padding-top: 12px;
+  padding-bottom: 16px;
+}
+
 .insight.key-insight { font-size: 1.07rem; }
 
 .insight.key-insight::before {
@@ -427,23 +443,38 @@ figure { margin: 0 0 8px; }
   max-width: 34ch;
 }
 
-.findings { counter-reset: finding; margin: 32px 0; padding: 0; list-style: none; }
+/* Three findings, three columns. Stacked, they ran the full height of the
+   closing panel, which made the ending feel far longer than it is. The number
+   moves above each finding rather than beside it, so a narrower column does
+   not lose 48px of its width to the counter. */
+.findings {
+  counter-reset: finding;
+  margin: 36px 0 8px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 28px;
+}
 
 .findings li {
   counter-increment: finding;
   position: relative;
-  padding: 0 0 0 48px;
-  margin-bottom: 24px;
+  padding: 44px 0 0;
+  margin-bottom: 0;
   max-width: 40ch;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--ink);
 }
+
+.findings .key { display: block; margin-bottom: 4px; }
 
 .findings li::before {
   content: counter(finding);
   position: absolute;
   left: 0;
-  top: -2px;
+  top: 0;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -475,7 +506,19 @@ footer {
   color: var(--grey);
 }
 
-footer p { max-width: 40ch; margin-bottom: 12px; }
+/* With the findings on one row, a single 40ch column of sources became the
+   tallest thing on the page. Byline and AI note take the first third; the
+   sources run across the other two, which halves their depth. */
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+}
+footer p { max-width: 46ch; margin-bottom: 12px; }
+footer .credit  { grid-column: 1; grid-row: 1; }
+footer .ai-note { grid-column: 1; grid-row: 2; }
+footer .sources { grid-column: 2 / span 2; grid-row: 1 / span 2; max-width: 78ch; }
 footer a { color: var(--teal); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 footer strong { color: var(--muted); }
@@ -484,20 +527,36 @@ footer strong { color: var(--muted); }
 
 /* ---------- alignment of the text itself ---------- */
 
-/* Justified text does not read better, but it does steady a layout, so it is
-   used only where a line is long enough to justify without gappy word spacing:
-   a full-width lead, the findings and the limits. Text inside a narrow column
-   stays left-aligned, which is what the readability notes call for. */
+/* Everything is left-aligned and unhyphenated. Justifying these blocks meant
+   turning on hyphenation to avoid gappy word spacing, and that broke words
+   across lines ("co-vers"), which costs more in reading than justification
+   buys in tidiness. */
 section > .section-lead,
 .findings li,
 .limits,
 footer p {
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: manual;
 }
+
+/* ---------- emphasis on the figures that carry a finding ---------- */
+
+/* The numbers a reader should leave with. Weight and colour only: a
+   background tint would fight the charts for attention. */
+.fig {
+  font-weight: 600;
+  color: var(--head);
+  font-variant-numeric: tabular-nums;
+}
+.insight .fig { color: inherit; }
 
 @media (max-width: 900px) {
   .split, .duo, .trio { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+  .findings { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+  footer { grid-template-columns: minmax(0, 1fr); }
+  footer .credit, footer .ai-note, footer .sources {
+    grid-column: 1; grid-row: auto; max-width: 46ch;
+  }
   .split > *, .duo > *, .trio > * { grid-column: 1 / -1; }
   .hero-head, .hero-stats { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
   .hero-head h1, .hero-head .thesis, .hero-stat { grid-column: 1 / -1; }
