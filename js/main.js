@@ -25,7 +25,7 @@ const options = {
 // so an edited spec or dataset can keep serving its old copy after a reload.
 // Adding a version to every request forces a fresh fetch.
 // BUMP THIS after editing anything in js/ or data/.
-const VERSION = "2026-10-21e";
+const VERSION = "2026-10-21k";
 
 const versioned = (url) =>
   url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
@@ -83,3 +83,55 @@ for (const [selector, path] of Object.entries(specs)) {
     draw(selector, path).catch((error) => reportFailure(selector, path, error));
   }
 }
+
+// ---------------------------------------------------------------------------
+// Page behaviour: reveal-on-scroll and the jump bar's current-section marker.
+// Both are enhancements. The CSS that hides a .reveal is scoped to .js, which
+// an inline script in <head> sets, so if any of this fails the page still
+// shows everything.
+// ---------------------------------------------------------------------------
+
+(function () {
+  const reveals = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    reveals.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  // Reveal a little before the element reaches the middle of the window, so
+  // the sentence has finished moving by the time the reader is looking at it.
+  const revealer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealer.unobserve(entry.target);   // reveal once, never re-hide
+      }
+    }
+  }, { rootMargin: "0px 0px -18% 0px", threshold: 0.1 });
+
+  reveals.forEach((el) => revealer.observe(el));
+
+  // Mark the section the reader is currently in.
+  const links = new Map();
+  document.querySelectorAll(".jump a[href^='#']").forEach((a) => {
+    const id = a.getAttribute("href").slice(1);
+    if (document.getElementById(id)) links.set(id, a);
+  });
+
+  if (!links.size) return;
+
+  const setCurrent = (id) => {
+    links.forEach((a, key) => a.classList.toggle("is-current", key === id));
+  };
+
+  const spy = new IntersectionObserver((entries) => {
+    // The topmost section currently crossing the band below the jump bar wins.
+    const visible = entries
+      .filter((e) => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    if (visible.length) setCurrent(visible[0].target.id);
+  }, { rootMargin: "-62px 0px -55% 0px", threshold: 0 });
+
+  links.forEach((a, id) => spy.observe(document.getElementById(id)));
+})();

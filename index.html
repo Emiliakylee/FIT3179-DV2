@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add("js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What makes a different university experience?</title>
+  <title>What shapes the student experience?</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,19 +16,19 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <link rel="stylesheet" href="css/styles.css?v=2026-10-21e">
+  <link rel="stylesheet" href="css/styles.css?v=2026-10-21k">
 </head>
 
-<body>
+<body id="top">
 
   <header class="band">
     <div class="band-inner">
       <p class="eyebrow">Student experience in Australian higher education</p>
       <div class="hero-head">
-        <h1>What makes a different university experience?</h1>
+        <h1>What shapes the student experience?</h1>
         <p class="thesis">
-          <strong>Student experience isn't one number.</strong> It varies with what you study,
-          how you attend, and who studies alongside you.
+          <strong>Study area, attendance and the people around you</strong> may matter more
+          than where you enrol.
         </p>
       </div>
 
@@ -48,10 +49,24 @@
     </div>
   </header>
 
+  <nav class="jump" aria-label="Sections">
+    <div class="jump-inner">
+      <a class="jump-home" href="#top">Top</a>
+      <ol>
+        <li><a href="#changing"><span>1</span>Changing?</a></li>
+        <li><a href="#measures"><span>2</span>Measures</a></li>
+        <li><a href="#study-area"><span>3</span>Study area</a></li>
+        <li><a href="#geography"><span>4</span>Geography</a></li>
+        <li><a href="#cohort"><span>5</span>Cohort</a></li>
+        <li><a href="#biggest"><span>6</span>Biggest</a></li>
+      </ol>
+    </div>
+  </nav>
+
   <div class="page">
 
     <!-- 01 -->
-    <section>
+    <section id="changing">
       <div class="section-head">
         <span class="section-num">1</span>
         <h2>Is the experience changing?</h2>
@@ -59,30 +74,39 @@
       <div class="split">
         <div>
           <p class="section-lead">
-            Just under four in five <span class="ug">undergraduates</span> rated their overall experience positively
-            before the pandemic. In 2020, when teaching moved online almost overnight, that
-            fell by ten percentage points in a single year, from <span class="fig">78.5%</span> to <span class="fig">68.7%</span>. Every gap on this
-            page is measured the same way: one share of students subtracted from another.
+            Before the pandemic, nearly four in five
+            <span class="ug">undergraduates</span> rated their experience
+            positively. In 2020 that fell ten points, from
+            <span class="fig">78.5%</span> to <span class="fig">68.7%</span>.
           </p>
           <p>
-            The recovery has been uneven. <span class="pg">Postgraduate coursework</span> ratings climbed back and kept
-            going. <span class="ug">Undergraduate</span> ratings stalled around <span class="fig">76</span> and have not moved for three years.
-            The two groups have swapped places.
+            <span class="key">Recovery has been uneven.</span>
+            <span class="pg">Postgraduate coursework</span> ratings kept
+            climbing; <span class="ug">undergraduate</span> ratings have sat
+            near <span class="fig">76%</span> for three years. The two have
+            swapped places.
+          </p>
+          <p class="small-note">
+            Every gap on this page is one share of students minus another.
           </p>
           <p class="insight">Both levels lost about ten points in 2020. Only <span class="pg">postgraduate coursework</span> has since climbed past where it started.</p>
         </div>
         <div class="fig-block">
         <figure>
-          <h3>Overall educational experience, 2017&ndash;2025</h3>
-          <p class="chart-sub">Share of students rating their experience positively</p>
+          <h3>Postgraduate ratings recovered. Undergraduate ones have not.</h3>
+          <p class="chart-sub">Overall educational experience, 2017&ndash;2025</p>
           <div id="vis-trend" class="vis"></div>
         </figure>
         </div>
       </div>
+
+      <p class="bridge reveal">Overall ratings are one number. What are students
+        actually rating?
+        <a class="bridge-next" href="#measures" aria-label="Continue to section 2, what experience means"></a></p>
     </section>
 
     <!-- 02 -->
-    <section>
+    <section id="measures">
       <div class="section-head">
         <span class="section-num">2</span>
         <h2>What does &ldquo;experience&rdquo; actually mean?</h2>
@@ -110,10 +134,14 @@
           <p class="insight">Learning resources lead at 83%, peer engagement trails at 61% &mdash; a 22-point spread inside the same survey.</p>
         </div>
       </div>
+
+      <p class="bridge reveal">If the dimensions differ this much, does the subject
+        studied explain why?
+        <a class="bridge-next" href="#study-area" aria-label="Continue to section 3, does what you study matter"></a></p>
     </section>
 
     <!-- 03 -->
-    <section>
+    <section id="study-area">
       <div class="section-head">
         <span class="section-num">3</span>
         <h2>Does what you study matter?</h2>
@@ -128,9 +156,10 @@
         </div>
         <div class="beside-stat">
           <p class="section-lead">
-            This is where the national average starts to hide things. The grid below shows all 21 study
-            areas against all six measures, as a difference from the national result. <span class="up">Green</span> sits above the
-            national figure, <span class="down">purple</span> below.
+            <span class="key">This is where the national average hides
+            things.</span> The grid shows all 21 study areas against all six
+            measures, as a difference from the national result:
+            <span class="up">green</span> above it, <span class="down">purple</span> below.
           </p>
           <p class="hint">
             <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>
@@ -146,7 +175,7 @@
         <p class="chart-sub">Difference from the national result, in percentage points, 2025</p>
         <div id="vis-heatmap" class="vis"></div>
       </figure>
-        <p class="insight key-insight">Computing and IT sits below the national result on four of the six measures; agriculture and environment sits above on five. Fields are not simply better or worse overall &mdash; they differ in <em>which</em> parts of the experience they do well.</p>
+        <p class="insight key-insight">Computing and IT sits below the national result on four of six measures; agriculture and environment sits above on five. Fields differ in <em>which</em> parts of the experience they do well, not simply in how well.</p>
       </div>
 
       <div class="split">
@@ -156,25 +185,16 @@
             <span>Hover any point to name the study area and read both levels.</span>
           </p>
           <p>
-            Those differences aren't the same at both levels. Six study areas move far enough to
-            change where they sit among the 21. Three fall and three climb, and they are coloured
-            individually below.
+            <span class="key">These differences are not fixed.</span> Six study
+            areas move far enough to change where they sit among the 21 &mdash;
+            three fall, three climb, and they are coloured individually.
           </p>
           <p>
             Medicine is the clearest. It ranks fifth of 21 among
             <span class="ug">undergraduates</span> and twentieth among
-            <span class="pg">postgraduate coursework</span> students &mdash; a fall of eleven
-            points. Veterinary science and rehabilitation drop about nine points each.
-          </p>
-          <p>
-            The climbs are smaller but they rearrange the top of the chart. Humanities and culture
-            goes from eleventh to first, nursing from fifteenth to third, business and management
-            from eighteenth to seventh, each gaining about six points.
-          </p>
-          <p>
-            The fifteen grey lines are every other field, and most of them barely move: eight shift
-            by less than three points. Whatever separates medicine's two levels is not a general
-            rule about studying at postgraduate level.
+            <span class="pg">postgraduate coursework</span> students, a fall of
+            <span class="fig">eleven</span> points. The fifteen grey lines are
+            every other field, and most barely move.
           </p>
         </div>
         <div class="fig-block">
@@ -194,23 +214,21 @@
             area from the dropdown to bring it forward.</span>
           </p>
           <p>
-            Study areas don't simply rate well or badly overall &mdash; each has a shape. Medicine
-            undergraduates report the highest peer engagement in the country at 83.1% while rating
-            support below average. Science and mathematics does the reverse.
+            <span class="key">Each field has a shape, not just a score.</span>
+            <span class="sa-med">Medicine</span> undergraduates report the
+            highest peer engagement in the country at
+            <span class="fig">83.1%</span> while rating support below average.
+            <span class="sa-hum">Humanities and culture</span> is the other way
+            round.
           </p>
           <p>
-            The six fields coloured in the chart above keep their colours here, so you can follow
-            the same field through both. They do not have matching shapes:
-            <span class="sa-med">medicine</span> is strong on peer engagement and weak on support,
-            while <span class="sa-hum">humanities and culture</span> is the other way round.
-            Moving up or down between levels says nothing about which parts of the experience a
-            field does well.
+            One pattern holds everywhere: all 21 fields rate peer engagement
+            lowest or close to it, at either level. The six fields keep the
+            colours they had above.
           </p>
-          <p>
-            What holds everywhere is the dip on the right. Every one of the 21 fields rates peer
-            engagement lowest or close to it, whichever level you switch to, and the national line
-            drops with them.
-          </p>
+          <p class="insight">Almost every line drops at the right-hand end.
+            Whatever a field does well, peer engagement is where it does
+            worst.</p>
         </div>
         <div class="fig-block">
         <figure>
@@ -219,13 +237,16 @@
           <div id="vis-parallel" class="vis"></div>
           <p class="caption">The dashed grey line is the national result.</p>
         </figure>
-          <p class="insight">Almost every line drops at the right-hand end. Whatever a field does well, peer engagement is where it does worst.</p>
         </div>
       </div>
+
+      <p class="bridge reveal">Study areas spread widely. Does geography spread the
+        same way?
+        <a class="bridge-next" href="#geography" aria-label="Continue to section 4, could geography explain it"></a></p>
     </section>
 
     <!-- 04 -->
-    <section>
+    <section id="geography">
       <div class="section-head">
         <span class="section-num">4</span>
         <h2>Could geography explain it?</h2>
@@ -242,22 +263,22 @@
             further inside the cities.
           </p>
           <p>
-            New South Wales enrols 545,124 students and Victoria 470,742. Queensland
-            is next at 249,000, then Western Australia at 162,000. Below that the
-            numbers fall away quickly: Tasmania enrols 32,000 and the Northern
-            Territory 13,000, each with a single university.
+            New South Wales enrols <span class="fig">545,124</span> and Victoria
+            <span class="fig">470,742</span>. Below the four largest states the
+            numbers fall away fast: Tasmania and the Northern Territory have one
+            university each.
           </p>
-          <p>
-            Circle area is proportional to the count, so Victoria's circle is about
-            fourteen times the size of the Northern Territory's rather than fourteen
-            times as wide. Hover any circle for the exact figure.
+          <p class="hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5l10.5 7.2-4.6 1.1 2.6 5-2.3 1.1-2.5-5-3.7 3z"/></svg>
+            <span>Hover any circle for the exact figure. Area is proportional
+            to the count, not width.</span>
           </p>
           <p class="insight">New South Wales and Victoria hold about three in five
             of Australia's 1.64 million students.</p>
         </div>
         <div class="fig-block">
         <figure>
-          <h3>Where students are</h3>
+          <h3>Students are concentrated in two states</h3>
           <p class="chart-sub">All higher education enrolments by state and territory, 2024</p>
           <div id="vis-symbols" class="vis"></div>
         </figure>
@@ -266,19 +287,15 @@
 
       <div class="trio">
         <p>
-          The 20 largest regions are shown here, and together they hold 91% of
-          every international student in Australia. The remaining fifty each hold
-          under 5,000, most of them under 2,000. Sydney's city and inner south
-          alone holds 107,697 &mdash; more than any state outside New South Wales
-          and Victoria.
+          The 20 largest regions hold <span class="fig">91%</span> of every
+          international student in Australia. Sydney's city and inner south
+          alone holds <span class="fig">107,697</span> &mdash; more than any
+          state outside New South Wales and Victoria.
         </p>
         <p>
-          The first map covers the whole country, and almost every triangle sits on
-          the south-east coast. The second zooms into that corner &mdash; New South
-          Wales, Victoria and the ACT &mdash; where two thirds of these students
-          are. Blue marks international students throughout. The state map above
-          is indigo instead, because it counts every student rather than only
-          international ones.
+          Almost every triangle sits on the south-east coast, so the second map
+          zooms into that corner &mdash; New South Wales, Victoria and the ACT.
+          Blue marks international students throughout this page.
         </p>
       </div>
 
@@ -288,10 +305,9 @@
           <p class="chart-sub">International students only, by SA4 region, to December 2025</p>
           <div id="vis-spikes" class="vis"></div>
           <p class="caption">
-            Triangle height is proportional to the number of students. The panels
-            use different symbol scales, because the zoom shows roughly three times
-            more detail, so each carries its own key. Counts below five are
-            suppressed at source.
+            Triangle height is proportional to the number of students. The two
+            panels use different scales, so each carries its own key. Counts
+            below five are suppressed at source.
           </p>
         </figure>
       </div>
@@ -304,7 +320,7 @@
             pick another measure from the dropdown.</span>
           </p>
           <p>
-            But the experience itself barely moves. On overall educational
+            <span class="key">But the experience itself barely moves.</span> On overall educational
             experience, undergraduate ratings run from <span class="fig">73.6%</span> in the Australian
             Capital Territory to <span class="fig">78.9%</span> in Tasmania.
           </p>
@@ -314,7 +330,7 @@
             nearly colourless in each.
           </p>
           <p>
-            Peer engagement is the exception. Choose it and two jurisdictions
+            <span class="key">Peer engagement is the exception.</span> Choose it and two jurisdictions
             fall out of the pack: the Northern Territory at <span class="fig">35.8%</span> and Tasmania
             at <span class="fig">43.6%</span>, against <span class="fig">61.4%</span> nationally. Both rest on one university
             each, so both swing between levels.
@@ -328,24 +344,23 @@
           <p class="chart-sub">Students rating the selected measure positively, 2025</p>
           <div id="vis-choropleth" class="vis"></div>
           <p class="caption">
-            Colour uses the same diverging scale as the study-area grid in
-            section 3, and means the same thing here: purple below the national
-            result, green above it. Results are grouped by the Department of
-            Education's state classification and weighted by each university's
-            responses. Australian Catholic University is classified Multi-State
-            and is not included. Universities are not identified individually.
+            Same diverging scale as the grid in section 3: purple below the
+            national result, green above. Results use the Department of
+            Education's state classification, weighted by each university's
+            responses. Australian Catholic University (Multi-State) is excluded;
+            universities are not identified individually.
           </p>
         </figure>
         </div>
       </div>
 
-      <div class="takeaway">
-        <p>Geography tells you where students are. With one exception it tells you little about how their experience differs &mdash; and that exception is about who is in the room, not where the room is.</p>
-      </div>
+      <p class="bridge reveal">Place says where students are, not how they rate it.
+        So who is in the room?
+        <a class="bridge-next" href="#cohort" aria-label="Continue to section 5, who is in the room"></a></p>
     </section>
 
     <!-- 05 -->
-    <section>
+    <section id="cohort">
       <div class="section-head">
         <span class="section-num">5</span>
         <h2>Who is in the room, and how do they attend?</h2>
@@ -359,15 +374,15 @@
             different populations.
           </p>
           <p>
-            The two levels are not one pipeline. Domestic respondents fall from
+            <span class="key">The two levels are not one pipeline.</span> Domestic respondents fall from
             <span class="fig">170,244</span> at undergraduate to <span class="fig">52,319</span> at postgraduate coursework, a
             drop of roughly seven in ten.
           </p>
           <p>
-            International respondents travel the opposite way, climbing from
-            <span class="fig">46,383</span> to <span class="fig">70,625</span>. Postgraduate coursework therefore holds more
-            international students than undergraduate does, from a cohort little
-            more than half the size.
+            International respondents go the other way, climbing from
+            <span class="fig">46,383</span> to <span class="fig">70,625</span>
+            &mdash; more international students than undergraduate holds, from a
+            cohort little over half the size.
           </p>
           <p class="insight">Postgraduate coursework is the one cohort on this
             page where domestic students are in the minority.</p>
@@ -385,7 +400,7 @@
       <div class="split">
         <div>
           <p>
-            That cohort comes overwhelmingly from a handful of countries. Five
+            <span class="key">That cohort comes from a handful of countries.</span> Five
             of them account for <span class="fig">61.7%</span> of all overseas students in Australian
             higher education.
           </p>
@@ -395,21 +410,20 @@
             Pakistan and Bhutan together send <span class="fig">195,444</span>.
           </p>
           <p>
-            Composition lines up loosely with section 3. The study areas where
-            postgraduates gain most on undergraduates &mdash; computing,
-            business, engineering &mdash; are also the most heavily
-            international. The link is far from exact: nursing has one of the
-            smallest international cohorts and one of the largest gains.
+            The study areas where postgraduates gain most are also the most
+            heavily international &mdash; though not consistently enough to call
+            it a relationship. Nursing has one of the smallest international
+            cohorts and one of the largest gains.
           </p>
           <p class="insight">Nearly every route on this map begins in Asia.
             Outside it, no country sends more than <span class="fig">8,200</span> students.</p>
         </div>
         <div class="fig-block">
         <figure>
-          <h3>Where the international cohort comes from</h3>
+          <h3>China leads, but South Asia sends more</h3>
           <p class="chart-sub">Top 15 countries of permanent home residence, 2024</p>
           <div id="vis-flows" class="vis"></div>
-          <p class="caption">Line thickness is proportional to the number of students, so a route twice as thick carries twice as many. Curves separate the routes so they can be told apart; they show origin and destination, not travel paths.</p>
+          <p class="caption">Line thickness is proportional to the number of students, so a route twice as thick carries twice as many. The curves separate overlapping routes; they show origin and destination, not travel paths.</p>
         </figure>
         </div>
       </div>
@@ -421,14 +435,14 @@
             <span>Pick another measure from the dropdown.</span>
           </p>
           <p>
-            How students attend matters too. Students who attended every class
+            <span class="key">How students attend matters too.</span> Students who attended every class
             on campus rated teaching quality <span class="fig">82.3%</span>
             positively; those entirely online, <span class="fig">75.1%</span>.
           </p>
           <p>
-            On-campus attendance leads on all six measures, at both levels. But
-            the margin is usually small, and on one measure it is not small at
-            all: peer engagement separates the two by tens of points.
+            On-campus attendance leads on all six measures, at both levels,
+            but the margin is usually small. On one measure it is not small at
+            all.
           </p>
           <p>
             This is an association rather than a cause. Online and on-campus
@@ -447,25 +461,29 @@
         </figure>
         </div>
       </div>
+
+      <p class="bridge reveal">Three explanations, three different sizes of
+        difference. Which is biggest?
+        <a class="bridge-next" href="#biggest" aria-label="Continue to section 6, which differences are biggest"></a></p>
     </section>
 
     <!-- 06 -->
-    <section>
+    <section id="biggest">
       <div class="section-head">
         <span class="section-num">6</span>
         <h2>Which differences are actually biggest?</h2>
       </div>
       <p class="section-lead">
-        Put the three lenses on one axis. The thick bar covers the middle 80% of each set of
-        groups; the thin line covers the full range.
+        Put the three lenses on one axis. The thick bar covers the middle 80%
+        of each set of groups; the thin line covers the full range.
       </p>
 
       <div class="fig-block">
       <figure>
-        <h3>Study areas differ most, states and territories least</h3>
+        <h3>Study area separates students more than geography does</h3>
         <p class="chart-sub">Overall educational experience, 2025</p>
         <div id="vis-spread" class="vis"></div>
-        <p class="caption">Compares 21 study areas, 41 universities and 8 states and territories. Universities appear as unnamed ticks: this chart is about how much the figure moves, not about ranking institutions. Australian Catholic University (Multi-State) and Australian University of Theology are excluded. The three lenses contain different numbers of groups, which affects how wide a range each can show.</p>
+        <p class="caption">Compares 21 study areas, 41 universities and 8 states and territories. Universities are unnamed ticks: this is about how much the figure moves, not about ranking institutions. Australian Catholic University (Multi-State) and Australian University of Theology are excluded. The lenses hold different numbers of groups, which affects how wide a range each can show.</p>
       </figure>
       </div>
 
@@ -524,7 +542,7 @@
     </div>
 
   <footer>
-    <p class="credit">Created by Emilia Kim Yoon Lee &middot; October 2026 &middot; Built with Vega-Lite</p>
+    <p class="credit">Created by Emilia Kim Yoon Lee &middot; October 2026</p>
     <p class="sources">
       <strong>Data sources.</strong>
       QILT, 2025 Student Experience Survey National Report Tables
@@ -538,17 +556,18 @@
       (<a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>);
       Natural Earth 1:110m Admin 0 Countries, public domain
       (<a href="https://www.naturalearthdata.com/downloads/">naturalearthdata.com</a>).
-      Extraction scripts are in <code>scripts/</code> in this repository.
     </p>
     <p class="ai-note">
-      <strong>Use of AI.</strong> [Describe your own use here.]
+      <strong>Use of AI.</strong> Claude and ChatGPT supported story planning, code
+      and drafting, and extracting from source code. I decided the story, colour 
+      and design, verified the figures against the sources, and edited the wording.
     </p>
   </footer>
     </div>
   </div>
 
 
-  <script src="js/main.js?v=2026-10-21e"></script>
+  <script src="js/main.js?v=2026-10-21k"></script>
 </body>
 
 </html>

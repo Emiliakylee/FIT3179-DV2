@@ -178,7 +178,9 @@ p { margin: 0 0 18px; max-width: 40ch; }
 
 /* ---------- sections ---------- */
 
-section { padding: 64px 0 56px; border-top: 1px solid var(--rule); }
+/* No rule between sections: the centred bridge already marks the break, and
+   a line as well read as two separators doing one job. */
+section { padding: 64px 0 56px; }
 
 section:first-of-type { border-top: none; padding-top: 72px; }
 
@@ -295,10 +297,17 @@ figure { margin: 0 0 8px; }
    rather than thirteen; short words pack more into the same 52ch measure. */
 .duo > .section-lead { max-width: 40ch; }
 
+/* The first paragraph of a section is a step above the rest: larger, and in
+   the heading ink rather than body ink. That gives each section one clear
+   entry point instead of a flat wall of equal paragraphs. */
 .section-lead {
-  font-size: 1.12rem;
-  line-height: 1.6;
-  color: var(--ink);
+  font-size: 1.18rem;
+  line-height: 1.58;
+  color: var(--head);
+  font-weight: 450;
+  /* ch scales with font-size, so the inherited 40ch would be 18% wider in
+     pixels here and fit more words per line than the rest of the page. */
+  max-width: 35ch;
 }
 
 /* Body paragraphs read at full strength, the same as the section leads, so a
@@ -315,6 +324,106 @@ figure { margin: 0 0 8px; }
 .down { color: var(--purple); font-weight: 600; }
 
 .key { font-weight: 600; color: var(--head); }
+
+/* ---------- hierarchy: bridges and notes ---------- */
+
+/* One line carrying the reader from one section's question to the next. It
+   sits between sections, so it is set apart from body text by colour and
+   weight rather than by another box. */
+.bridge {
+  margin: 84px auto 26px;
+  padding: 0;
+  border: 0;
+  max-width: 30ch;
+  text-align: center;
+  font-family: "Literata", Georgia, serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.6rem);
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--head);
+}
+
+/* The chevron is a link to the next section, so it is a real element with a
+   44px target rather than a decorative ::after. */
+.bridge-next {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: 22px auto 0;
+  position: relative;
+  border-radius: 50%;
+  transition: background 0.18s;
+}
+
+.bridge-next::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  width: 13px;
+  height: 13px;
+  border-right: 2px solid var(--teal);
+  border-bottom: 2px solid var(--teal);
+  transform: rotate(45deg);
+  opacity: 0.8;
+  animation: nudge 2.6s ease-in-out infinite;
+}
+
+.bridge-next:hover { background: #E7EDEA; }
+.bridge-next:hover::after { opacity: 1; }
+.bridge-next:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+@keyframes nudge {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); }
+  50%      { transform: rotate(45deg) translate(3px, 3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bridge-next::after { animation: none; }
+}
+
+/* A short teal rule above the sentence, so a centred line still reads as a
+   deliberate break between sections rather than a stray paragraph. */
+.bridge::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: var(--teal);
+  margin: 0 auto 22px;
+}
+
+/* ---------- reveal on scroll ---------- */
+
+/* The hidden state is scoped to .js, which an inline script in <head> sets.
+   With JavaScript off, or if the script fails, nothing is ever hidden. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal, .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* A definition the reader needs once; it should not compete with the finding
+   beside it. */
+.small-note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 40ch;
+}
 
 /* ---------- insights ---------- */
 
@@ -373,7 +482,9 @@ figure { margin: 0 0 8px; }
 
 .stat-label {
   font-size: 0.95rem;
-  color: var(--muted);
+  /* This explains the headline number, so it is body text, not a caption.
+     At --muted it washed out beside a 4.6rem navy numeral. */
+  color: var(--ink);
   max-width: 30ch;
   display: block;
   margin-top: 6px;
@@ -817,4 +928,97 @@ section.dark figure .insight { color: var(--ink); }
   color: #7A3C20;
   font-size: 0.88rem;
   line-height: 1.5;
+}
+
+/* ============================================================
+   Jump bar
+   ============================================================ */
+
+/* Sits in normal flow under the masthead, then sticks to the top of the
+   window. Slim by design: it is on screen for the whole page, so it must not
+   eat the vertical space the charts need on a small laptop. */
+.jump {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(245, 244, 239, 0.94);
+  backdrop-filter: saturate(140%) blur(6px);
+  border-bottom: 1px solid #E4E5DF;
+}
+
+.jump-inner {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 55px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 46px;
+}
+
+.jump-home {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.jump ol {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.jump ol::-webkit-scrollbar { display: none; }
+
+.jump a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  color: var(--grey);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s, color 0.18s;
+}
+
+.jump li a span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #E2E6E4;
+  color: var(--grey);
+  font-size: 0.72rem;
+  font-weight: 700;
+  transition: background 0.18s, color 0.18s;
+}
+
+.jump a:hover { background: #ECEEE9; color: var(--head); }
+
+.jump a.is-current { background: var(--teal); color: #FFFFFF; }
+.jump a.is-current span { background: rgba(255, 255, 255, 0.28); color: #FFFFFF; }
+
+/* Anchors must clear the sticky bar, or a jump lands with the heading hidden
+   behind it. */
+html { scroll-behavior: smooth; }
+.page section { scroll-margin-top: 62px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 900px) {
+  .jump-inner { padding: 0 20px; gap: 14px; }
+  .jump a { font-size: 0.8rem; padding: 5px 9px; }
 }
